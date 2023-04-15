@@ -1,0 +1,94 @@
+
+.main-menu-container {
+    font-family: 'Exo 2', sans-serif;
+
+    position: relative;
+
+    background-color: #35373B;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+
+/* site logo */
+
+.site-logo{
+    display: flex;
+    align-items: center;
+
+    color: white;
+
+    font-size: 20px;
+    letter-spacing: 1.2px;
+}
+
+.portal-logo{
+    margin-right: 5px;
+    font-size: 30px;
+    size: 30px;
+    width: 38px;
+
+}
+
+
+/* menu */
+
+.main-menu-nav{
+    position: relative;
+    right: 40px;
+
+}
+
+.main-menu-links, .main-menu-links-button{
+
+
+    text-decoration: none;
+    color: rgb(214, 212, 212);
+    font-size: 17px;
+
+
+    padding-left: 3px;
+    padding-right: 3px;
+
+    /* last link is button */
+    border: 0;
+    background-color: transparent;
+   
+}
+
+
+.main-menu-links-button {
+
+    margin-left: 10px;
+}
+
+.main-menu-links:active, .main-menu-links-button:active{
+
+    color: #FF9300;
+
+}
+.main-menu-links:hover, .main-menu-links-button:hover{
+
+    color: white;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
