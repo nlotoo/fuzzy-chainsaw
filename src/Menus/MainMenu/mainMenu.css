@@ -74,7 +74,8 @@
     font-size: 15px;
 
 }
-.vectorArrowDown{
+
+.vectorArrowDown {
     margin-left: 5px;
 }
 
@@ -99,11 +100,63 @@
     color: #FF9300;
 }
 
-.dropdown-menu{
+
+
+/* drom down menu */
+
+
+
+.dropdown-menu {
     border: 1px solid black;
-    width: 350px;
-    height: 500px;
+    background-color: #1D1F20;
+    width: 550px;
+    height: fit-content;
     position: absolute;
-    top: 50px;
-    left: 130px;
+    top: 45px;
+    left: 0px;
+}
+
+.drop-down-menu-links {
+
+    text-decoration: none;
+    color: inherit;
+    color: white;
+    margin: 5px;
+
+}
+
+/* addative class */
+.cost-of-livings {
+    padding: 20px;
+}
+
+
+
+
+
+.main-categories {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 1px solid rgb(187, 183, 183);
+}
+
+.second-categories {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-top: 1px solid rgb(187, 183, 183);
+
+}
+
+.all-catergories {
+    padding-bottom: 10px;
+}
+
+.first-collum-second-catergories{
+
+}
+
+.second-collum-second-catergories{
+
 }

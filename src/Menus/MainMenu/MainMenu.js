@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
 import './mainMenu.css'
+import React, { useState } from 'react'
 import { Link, } from 'react-router-dom'
+
+import DropDownMenu from '../DropDownMenu/DropDownMenu'
+
+
 import portal from '../../public/siteIcons/portal.png'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-
 import vectorArrowDown from '../../public/siteIcons/vectorArrowDown.png'
 
 const MainMenu = () => {
@@ -62,10 +62,48 @@ const MainMenu = () => {
 
                 {showMenu && (
                     <div className="dropdown-menu">
+                        <div className='main-categories'>
+                            <Link className='drop-down-menu-links' to=''>Discussions</Link>
+                            <Link className='drop-down-menu-links' to=''>Buyer`s guides</Link>
+                        </div>
+                        <div className='cost-of-livings'>
+                            <Link className='drop-down-menu-links' to=''>Cost of livings</Link>
+                        </div>
+                        <div className='second-categories first-collum-second-catergories' >
+                            <Link className='drop-down-menu-links all-catergories' to=''>All Categories</Link>
+                            <Link className='drop-down-menu-links' to=''>Home & Livings</Link>
+                            <Link className='drop-down-menu-links' to=''>Family & Kids</Link>
+                            <Link className='drop-down-menu-links' to=''>Garden & Do it Yourself</Link>
+                            <Link className='drop-down-menu-links' to=''>Groceries</Link>
+                            <Link className='drop-down-menu-links' to=''>Travel</Link>
+                            <Link className='drop-down-menu-links' to=''>Sports & Outdors</Link>
+                            <Link className='drop-down-menu-links' to=''>BroadBand & Phone Contracts</Link>
+                            <Link className='drop-down-menu-links' to=''>Finance & Insurance</Link>
+                        </div>
+                        <div className='second-categories second-collum-second-catergories'>
+                            <Link className='drop-down-menu-links' to=''>Electronics</Link>
+                            <Link className='drop-down-menu-links' to=''>Fashion & Accessories</Link>
+                            <Link className='drop-down-menu-links' to=''>Culture & Leisure</Link>
+                            <Link className='drop-down-menu-links' to=''>Services & Contracts</Link>
+                            <Link className='drop-down-menu-links' to=''>Healt & Beaty</Link>
+                            <Link className='drop-down-menu-links' to=''>Gaming</Link>
+                            <Link className='drop-down-menu-links' to=''>Car 7 Motorcycle</Link>
+                        </div>
 
-                        <a className='dropDown-links' href="#certificate">CERTIFICATES</a>
-                        <a className='dropDown-links' href="#skills">SKILLS</a>
-                        <a className='dropDown-links' href="#aboutMe">MEET ME</a>
+                        <div className='all-merchants'>
+                            <Link className='drop-down-menu-links all-catergories' to=''>All merchants</Link>
+
+                            <Link className='drop-down-menu-links' to=''>Ebay</Link>
+                            <Link className='drop-down-menu-links' to=''>Currys</Link>
+                            <Link className='drop-down-menu-links' to=''>Amazon</Link>
+                            <Link className='drop-down-menu-links' to=''>Asda</Link>
+                            <Link className='drop-down-menu-links' to=''>Very</Link>
+                            <Link className='drop-down-menu-links' to=''>Homebase</Link>
+                            <Link className='drop-down-menu-links' to=''>Boots</Link>
+                            <Link className='drop-down-menu-links' to=''>Argos</Link>
+                            <Link className='drop-down-menu-links' to=''>Halfords</Link>
+                        </div>
+
                     </div>
                 )}
 
