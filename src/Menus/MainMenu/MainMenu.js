@@ -64,14 +64,14 @@ const MainMenu = () => {
             {showMenu && (
                 <div className="dropdown-menu slide-in-top">
                     <div className='main-categories'>
-                        <Link className='drop-down-menu-links' to=''>Discussions</Link>
-                        <Link className='drop-down-menu-links' to=''>Buyer`s guides</Link>
+                        <Link className='drop-down-menu-links hover-class-link' to=''>Discussions</Link>
+                        <Link className='drop-down-menu-links hover-class-link' to=''>Buyer`s guides</Link>
                     </div>
                     <div className='cost-of-livings'>
                         <Link className='drop-down-menu-links' to=''>Cost of livings</Link>
                     </div>
                     <div className='second-categories first-collum-second-catergories' >
-                        <Link className='drop-down-menu-links all-catergories' to=''>All Categories</Link>
+                        <Link className='drop-down-menu-links all-catergories  hover-class-link' to=''>All Categories</Link>
                         <Link className='drop-down-menu-links' to=''>Home & Livings</Link>
                         <Link className='drop-down-menu-links' to=''>Family & Kids</Link>
                         <Link className='drop-down-menu-links' to=''>Garden & Do it Yourself</Link>
@@ -92,7 +92,7 @@ const MainMenu = () => {
                     </div>
 
                     <div className='all-merchants'>
-                        <Link className='drop-down-menu-links all-catergories' to=''>All merchants</Link>
+                        <Link className='drop-down-menu-links all-catergories hover-class-link' to=''>All merchants</Link>
 
                         <Link className='drop-down-menu-links mechants-only' to=''>Ebay</Link>
                         <Link className='drop-down-menu-links mechants-only' to=''>Currys</Link>

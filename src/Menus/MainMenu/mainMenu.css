@@ -181,7 +181,7 @@
     text-decoration: none;
     color: inherit;
     color: white;
-    margin: 5px;
+    margin: 10px;
 
 }
 
@@ -209,11 +209,22 @@
 
 }
 
-.all-catergories {
-    padding-bottom: 10px;
+.second-categories:first-of-type + a{
+    color: red;
 }
 
-.first-collum-second-catergories {}
+
+
+.hover-class-link:hover {
+    background-color: gray;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 20px;
+    margin: 0;
+}
+
+
+
 
 .second-collum-second-catergories {
     border-top: 0;
@@ -222,6 +233,8 @@
     left: 290px;
 
 }
+
+
 
 .all-merchants {
     position: relative;
@@ -266,4 +279,3 @@
     transition-duration: .2s;
     transition-timing-function: ease-in;
 }
-
