@@ -123,8 +123,8 @@ const MainMenu = () => {
                 <button className='register-login-btn'>Register/Log in</button>
             </div>
 
-            <div className='submit-container'>
-                <button>submit</button>
+            <div className='submit-btn-container'>
+                <button className='submit-btn'>Submit</button>
             </div>
         </div >
 

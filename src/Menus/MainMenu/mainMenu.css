@@ -301,8 +301,8 @@
     border: none;
     outline: none;
     text-align: start;
-   color: #4b4c50;
-   font-weight: 300px;
+    color: #4b4c50;
+    font-weight: 300px;
 
 }
 
@@ -314,24 +314,24 @@
     transition-timing-function: ease-in;
 }
 
-.register-login-btn-container{
+.register-login-btn-container {
     position: relative;
 
 }
 
 
-.register-login-btn{
+.register-login-btn {
 
     position: relative;
     top: 0px;
-    left: -90px;    
+    right: 76px;
     width: 160px;
-    
+
     text-decoration: none;
     font-weight: inherit;
     font-stretch: inherit;
     font-weight: bold;
-    color:white;
+    color: white;
 
     background-color: transparent;
     border: 0;
@@ -340,13 +340,48 @@
     cursor: pointer;
     border-radius: 20px;
 
-    padding: 10px 16px 10px 16px;
+    padding: 10px 16px 10px 36px;
 
 
 }
 
-.register-login-btn:hover{
+.register-login-btn:hover {
     background-color: #5D5F62;
     transition: all 100ms ease-in-out;
-    
+
+}
+
+
+.submit-btn-container {
+    position: relative;
+}
+
+.submit-btn {
+
+    position: relative;
+    top: 0px;
+    right: 215px;
+
+    cursor: pointer;
+    font-weight: inherit;
+    font-stretch: inherit;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+
+    color: white;
+    background-color: var(--magic-yellow);
+    border: 0;
+    border-radius: 20px;
+
+    padding: 10px 20px 10px 40px;
+
+}
+
+.submit-btn:hover {
+    border: 0;
+    background-color: #ffaa00;
+    border: 1px solid #ffaa00;
+    transition: all 100ms ease-in-out;
+    /* transform: scale(1.08); */
+
 }
