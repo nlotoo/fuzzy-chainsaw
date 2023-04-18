@@ -1,6 +1,7 @@
 import './mainMenu.css'
 import React, { useState } from 'react'
 import { Link, } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
@@ -63,15 +64,16 @@ const MainMenu = () => {
             </nav>
             {showMenu && (
                 <div className="dropdown-menu slide-in-top">
+                
                     <div className='main-categories'>
-                        <Link className='drop-down-menu-links hover-class-link' to=''>Discussions</Link>
-                        <Link className='drop-down-menu-links hover-class-link' to=''>Buyer`s guides</Link>
+                        <Link className='drop-down-menu-links hover-class-link' to=''><i class="fa-regular fa-comments discussions-icon"></i>Discussions</Link>
+                        <Link className='drop-down-menu-links hover-class-link' to=''><i class="fa-solid fa-book-open-reader buyers-guides-icon"></i>Buyer`s guides</Link>
                     </div>
                     <div className='cost-of-livings'>
                         <Link className='drop-down-menu-links' to=''>Cost of livings</Link>
                     </div>
                     <div className='second-categories first-collum-second-catergories' >
-                        <Link className='drop-down-menu-links all-catergories  hover-class-link' to=''>All Categories</Link>
+                        <Link className='drop-down-menu-links all-catergories  hover-class-link' to=''><i class="fa-regular fa-folder-closed second-categories-icon"></i>All Categories</Link>
                         <Link className='drop-down-menu-links' to=''>Home & Livings</Link>
                         <Link className='drop-down-menu-links' to=''>Family & Kids</Link>
                         <Link className='drop-down-menu-links' to=''>Garden & Do it Yourself</Link>
@@ -92,7 +94,7 @@ const MainMenu = () => {
                     </div>
 
                     <div className='all-merchants first-part-merchants'>
-                        <Link className='drop-down-menu-links all-catergories hover-class-link' to=''>All merchants</Link>
+                        <Link className='drop-down-menu-links all-catergories hover-class-link' to=''><i class="fa-solid fa-shop all-merchants-icon"></i>All merchants</Link>
 
                         <Link className='drop-down-menu-links mechants-only' to=''>Ebay</Link>
                         <Link className='drop-down-menu-links mechants-only' to=''>Currys</Link>
@@ -115,16 +117,20 @@ const MainMenu = () => {
 
 
             <div className='search-bar-container'>
-                <input className='search-bar' placeholder=  '       Search brands, products etc.' ></input>
+                <input className='search-bar' placeholder='       Search brands, products etc.' ></input>
 
             </div>
 
             <div className='register-login-btn-container'>
-                <button className='register-login-btn'>Register/Log in</button>
+                <button className='register-login-btn'><i class="fa-solid fa-right-to-bracket"></i>Register/Log in</button>
             </div>
 
             <div className='submit-btn-container'>
-                <button className='submit-btn'>Submit</button>
+
+
+                <button className='submit-btn'>
+                    <i class="fa-solid fa-plus plus-icon"></i>
+                    Submit</button>
             </div>
         </div >
 

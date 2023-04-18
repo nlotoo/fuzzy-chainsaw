@@ -196,6 +196,22 @@
 }
 
 
+/* icons */
+.discussions-icon {
+    margin-right: 10px;
+}
+.buyers-guides-icon {
+    margin-right: 10px;
+}
+.second-categories-icon{
+    margin-right: 10px;
+
+}
+
+.all-merchants-icon{
+    margin-right: 10px;
+}
+/* icons */
 
 
 
@@ -263,6 +279,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
+    border-top: 1px solid white;
 }
 
 .mechants-only {
@@ -270,13 +287,16 @@
 }
 
 .second-part-merchants {
+
     display: flex;
     flex-direction: column;
     border-top: 0;
+    border-top: 1px solid white;
     position: absolute;
-    top: 626px;
-    left: 320px;
-    width: 40%;
+    padding-top:59px;
+    top: 572px;
+    left: 280px;
+    width: 50%;
     /* border: 4px solid green; */
 }
 
@@ -294,10 +314,10 @@
 .search-bar {
     position: relative;
     top: 0px;
-    right: 120px;
+    right: 100px;
     border-radius: 20px;
     height: 30px;
-    width: 220%;
+    width: 210%;
     border: none;
     outline: none;
     text-align: start;
@@ -318,14 +338,21 @@
     position: relative;
 
 }
-
+.fa-right-to-bracket{
+    margin-right: 10px;
+    margin-top: 0px;
+    font-size: large;
+}
 
 .register-login-btn {
 
     position: relative;
     top: 0px;
-    right: 76px;
-    width: 160px;
+    left: 10px;
+    width: 180px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
 
     text-decoration: none;
     font-weight: inherit;
@@ -340,8 +367,7 @@
     cursor: pointer;
     border-radius: 20px;
 
-    padding: 10px 16px 10px 36px;
-
+    padding: 10px 16px 10px 16px;
 
 }
 
@@ -355,12 +381,19 @@
 .submit-btn-container {
     position: relative;
 }
+.plus-icon{
+    margin-right: 10px;
+    font-size: large;
+}
 
 .submit-btn {
 
     position: relative;
     top: 0px;
-    right: 215px;
+    right: 60px;
+
+    display: flex;
+    align-items: center;
 
     cursor: pointer;
     font-weight: inherit;
@@ -373,14 +406,14 @@
     border: 0;
     border-radius: 20px;
 
-    padding: 10px 20px 10px 40px;
+    padding: 10px 20px 10px 20px;
 
 }
 
 .submit-btn:hover {
     border: 0;
     background-color: #ffaa00;
-    border: 1px solid #ffaa00;
+    border: 1 px solid #ffaa00;
     transition: all 100ms ease-in-out;
     /* transform: scale(1.08); */
 
