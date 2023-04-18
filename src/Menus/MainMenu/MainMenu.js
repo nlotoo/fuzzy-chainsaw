@@ -91,7 +91,7 @@ const MainMenu = () => {
                         <Link className='drop-down-menu-links' to=''>Car 7 Motorcycle</Link>
                     </div>
 
-                    <div className='all-merchants'>
+                    <div className='all-merchants first-part-merchants'>
                         <Link className='drop-down-menu-links all-catergories hover-class-link' to=''>All merchants</Link>
 
                         <Link className='drop-down-menu-links mechants-only' to=''>Ebay</Link>
@@ -115,11 +115,12 @@ const MainMenu = () => {
 
 
             <div className='search-bar-container'>
-                <input className='search-bar' ></input>
+                <input className='search-bar' placeholder=  '       Search brands, products etc.' ></input>
+
             </div>
 
-            <div className='register-login-btn'>
-                <button>Register/Log in</button>
+            <div className='register-login-btn-container'>
+                <button className='register-login-btn'>Register/Log in</button>
             </div>
 
             <div className='submit-container'>

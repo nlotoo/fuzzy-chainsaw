@@ -151,6 +151,7 @@
 
 
 
+
 /* drom down menu */
 
 
@@ -165,7 +166,7 @@
     position: absolute;
     top: 55px;
     left: 500px;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 
 
 
@@ -180,9 +181,13 @@
 
     text-decoration: none;
     color: inherit;
-    color: white;
+    color: rgb(214, 212, 212);
     margin: 10px;
 
+}
+
+.drop-down-menu-links:hover {
+    color: white;
 }
 
 /* addative class */
@@ -202,14 +207,16 @@
 }
 
 .second-categories {
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 20px;
     border-top: 1px solid rgb(187, 183, 183);
 
+    /* border: 2px solid red; */
 }
 
-.second-categories:first-of-type + a{
+.second-categories:first-of-type+a {
     color: red;
 }
 
@@ -224,13 +231,28 @@
 }
 
 
+.first-collum-second-catergories {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: fit-content;
+
+    /* border: 4px solid orange; */
+}
+
 
 
 .second-collum-second-catergories {
+
     border-top: 0;
     position: absolute;
-    top: 200px;
-    left: 290px;
+    top: 178px;
+    left: 270px;
+    border-top: 1px solid rgb(187, 183, 183);
+
+    /* border: 4px solid green; */
+    width: 43.5%;
+    padding-top: 56px;
 
 }
 
@@ -252,8 +274,16 @@
     flex-direction: column;
     border-top: 0;
     position: absolute;
-    top: 520px;
-    left: 290px;
+    top: 626px;
+    left: 320px;
+    width: 40%;
+    /* border: 4px solid green; */
+}
+
+.first-part-merchants {
+
+    width: 49%;
+    /* border: 4px solid red; */
 }
 
 /* search bar */
@@ -270,6 +300,10 @@
     width: 220%;
     border: none;
     outline: none;
+    text-align: start;
+   color: #4b4c50;
+   font-weight: 300px;
+
 }
 
 .search-bar:focus {
@@ -278,4 +312,41 @@
 
     transition-duration: .2s;
     transition-timing-function: ease-in;
+}
+
+.register-login-btn-container{
+    position: relative;
+
+}
+
+
+.register-login-btn{
+
+    position: relative;
+    top: 0px;
+    left: -90px;    
+    width: 160px;
+    
+    text-decoration: none;
+    font-weight: inherit;
+    font-stretch: inherit;
+    font-weight: bold;
+    color:white;
+
+    background-color: transparent;
+    border: 0;
+    background-color: #4A4B4F;
+
+    cursor: pointer;
+    border-radius: 20px;
+
+    padding: 10px 16px 10px 16px;
+
+
+}
+
+.register-login-btn:hover{
+    background-color: #5D5F62;
+    transition: all 100ms ease-in-out;
+    
 }
