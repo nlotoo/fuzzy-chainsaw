@@ -1,6 +1,100 @@
-.categories-menu-container {
+/* .categories-menu-container {
     height:75px;
     width: 100%;
     color:white;
     background-color: #1D1F20
+}
+*/
+.carosel-container {
+    width: 100%;
+    margin: auto;
+    border: 2px solid red;
+
+
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+div.scrollmenu {
+    background-color: #333;
+    white-space: nowrap;
+    overflow: auto;
+    /* scrollbar-width: none; */
+}
+
+div.scrollmenu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+    background-color: #777;
+}
+
+
+/* ai scrooll menu */
+
+.scroll-menu {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    transform: translateX(-855px);
+}
+
+.scroll-menu__item {
+    display: inline-block;
+    padding: 10px;
+    background-color: #ccc;
+    margin-right: 10px;
+}
+
+
+/* emla */
+
+
+.embla {
+    overflow: hidden;
+}
+
+.embla__container {
+    display: flex;
+}
+
+.embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+
+/* scroll item */
+
+.scroll_item{
+    border: 2px solid red;
+}
+.scroll_item2{
+    border: 2px solid green;
+    height: 200px;
+    width: 150px;
+    text-align: center;
+}
+
+.slider {
+    border: 2px solid purple;
+    width: 300px;
+}
+
+/* m */
+
+.carosel-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carosel-el {
+    margin: 5px;
 }

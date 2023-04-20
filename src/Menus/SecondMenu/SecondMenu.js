@@ -1,43 +1,84 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import Slider from "react-slick";
 // import { Slider } from "react-styled-carousel";
+import useEmblaCarousel from 'embla-carousel-react'
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import './secondMenu.css'
 
-import Slider from '@bit/akiran.react-slick.slider';
 
 const SecondMenu = () => {
 
-    var settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    };
+    let [curentIndex, setCurentIndex] = useState(0);
+    let [curentArray, setCurentArray] = useState();
+
+    const caroselListRef = useRef(null);
+
+
+    let arrayOfCategorie = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+
+
+    let caroselList = caroselListRef?.current?.childNodes
+
+    useEffect(() => {
+
+    }, [arrayOfCategorie])
+
+
+    const moveLeft = (e) => {
+
+        let firstElement = arrayOfCategorie.shift()
+        arrayOfCategorie.push(firstElement)
+        // arrayOfCategorie(arrayOfCategorie)
+        console.log(arrayOfCategorie)
+
+    }
+    // const moveRight = (e) => {
+
+    //     let lastElement = arrayOfCategorie.pop()
+    //     arrayOfCategorie.push(lastElement)
+    //     console.log(arrayOfCategorie)
+
+    // }
+
+
     return (
         <div className='categories-menu-container'>
 
             <div className='carosel-container'>
-                <Slider {...settings}>
-                    <div>
-                        <h3>1</h3>
+
+
+
+                <div className="morning-class">
+                    <div onClick={moveLeft}>
+                        <p>left</p>
                     </div>
-                    <div>
-                        <h3>2</h3>
+
+
+
+                    <div className="carosel-list">
+                        {arrayOfCategorie.map((el, index) => {
+                            return (
+                                <div>
+                                    <h3 key={index} className="carosel-el">{el}</h3>
+                                </div>
+                            )
+                        })
+                        }
+
+
                     </div>
-                    <div>
-                        <h3>3</h3>
-                    </div>
-                    <div>
-                        <h3>4</h3>
-                    </div>
-                    <div>
-                        <h3>5</h3>
-                    </div>
-                    <div>
-                        <h3>6</h3>
-                    </div>
-                </Slider>
+
+                    {/* <div onClick={moveRight}>
+                        <p>right</p>
+                    </div> */}
+
+                </div>
             </div>
+
 
         </div>
     )
