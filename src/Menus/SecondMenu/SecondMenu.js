@@ -25,14 +25,16 @@ const SecondMenu = () => {
 
     useEffect(() => {
 
-    }, [arrayOfCategorie])
+    }, [])
 
 
     const moveLeft = (e) => {
 
         let firstElement = arrayOfCategorie.shift()
         arrayOfCategorie.push(firstElement)
+        setCurentArray(arrayOfCategorie)
         // arrayOfCategorie(arrayOfCategorie)
+        console.log(arrayOfCategorie)
         console.log(arrayOfCategorie)
 
     }
@@ -60,14 +62,20 @@ const SecondMenu = () => {
 
 
                     <div className="carosel-list">
-                        {arrayOfCategorie.map((el, index) => {
+                        {
+                            arrayOfCategorie.map((el, index) => {
+                                
+                                return el + 1 
+                            })
+                        }
+                        {/* {curentArray.map((el, index) => {
                             return (
                                 <div>
                                     <h3 key={index} className="carosel-el">{el}</h3>
                                 </div>
                             )
                         })
-                        }
+                        } */}
 
 
                     </div>
