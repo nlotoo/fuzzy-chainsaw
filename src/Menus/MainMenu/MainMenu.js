@@ -1,5 +1,5 @@
 import './mainMenu.css'
-import React, { useState } from 'react'
+import React, { useState, } from 'react'
 import { Link, } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -7,17 +7,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import portal from '../../public/siteIcons/portal.png'
 import vectorArrowDown from '../../public/siteIcons/vectorArrowDown.png'
+import MainAuthForm from '../../Authorization/MainAuthForm'
 
 const MainMenu = () => {
 
+    const [authForm, setAuthForm] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
-    const [onTarget, setTarget] = useState(false)
+    const [onTarget, setTarget] = useState(false);
+
+
+    const authFormMenu = (e) => {
+        console.log(e)
+        setAuthForm(!authForm);
+    }
+
 
     const dropDownMenu = (e) => {
 
         console.log(e)
         setShowMenu(!showMenu);
     }
+
 
 
     const clicked = (e) => {
@@ -64,7 +74,7 @@ const MainMenu = () => {
             </nav>
             {showMenu && (
                 <div className="dropdown-menu slide-in-top">
-                
+
                     <div className='main-categories'>
                         <Link className='drop-down-menu-links hover-class-link' to=''><i class="fa-regular fa-comments discussions-icon"></i>Discussions</Link>
                         <Link className='drop-down-menu-links hover-class-link' to=''><i class="fa-solid fa-book-open-reader buyers-guides-icon"></i>Buyer`s guides</Link>
@@ -115,15 +125,19 @@ const MainMenu = () => {
 
 
 
-
             <div className='search-bar-container'>
                 <input className='search-bar' placeholder='       Search brands, products etc.' ></input>
 
             </div>
 
             <div className='register-login-btn-container'>
-                <button className='register-login-btn'><i class="fa-solid fa-right-to-bracket"></i>Register/Log in</button>
+                <button onClick={authFormMenu} className='register-login-btn'><i class="fa-solid fa-right-to-bracket"></i>Register/Log in</button>
             </div>
+
+
+            {authForm && <MainAuthForm />}
+
+
 
             <div className='submit-btn-container'>
 
@@ -132,6 +146,8 @@ const MainMenu = () => {
                     <i class="fa-solid fa-plus plus-icon"></i>
                     Submit</button>
             </div>
+
+
         </div >
 
     )
