@@ -11,40 +11,46 @@ import './secondMenu.css'
 
 const SecondMenu = () => {
 
-    let [curentIndex, setCurentIndex] = useState(0);
-    let [curentArray, setCurentArray] = useState();
-
-    const caroselListRef = useRef(null);
-
-
-    let arrayOfCategorie = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const [isActive, setIsActive] = useState(false);
 
 
 
-    let caroselList = caroselListRef?.current?.childNodes
 
-    useEffect(() => {
+    const [myArray, setMyArray] = useState([
+        <Link className='second-menu-links' to=''>Home & Livings</Link>,
+        <Link className='second-menu-links' to=''>Electronics</Link>,
+        <Link className='second-menu-links' to=''>Family & Kids</Link>,
+        <Link className='second-menu-links' to=''>Fashion & Accessories</Link>,
+        <Link className='second-menu-links' to=''>Garden & Do it Yourself</Link>,
+        <Link className='second-menu-links' to=''>Culture & Leisure</Link>,
+        <Link className='second-menu-links' to=''>Groceries</Link>,
+        <Link className='second-menu-links' to=''>Travel</Link>,
+        <Link className='second-menu-links' to=''>Sports & Outdors</Link>,
+        <Link className='second-menu-links' to=''>BroadBand & Phone Contracts</Link>,
+        <Link className='second-menu-links' to=''>Car 7 Motorcycle</Link>,
+        <Link className='second-menu-links' to=''>Finance & Insurance</Link>,
+        <Link className='second-menu-links' to=''>Services & Contracts</Link>,
+        <Link className='second-menu-links' to=''>Healt & Beaty</Link>,
+        <Link className='second-menu-links' to=''>Gaming</Link>,
 
-    }, [])
+    ]);
 
 
-    const moveLeft = (e) => {
+    const moveFirstItemToEnd = () => {
+        const firstItem = myArray.shift(); // remove first item from array
+        setMyArray([...myArray, firstItem]); // add first item to end of array
+        setIsActive(true);
+        console.log(isActive)
+    };
 
-        let firstElement = arrayOfCategorie.shift()
-        arrayOfCategorie.push(firstElement)
-        setCurentArray(arrayOfCategorie)
-        // arrayOfCategorie(arrayOfCategorie)
-        console.log(arrayOfCategorie)
-        console.log(arrayOfCategorie)
+
+    const moveRightItemToStart = () => {
+
+        const lastItem = myArray.pop();
+        setMyArray([lastItem, ...myArray])
 
     }
-    // const moveRight = (e) => {
 
-    //     let lastElement = arrayOfCategorie.pop()
-    //     arrayOfCategorie.push(lastElement)
-    //     console.log(arrayOfCategorie)
-
-    // }
 
 
     return (
@@ -54,41 +60,31 @@ const SecondMenu = () => {
 
 
 
-                <div className="morning-class">
-                    <div onClick={moveLeft}>
-                        <p>left</p>
-                    </div>
 
 
 
-                    <div className="carosel-list">
-                        {
-                            arrayOfCategorie.map((el, index) => {
-                                
-                                return el + 1 
-                            })
-                        }
-                        {/* {curentArray.map((el, index) => {
-                            return (
-                                <div>
-                                    <h3 key={index} className="carosel-el">{el}</h3>
-                                </div>
-                            )
-                        })
-                        } */}
+                <div className="second-menu-arrow-left" onClick={moveFirstItemToEnd}>
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                </div>
 
 
-                    </div>
 
-                    {/* <div onClick={moveRight}>
-                        <p>right</p>
-                    </div> */}
+                <div className="carosel-list">
+                    {myArray.map((item) => (
+                        <div className={"carosel-el"} key={item}>{item}</div>
+                    ))}
+
 
                 </div>
+
+                <div className="second-menu-arrow-right" onClick={moveRightItemToStart}>
+                    <i class="fa-solid fa-arrow-right-long"></i>
+                </div>
+
             </div>
 
 
-        </div>
+        </div >
     )
 }
 
