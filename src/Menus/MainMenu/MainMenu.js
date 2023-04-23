@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
-import portal from '../../public/siteIcons/portal.png'
+import owl from '../../public/siteIcons/owl.png'
 import vectorArrowDown from '../../public/siteIcons/vectorArrowDown.png'
 import MainAuthForm from '../../Authorization/MainAuthForm'
 
@@ -54,7 +54,7 @@ const MainMenu = () => {
 
 
                 <span>
-                    <img className='portal-logo' src={portal}></img>
+                    <img className='portal-logo' src={owl}></img>
                 </span>
                 <p> Portal deals</p>
             </div>
@@ -135,7 +135,7 @@ const MainMenu = () => {
             </div>
 
 
-            {authForm && <MainAuthForm />}
+            {authForm && <MainAuthForm authFormMenuState={authForm} />}
 
 
 
