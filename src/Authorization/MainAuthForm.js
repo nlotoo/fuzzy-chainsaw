@@ -2,10 +2,19 @@ import React from 'react'
 import './mainAuthForm.css'
 import owl from '../public/siteIcons/owl.png'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import Login from '../Forms/LoginForm/Login'
 
 const MainAuthForm = () => {
 
     // да се добави клас които е когато елемента скрива от екрана : трябва да е  с контекст
+    let [switchCreateForm, setSwitch] = useState(false);
+
+    const CreateAccForm = (e) => {
+        setSwitch(!switchCreateForm)
+
+    }
+
 
 
     return (
@@ -24,10 +33,18 @@ const MainAuthForm = () => {
                     </div>
 
                     <div>
-                        <button className='create-new-user-btn'>Create a new account</button>
+                        <button onClick={CreateAccForm} className='create-new-user-btn'>Create a new account</button>
                     </div>
                 </div>
-                <div className='right-side-auth-form'></div>
+                <div className='right-side-auth-form'>
+                    <div className='social-login-container'>
+                        <h2>Social Login</h2>
+                        <Link to=''>Login with Facebook</Link>
+                        <Link to=''>Login with Google</Link>
+                        <Link to=''>Login with Apple</Link>
+                    </div>
+                    <Login></Login>
+                </div>
             </div>
         </>
 
