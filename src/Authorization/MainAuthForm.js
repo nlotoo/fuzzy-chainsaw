@@ -1,9 +1,16 @@
-import React from 'react'
 import './mainAuthForm.css'
-import owl from '../public/siteIcons/owl.png'
-import { Link } from 'react-router-dom'
+import React from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+
+
+
 import Login from '../Forms/LoginForm/Login'
+import owl from '../public/siteIcons/owl.png'
+import facebookIcon from '../public/siteIcons/facebook-48.png'
+import googleIcon from '../public/siteIcons/google-48.png'
+import appleIcon from '../public/siteIcons/apple-logo-50.png'
 
 const MainAuthForm = () => {
 
@@ -25,7 +32,7 @@ const MainAuthForm = () => {
 
                     <img className='auth-form-img' alt='site owl' src={owl}></img>
                     <h2 className='portal-deal-heading'>Portal Deals</h2>
-                    <p className='short-desc-left-side-one'>Discover a new world of amazing deals! Join us today!</p>
+                    <p className='short-desc-left-side-one'>Discover a new world of amazing deals! <span className='join-us-today'>Join us today!</span></p>
                     <p className='short-desc-left-side-two'>Portal Deals, your ultimate destination for unbeatable deals from your favorite brands!</p>
 
                     <div>
@@ -38,10 +45,10 @@ const MainAuthForm = () => {
                 </div>
                 <div className='right-side-auth-form'>
                     <div className='social-login-container'>
-                        <h2>Social Login</h2>
-                        <Link to=''>Login with Facebook</Link>
-                        <Link to=''>Login with Google</Link>
-                        <Link to=''>Login with Apple</Link>
+                        <h2 className='heading-login'>Social Login</h2>
+                        <Link className='login-social-links' to=''><img src={facebookIcon} className="login-fb-icon" />Login with Facebook</Link>
+                        <Link className='login-social-links' to=''><img src={googleIcon} className="login-google-icon" />Login with Google</Link>
+                        <Link className='login-social-links' to=''><img src={appleIcon} className="login-apple-icon" />Login with Apple</Link>
                     </div>
                     <Login></Login>
                 </div>

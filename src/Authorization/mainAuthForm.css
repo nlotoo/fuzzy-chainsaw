@@ -13,16 +13,18 @@
 }
 
 .left-side-auth-form {
+    /* border: 2px solid red; */
+    border-radius: 20px;
+
     grid-column: 1/2;
     grid-row: 1;
-    border: 2px solid red;
     background-color: #F6F7F9;
 }
 
 .right-side-auth-form {
     grid-column: 2/2;
+    /* border: 2px solid purple; */
     grid-row: 1;
-    border: 2px solid purple;
 }
 
 
@@ -185,7 +187,55 @@
 
 }
 
+/* social login  links */
+
+
 .social-login-container{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     height: 40%;
+}
+
+
+
+.login-social-links{
+    text-decoration: none;
+    color:#393b3f;
+    border: 1px solid grey;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    padding: 5px;
+    margin-top: 6px;
+    font-size: 15px;
+    position: relative;
+}
+
+.login-social-links:hover{
+background-color: #9ea2ac38;
+}
+
+.login-fb-icon{
+    position: absolute;
+    top: 4px;
+    left: 28px;
+    width: 22px;
+}.login-google-icon{
+    position: absolute;
+    top: 4px;
+    left: 34px;
+    width: 22px;
+}.login-apple-icon{
+    position: absolute;
+    top: 4px;
+    left: 38px;
+    width: 22px;
+}
+
+.join-us-today:hover{
+    color: #70747e;
+    cursor: pointer;
+
 }

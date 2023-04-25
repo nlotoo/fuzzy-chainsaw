@@ -5,7 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 const Login = () => {
     return (
         <div className='login-form-container'>
-            <h2>Login</h2>
+            <h2 className='heading-login'>Login</h2>
 
             <Formik
                 initialValues={{ email: '', password: '' }}
@@ -31,12 +31,16 @@ const Login = () => {
             >
                 {({ isSubmitting }) => (
                     <Form className='login-form'>
-                        <label>Username or Email</label>
-                        <Field className='input-field-login' type="email" name="email" />
+                        <label for='email' className='login-label'>Username or Email</label>
+                        <Field placeholder='Jon_Dawn' className='input-field-login' type="email" name="email" />
                         <ErrorMessage className='error-msg-login' name="email" component="div" />
-                        <label>Password</label>
-                        <Field className='input-field-login' type="password" name="password" />
+                        <label className='login-label'>Password <span className='span-forgot'>Forgot?</span></label>
+                        <Field placeholder='password' className='input-field-login' type="password" name="password" />
                         <ErrorMessage className='error-msg-login' name="password" component="div" />
+                        <div className='checkbox-container'>
+                            <Field className='chekbox-login-form' type="checkbox" id='0' value='in' name='keepLogIn' />
+                            <p className='checkbox-login-text'>Keep me logged in this device</p>
+                        </div>
                         <button className='login-btn' type="submit" disabled={isSubmitting}>
                             Log in
                         </button>
