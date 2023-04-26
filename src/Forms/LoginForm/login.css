@@ -1,8 +1,8 @@
 .login-form-container {
     color: #5A5D62;
-    position: relative;
-    bottom: 40px;
-    left: 0px;
+    /* position: relative;
+    bottom: 0px;
+    left: 0px; */
 }
 
 .login-form {
@@ -60,6 +60,13 @@
     margin-left: 20px;
 }
 
+.heading-signup {
+    color: black;
+    text-align: center;
+    margin: 15px;
+    font-size: 20px;
+}
+
 .login-label {
     color: black;
 }
@@ -90,10 +97,11 @@
     padding: 0;
 }
 
-.span-forgot{
+.span-forgot {
     margin-left: 120px;
     cursor: pointer;
 }
-.span-forgot:hover{
+
+.span-forgot:hover {
     color: #5A5D62;
 }

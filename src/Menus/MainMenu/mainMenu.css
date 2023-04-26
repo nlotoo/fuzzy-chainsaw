@@ -121,6 +121,8 @@
  * animation slide-in-top
  * ----------------------------------------
  */
+
+
 @-webkit-keyframes slide-in-top {
     0% {
         -webkit-transform: translateY(-1000px);
@@ -201,17 +203,20 @@
 .discussions-icon {
     margin-right: 10px;
 }
+
 .buyers-guides-icon {
     margin-right: 10px;
 }
-.second-categories-icon{
+
+.second-categories-icon {
     margin-right: 10px;
 
 }
 
-.all-merchants-icon{
+.all-merchants-icon {
     margin-right: 10px;
 }
+
 /* icons */
 
 
@@ -294,7 +299,7 @@
     border-top: 0;
     border-top: 1px solid white;
     position: absolute;
-    padding-top:59px;
+    padding-top: 59px;
     top: 572px;
     left: 280px;
     width: 50%;
@@ -337,9 +342,11 @@
 
 .register-login-btn-container {
     position: relative;
+    margin-right: 10px;
 
 }
-.fa-right-to-bracket{
+
+.fa-right-to-bracket {
     margin-right: 10px;
     margin-top: 0px;
     font-size: large;
@@ -382,7 +389,8 @@
 .submit-btn-container {
     position: relative;
 }
-.plus-icon{
+
+.plus-icon {
     margin-right: 10px;
     font-size: large;
 }
@@ -418,4 +426,9 @@
     transition: all 100ms ease-in-out;
     /* transform: scale(1.08); */
 
+}
+
+.logo-text {
+    text-decoration: none;
+    color: inherit;
 }

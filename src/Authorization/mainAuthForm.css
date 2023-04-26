@@ -1,5 +1,5 @@
 .main-auth-form-container {
-    z-index: 1000;
+    z-index: 1999;
     position: absolute;
     top: 100px;
     left: 30%;
@@ -11,6 +11,9 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+
+
+
 
 .left-side-auth-form {
     /* border: 2px solid red; */
@@ -109,7 +112,7 @@
 }
 
 .auth-form-img {
-    height: 160px;
+    height: 150px;
     position: relative;
     left: 20%;
     margin: auto;
@@ -149,7 +152,10 @@
 }
 
 .find-out-link {
-    text-decoration: none;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    /* text-decoration: none; */
     color: #FF7900;
     position: relative;
     left: 30%;
@@ -161,7 +167,6 @@
 }
 
 .create-new-user-btn {
-
     position: relative;
     left: 4%;
     margin-top: 10px;
@@ -175,6 +180,8 @@
     background-color: transparent;
 }
 
+
+
 .create-new-user-btn:hover {
     background-color: #E9EAED;
 
@@ -187,19 +194,47 @@
 
 }
 
+
+
+.create-new-user-btn-alrd {
+    position: relative;
+    left: 4%;
+    margin-top: 10px;
+    color: #474545;
+
+    padding: 10px 60px 10px 60px;
+
+    margin-bottom: 5px;
+
+    border: 0;
+    background-color: transparent;
+}
+
+.create-new-user-btn-alrd:hover {
+    background-color: #E9EAED;
+
+    border-radius: 20px;
+    padding: 10px 60px 10px 60px;
+
+    margin-bottom: 5px;
+
+    cursor: pointer;
+
+}
+
 /* social login  links */
 
 
-.social-login-container{
+.social-login-container {
     /* border: 1px solid blue; */
     height: 40%;
 }
 
 
 
-.login-social-links{
+.login-social-links {
     text-decoration: none;
-    color:#393b3f;
+    color: #393b3f;
     border: 1px solid grey;
     border-radius: 20px;
     display: flex;
@@ -213,29 +248,79 @@
     position: relative;
 }
 
-.login-social-links:hover{
-background-color: #9ea2ac38;
+.login-social-links:hover {
+    background-color: #9ea2ac38;
 }
 
-.login-fb-icon{
+.login-fb-icon {
     position: absolute;
     top: 4px;
-    left: 28px;
-    width: 22px;
-}.login-google-icon{
-    position: absolute;
-    top: 4px;
-    left: 34px;
-    width: 22px;
-}.login-apple-icon{
-    position: absolute;
-    top: 4px;
-    left: 38px;
+    left: 26px;
     width: 22px;
 }
 
-.join-us-today:hover{
+.login-google-icon {
+    position: absolute;
+    top: 4px;
+    left: 32px;
+    width: 22px;
+}
+
+.login-apple-icon {
+    position: absolute;
+    top: 4px;
+    left: 36px;
+    width: 22px;
+}
+
+.join-us-today:hover {
     color: #70747e;
     cursor: pointer;
 
+}
+
+.exit-form {
+    position: absolute;
+    top: 10px;
+    right: 24px;
+    transform: rotateX(-45deg);
+    /* font: bolder; */
+    font-size: 20px;
+    padding: 8px;
+    background-color: #70747eb2;
+    border-radius: 50%;
+}
+
+.exit-form:hover {
+    cursor: pointer;
+    background-color: #70747e;
+
+}
+
+
+.short-desc-left-side-find-out-one {
+
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    font-size: 22px;
+    /* font-size: 1.5rem; */
+    line-height: 1.8rem;
+
+}
+
+.auth-form-img-find-out {
+    display: flex;
+    margin: auto;
+    height: 100px;
+}
+
+.short-desc-left-side-find-out-two{
+    text-align: center;
+    width: 95%;
+    margin: auto;
+    font-size: 18px;
+    color: #70747e;
+    margin-top: 10px;
+    /* font-size: 1.5rem; */
 }
