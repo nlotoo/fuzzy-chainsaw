@@ -51,6 +51,7 @@
 }
 
 .login-btn:hover {
+    cursor: pointer;
     background-color: #b95804;
 
 }

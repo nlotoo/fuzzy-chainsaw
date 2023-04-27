@@ -315,7 +315,7 @@
     height: 100px;
 }
 
-.short-desc-left-side-find-out-two{
+.short-desc-left-side-find-out-two {
     text-align: center;
     width: 95%;
     margin: auto;
@@ -323,4 +323,51 @@
     color: #70747e;
     margin-top: 10px;
     /* font-size: 1.5rem; */
+}
+
+.heading-find-out-more {
+    margin-left: 30px;
+    color: var(--magic-yellow-2)
+}
+
+.find-out-more-text-left {
+    margin: auto;
+    width: 86%;
+}
+
+.right-side-auth-form-find-out {
+    grid-column: 2/2;
+    grid-row: 1;
+    padding-top: 30px;
+    /* border: 2px solid purple; */
+}
+
+.create-new-user-btn-find-out {
+    position: relative;
+    left: 4%;
+    margin-top: 20px;
+    color: #474545;
+
+    padding: 10px 70px 10px 70px;
+
+    margin-bottom: 5px;
+
+    border: 0;
+    background-color: transparent;
+}
+
+.create-new-user-btn-find-out:hover {
+    background-color: #E9EAED;
+
+    border-radius: 20px;
+    padding: 10px 70px 10px 70px;
+
+    margin-bottom: 5px;
+
+    cursor: pointer;
+
+}
+
+.find-out-icon {
+    margin-right: 7px;
 }

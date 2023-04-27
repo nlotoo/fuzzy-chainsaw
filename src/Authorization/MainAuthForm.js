@@ -20,7 +20,7 @@ const MainAuthForm = () => {
 
 
 
-    let { AuthMenuState, setStateAuthMenu, switchOffAuthMenu } = useStateContext();
+    let { switchOffAuthMenu } = useStateContext();
 
 
     let [switchCreateForm, setSwitch] = useState(false);
@@ -39,6 +39,11 @@ const MainAuthForm = () => {
 
     }
 
+    const translateBetwenMenus = (e) => {
+        setFindOutMore(!findOutMore);
+        setSwitch(!switchCreateForm)
+    }
+
 
 
     return (
@@ -48,7 +53,7 @@ const MainAuthForm = () => {
             {findOutMore === true
                 ?
                 <>
-                    <div className={`main-auth-form-container slide-in-fwd-top`}>
+                    <div className='main-auth-form-container slide-in-fwd-top'>
                         <span onClick={switchOffAuthMenu} className='exit-form'>X</span>
                         <div className='left-side-auth-form'>
                             <p className='main-heading-auth-form'>Welcome to hotukdeals!</p>
@@ -68,13 +73,41 @@ const MainAuthForm = () => {
                                 <button onClick={FindOutMore} className='create-new-user-btn-alrd'>Already have an account?</button>
                             </div>
                         </div>
+                        <div className='right-side-auth-form-find-out'>
+                            <div>
+                                <h3 className='heading-find-out-more'>
+                                    <i className="fa-regular fa-comment find-out-icon"></i>
+                                    Join the community
+                                </h3>
+                                <p className='find-out-more-text-left'>
+                                    Discuss the latest products and deals with the community, then vote to decide which deals are the hottest and which aren't.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className='heading-find-out-more'>
+                                    <i className="fa-solid fa-tag find-out-icon"></i>
+                                    Share your own deals
+                                </h3>
+                                <p className='find-out-more-text-left'>
+                                    Found a great deal either online or in-store? Share it on hotukdeals and let everyone know!
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className='heading-find-out-more'>
+                                    <i className="fa-regular fa-bell find-out-icon"></i>
+                                    Never miss a deal again
+                                </h3>
+                                <p className='find-out-more-text-left'>
+                                    Follow deals and subscribe to alerts to ensure you get the best price at the right time.
+                                </p>
+                            </div>
+                            <button onClick={translateBetwenMenus} className='create-new-user-btn-find-out'> Create a new account</button>
+                        </div>
                     </div>
-                    <div className='right-side-auth-form'>
-asdasd
-                    </div>
+
                 </>
                 :
-                <div className={`main-auth-form-container slide-in-fwd-top`}>
+                <div className='main-auth-form-container slide-in-fwd-top'>
                     <span onClick={switchOffAuthMenu} className='exit-form'>X</span>
 
                     <div className='left-side-auth-form'>

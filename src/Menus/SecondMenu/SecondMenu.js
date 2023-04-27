@@ -56,14 +56,14 @@ const SecondMenu = () => {
     return (
         <div className='categories-menu-container'>
             <div className="second-menu-arrow-left" onClick={moveFirstItemToEnd}>
-                <i class='fa-solid fa-arrow-left-long'></i>
+                <i className='fa-solid fa-arrow-left-long'></i>
             </div>
             <div className='carosel-container'>
 
                 <div className='second-layer-gradient'>
                     <div className="carosel-list">
-                        {myArray.map((item) => (
-                            <div className="carosel-el" key={item}>{item}</div>
+                        {myArray.map((item,i) => (
+                            <div className="carosel-el" key={i}>{item}</div>
                         ))}
 
 
@@ -72,7 +72,7 @@ const SecondMenu = () => {
 
             </div>
             <div className="second-menu-arrow-right" onClick={moveRightItemToStart}>
-                <i class="fa-solid fa-arrow-right-long"></i>
+                <i className="fa-solid fa-arrow-right-long"></i>
             </div>
 
         </div >

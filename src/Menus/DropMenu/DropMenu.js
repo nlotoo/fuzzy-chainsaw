@@ -6,14 +6,14 @@ const DropMenu = () => {
         <div className="dropdown-menu slide-in-top">
 
             <div className='main-categories'>
-                <Link className='drop-down-menu-links hover-class-link' to=''><i class="fa-regular fa-comments discussions-icon"></i>Discussions</Link>
-                <Link className='drop-down-menu-links hover-class-link' to=''><i class="fa-solid fa-book-open-reader buyers-guides-icon"></i>Buyer`s guides</Link>
+                <Link className='drop-down-menu-links hover-class-link' to=''><i className="fa-regular fa-comments discussions-icon"></i>Discussions</Link>
+                <Link className='drop-down-menu-links hover-class-link' to=''><i className="fa-solid fa-book-open-reader buyers-guides-icon"></i>Buyer`s guides</Link>
             </div>
             <div className='cost-of-livings'>
                 <Link className='drop-down-menu-links' to=''>Cost of livings</Link>
             </div>
             <div className='second-categories first-collum-second-catergories' >
-                <Link className='drop-down-menu-links all-catergories  hover-class-link' to=''><i class="fa-regular fa-folder-closed second-categories-icon"></i>All Categories</Link>
+                <Link className='drop-down-menu-links all-catergories  hover-class-link' to=''><i className="fa-regular fa-folder-closed second-categories-icon"></i>All Categories</Link>
                 <Link className='drop-down-menu-links' to=''>Home & Livings</Link>
                 <Link className='drop-down-menu-links' to=''>Family & Kids</Link>
                 <Link className='drop-down-menu-links' to=''>Garden & Do it Yourself</Link>
@@ -34,7 +34,7 @@ const DropMenu = () => {
             </div>
 
             <div className='all-merchants first-part-merchants'>
-                <Link className='drop-down-menu-links all-catergories hover-class-link' to=''><i class="fa-solid fa-shop all-merchants-icon"></i>All merchants</Link>
+                <Link className='drop-down-menu-links all-catergories hover-class-link' to=''><i className="fa-solid fa-shop all-merchants-icon"></i>All merchants</Link>
 
                 <Link className='drop-down-menu-links mechants-only' to=''>Ebay</Link>
                 <Link className='drop-down-menu-links mechants-only' to=''>Currys</Link>

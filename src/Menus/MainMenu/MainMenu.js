@@ -8,6 +8,7 @@ import MainAuthForm from '../../Authorization/MainAuthForm';
 import DropMenu from '../DropMenu/DropMenu';
 
 import { useStateContext } from '../../context/StateContext';
+import Submit from '../../Components/Submit/Submit';
 
 const MainMenu = () => {
 
@@ -71,25 +72,25 @@ const MainMenu = () => {
                 </span>
             </nav>
 
-            {showMenu && <DropMenu/>}
+            {showMenu && <DropMenu />}
 
             <div className='search-bar-container'>
                 <input className='search-bar' placeholder='       Search brands, products etc.' ></input>
             </div>
 
             <div className='register-login-btn-container'>
-                <button  onClick={authFormMenu} className='register-login-btn'><i class="fa-solid fa-right-to-bracket"></i>Register/Log in</button>
+                <button onClick={authFormMenu} className='register-login-btn'><i className="fa-solid fa-right-to-bracket"></i>Register/Log in</button>
             </div>
 
 
             {AuthMenuState && <MainAuthForm />}
-          
+
 
 
             <div className='submit-btn-container'>
-                <button className='submit-btn'>
-                    <i class="fa-solid fa-plus plus-icon"></i>
-                    Submit</button>
+                <Link to='/submit' className='submit-btn'>
+                    <i className="fa-solid fa-plus plus-icon"></i>
+                    Submit</Link>
             </div>
         </div >
     )

@@ -3,18 +3,17 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import MainMenu from './Menus/MainMenu/MainMenu.js'
 import SecondMenu from './Menus/SecondMenu/SecondMenu';
+import Submit from './Components/Submit/Submit'
 
-import { StateContext } from './context/StateContext';
+
 import { useStateContext } from './context/StateContext';
-import { useEffect } from 'react';
-
 
 function App() {
   let { AuthMenuState,switchOffAuthMenu } = useStateContext();
 
   return (
 
-    <div className={AuthMenuState && 'trasnp-bg'} 
+    <div className={AuthMenuState ? 'trasnp-bg': undefined} 
     // onClick={AuthMenuState ? switchOffAuthMenu : null}
     >
       <BrowserRouter>
@@ -23,6 +22,7 @@ function App() {
         <div>asdds</div>
         <Routes>
           <Route path="/" element={<div style={{ height: '600px' }}>asdds</div>} />
+          <Route path='/submit' element={<Submit/>}></Route>
         </Routes>
       </BrowserRouter>
     </div >
