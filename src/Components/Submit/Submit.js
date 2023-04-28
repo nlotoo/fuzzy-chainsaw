@@ -1,21 +1,29 @@
 import React from 'react'
-
 import SubmitAuthHoc from '../../HOCs/SubmitAuthHOC'
+import { useNavigate } from 'react-router-dom';
+import { useStateContext } from '../../context/StateContext';
+import { useEffect } from 'react';
 
 const Submit = () => {
 
-    // let localStorageCheker = localStorage.getItem('accoutName')
-    // let navigate = useNavigate()
+    let { switchOffAuthMenu } = useStateContext();
 
-    // console.log(localStorageCheker)
+    let navigate = useNavigate()
+    let localStorageCheker = localStorage.getItem('accoutName')
 
-    // if(localStorageCheker == null){
-    //     navigate('/')
-    // }
+    useEffect(() => {
+
+        if (localStorageCheker == null) {
+            switchOffAuthMenu()
+            navigate('/')
+            console.log('inside cheker')
+        }
+
+    }, [])
 
     return (
         <div>Submit</div>
     )
 }
 
-export default SubmitAuthHoc(Submit)
+export default Submit
