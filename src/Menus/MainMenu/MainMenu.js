@@ -1,3 +1,4 @@
+import './mainMenuResponsive.css'
 import './mainMenu.css';
 import React, { useState, } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,11 +9,10 @@ import MainAuthForm from '../../Authorization/MainAuthForm';
 import DropMenu from '../DropMenu/DropMenu';
 
 import { useStateContext } from '../../context/StateContext';
-import Submit from '../../Components/Submit/Submit';
 
 const MainMenu = () => {
 
-    let { AuthMenuState, setStateAuthMenu } = useStateContext();
+    let { AuthMenuState, setStateAuthMenu, switchOffAuthMenu} = useStateContext();
 
 
     const [showMenu, setShowMenu] = useState(false);
@@ -22,12 +22,22 @@ const MainMenu = () => {
     const authFormMenu = (e) => {
         // console.log(e)
         setStateAuthMenu(!AuthMenuState);
+
+        if(showMenu){
+            setShowMenu(!showMenu)
+        }
     }
 
 
     const dropDownMenu = (e) => {
         // console.log(e)
         setShowMenu(!showMenu);
+
+
+        if (AuthMenuState) {
+            switchOffAuthMenu();
+        }
+
     }
 
 
