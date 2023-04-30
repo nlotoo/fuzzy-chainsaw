@@ -1,0 +1,92 @@
+@media only screen and (max-width: 1500px) {
+    body {
+        background-color: lightblue;
+    }
+
+    .submit-btn {
+        margin-left: 20px;
+
+    }
+
+
+    .main-menu-container {
+        width: 90%;
+    }
+
+
+}
+
+@media only screen and (max-width: 1400px) {
+    body {
+        background-color: lightgreen;
+    }
+
+    .submit-btn {
+        margin-left: 20px;
+
+        position: absolute;
+        top: 0;
+        left: 0px;
+    }
+
+
+
+    .register-login-btn {
+        position: relative;
+        top: 0px;
+        left: 48px;
+    }
+
+    .register-login-btn-container {
+        position: relative;
+        top: 0;
+        left: 30px;
+    }
+
+    .search-bar {
+        position: relative;
+        top: 0px;
+        right: 59px;
+        width: 179%;
+    }
+
+    /* .main-menu-container{
+        width: 85%;
+    }
+ */
+
+}
+
+@media only screen and (max-width: 1166px) {
+
+    body {
+        background-color: lightcoral;
+    }
+
+
+    .search-bar,
+    .search-bar-container {
+        position: relative;
+        top: 0px;
+        right: 42px;
+        /* width: 155%; */
+    }
+
+
+
+    .submit-btn {
+        margin-left: 20px;
+
+        position: absolute;
+        top: 0;
+        left: 10px;
+    }
+
+    .register-login-btn-container {
+        position: relative;
+        top: 0;
+        left: 35 px;
+    }
+
+
+}
