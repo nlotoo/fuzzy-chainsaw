@@ -339,6 +339,8 @@
     transition-duration: .2s;
     transition-timing-function: ease-in;
 }
+.search-bar::placeholder{
+}
 
 .register-login-btn-container {
     position: relative;
@@ -432,4 +434,9 @@
 .logo-text {
     text-decoration: none;
     color: inherit;
+}
+
+.magnitify-glass{
+    color: white;
+    background-color: white;
 }

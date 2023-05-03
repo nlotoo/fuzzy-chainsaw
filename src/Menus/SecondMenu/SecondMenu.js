@@ -56,7 +56,7 @@ const SecondMenu = () => {
     return (
         <div className='categories-menu-container'>
             <div className="second-menu-arrow-left" onClick={moveFirstItemToEnd}>
-                <i className='fa-solid fa-arrow-left-long'></i>
+                <i className='fa-solid fa-arrow-left-long left-arr'></i>
             </div>
             <div className='carosel-container'>
 
@@ -71,7 +71,7 @@ const SecondMenu = () => {
                 </div>
 
             </div>
-            <div className="second-menu-arrow-right" onClick={moveRightItemToStart}>
+            <div className="second-menu-arrow-right right-arr" onClick={moveRightItemToStart}>
                 <i className="fa-solid fa-arrow-right-long"></i>
             </div>
 

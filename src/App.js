@@ -9,11 +9,13 @@ import Submit from './Components/Submit/Submit'
 import { useStateContext } from './context/StateContext';
 
 function App() {
-  let { AuthMenuState,switchOffAuthMenu } = useStateContext();
+  let { AuthMenuState, switchOffAuthMenu } = useStateContext();
+
+
 
   return (
 
-    <div className={AuthMenuState ? 'trasnp-bg': undefined} 
+    <div className={AuthMenuState ? 'trasnp-bg' : undefined}
     // onClick={AuthMenuState ? switchOffAuthMenu : null}
     >
       <BrowserRouter>
@@ -22,7 +24,7 @@ function App() {
         <div>asdds</div>
         <Routes>
           <Route path="/" element={<div style={{ height: '600px' }}>asdds</div>} />
-          <Route path='/submit' element={<Submit/>}></Route>
+          <Route path='/submit' element={<Submit />}></Route>
         </Routes>
       </BrowserRouter>
     </div >

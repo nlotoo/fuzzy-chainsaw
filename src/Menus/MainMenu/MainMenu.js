@@ -9,10 +9,16 @@ import MainAuthForm from '../../Authorization/MainAuthForm';
 import DropMenu from '../DropMenu/DropMenu';
 
 import { useStateContext } from '../../context/StateContext';
+import useScreenSize from '../../Hooks/useScreenSize';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const MainMenu = () => {
 
-    let { AuthMenuState, setStateAuthMenu, switchOffAuthMenu} = useStateContext();
+    let { AuthMenuState, setStateAuthMenu, switchOffAuthMenu } = useStateContext();
+
+    let screenSize = useScreenSize();
+    // console.log(screenSize)
+
 
 
     const [showMenu, setShowMenu] = useState(false);
@@ -23,7 +29,7 @@ const MainMenu = () => {
         // console.log(e)
         setStateAuthMenu(!AuthMenuState);
 
-        if(showMenu){
+        if (showMenu) {
             setShowMenu(!showMenu)
         }
     }
@@ -83,9 +89,9 @@ const MainMenu = () => {
             </nav>
 
             {showMenu && <DropMenu />}
-
             <div className='search-bar-container'>
-                <input className='search-bar' placeholder='       Search brands, products etc.' ></input>
+
+                <input className='search-bar' placeholder={'Search brands, products etc.'} ></input>
             </div>
 
             <div className='register-login-btn-container'>

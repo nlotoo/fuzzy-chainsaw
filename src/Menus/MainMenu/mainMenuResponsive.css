@@ -21,12 +21,43 @@
         background-color: lightgreen;
     }
 
+    .left-arr {
+        position: absolute;
+        top: 5px;
+        right: 100px;
+    }
+
+    .right-arr {
+        color: red;
+        position: absolute;
+        top: 5px;
+        left: 94%;
+    }
+
+
+    .main-menu-container {
+        /* justify-content:space-evenly; */
+    }
+
     .submit-btn {
         margin-left: 20px;
 
         position: absolute;
         top: 0;
         left: 0px;
+    }
+
+    .site-logo {
+        position: relative;
+        top: 0px;
+        right: 100px;
+        /* margin-right: 150px; */
+    }
+
+    .main-menu-nav {
+        position: relative;
+        top: 0;
+        left: -80px;
     }
 
 
@@ -55,6 +86,7 @@
     }
  */
 
+
 }
 
 @media only screen and (max-width: 1166px) {
@@ -64,12 +96,17 @@
     }
 
 
-    .search-bar,
+
     .search-bar-container {
         position: relative;
         top: 0px;
-        right: 42px;
-        /* width: 155%; */
+        left: 40px;
+
+        width: 9%;
+    }
+
+    .search-bar::placeholder {
+        text-align: center;
     }
 
 
@@ -87,6 +124,29 @@
         top: 0;
         left: 35 px;
     }
+
+
+    .second-menu-arrow-right {
+        position: absolute;
+        top: 20px;
+        right: 110px;
+    }
+
+}
+
+
+
+@media screen and (max-width: 1120px) {
+
+
+    body {
+        background-color: darkseagreen;
+    }
+
+    .submit-btn-container {
+        /* width: 7%; */
+    }
+
 
 
 }
