@@ -5,12 +5,12 @@
 
     background-color: black;
     height: 56px;
+    width: 100%;
     display: flex;
     justify-content: center;
     justify-content: space-around;
     align-items: center;
-    padding-left: 100px;
-    padding-right: 100px;
+
 }
 
 
@@ -339,8 +339,8 @@
     transition-duration: .2s;
     transition-timing-function: ease-in;
 }
-.search-bar::placeholder{
-}
+
+.search-bar::placeholder {}
 
 .register-login-btn-container {
     position: relative;
@@ -348,12 +348,19 @@
 
 }
 
-.fa-right-to-bracket {
+.right-to-bracket {
     margin-right: 10px;
     margin-top: 0px;
     font-size: large;
 }
 
+
+/* .end-btn-main-menu{
+    display: flex;
+    justify-content: space-evenly;
+    width: fit-content;
+
+} */
 .register-login-btn {
 
     position: relative;
@@ -387,6 +394,21 @@
 
 }
 
+.resposive-register-login-btn {
+
+    position: absolute;
+    top: -30%;
+    left: 0px;
+
+    padding: 12px;
+    width: fit-content;
+}
+
+
+.user-icon-reg-btn {
+    font-size: 16px;
+}
+
 
 .submit-btn-container {
     position: relative;
@@ -394,6 +416,11 @@
 
 .plus-icon {
     margin-right: 10px;
+    font-size: large;
+}
+
+.plus-icon-responce-size {
+
     font-size: large;
 }
 
@@ -431,12 +458,21 @@
 
 }
 
+.responsive-submit-btn {
+
+    position: relative;
+    top: 0px;
+    left: -10px;
+
+    padding: 10px;
+}
+
 .logo-text {
     text-decoration: none;
     color: inherit;
 }
 
-.magnitify-glass{
+.magnitify-glass {
     color: white;
     background-color: white;
 }

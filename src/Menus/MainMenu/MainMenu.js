@@ -11,13 +11,14 @@ import DropMenu from '../DropMenu/DropMenu';
 import { useStateContext } from '../../context/StateContext';
 import useScreenSize from '../../Hooks/useScreenSize';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import RegLogSubBtns from '../MenuButtons/RegLogSubBtns';
 
 const MainMenu = () => {
 
     let { AuthMenuState, setStateAuthMenu, switchOffAuthMenu } = useStateContext();
 
     let screenSize = useScreenSize();
-    // console.log(screenSize)
+    console.log(screenSize)
 
 
 
@@ -93,21 +94,36 @@ const MainMenu = () => {
 
                 <input className='search-bar' placeholder={'Search brands, products etc.'} ></input>
             </div>
-
-            <div className='register-login-btn-container'>
-                <button onClick={authFormMenu} className='register-login-btn'><i className="fa-solid fa-right-to-bracket"></i>Register/Log in</button>
-            </div>
-
-
             {AuthMenuState && <MainAuthForm />}
 
+            {<RegLogSubBtns />}
 
+            {/* <div className='end-btn-main-menu'> */}
+            {/* {screenSize.width < 1100
+                ?
+                <div className='register-login-btn-container'>
+                    <button onClick={authFormMenu} className='register-login-btn resposive-register-login-btn'><i class="fa-regular fa-user user-icon-reg-btn"></i></button>
+                </div>
+                :
+                <div className='register-login-btn-container'>
+
+                    <button onClick={authFormMenu} className='register-login-btn'><i class="fa-regular fa-user  right-to-bracket"></i>Register/Log in</button>
+                </div>
+            }
 
             <div className='submit-btn-container'>
-                <Link to='/submit' className='submit-btn'>
-                    <i className="fa-solid fa-plus plus-icon"></i>
-                    Submit</Link>
-            </div>
+                {
+                    screenSize.width < 1100
+                        ?
+                        <Link to='/submit' className='submit-btn responsive-submit-btn'><i className="fa-solid fa-plus plus-icon-responce-size"></i></Link>
+                        :
+                        <Link to='/submit' className='submit-btn'><i className="fa-solid fa-plus plus-icon"></i>Submit</Link>
+                }
+
+            </div> */}
+
+            {/* </div> */}
+
         </div >
     )
 }

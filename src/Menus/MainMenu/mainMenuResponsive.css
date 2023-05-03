@@ -34,9 +34,13 @@
         left: 94%;
     }
 
+    .site-logo {
+        margin-left: 100px;
+    }
+
 
     .main-menu-container {
-        /* justify-content:space-evenly; */
+        display: flex;
     }
 
     .submit-btn {
@@ -145,8 +149,59 @@
 
     .submit-btn-container {
         /* width: 7%; */
+        position: absolute;
+        top: 0;
+        left: 2%;
+        padding: 12px;
+    }
+
+    .register-login-btn-container {
+        position: absolute;
+        top: 0%;
+        left: 5%;
+        padding: 12px;
+    }
+
+    .search-bar-container {
+        position: relative;
+        top: 0px;
+        left: 0px;
+
+        width: 13%;
     }
 
 
+    /* .resposive-register-login-btn {
 
+        position: absolute;
+        top: -20px;
+        left: 0px;
+
+        padding: 12px;
+        width: fit-content;
+    } */
+
+
+
+}
+
+@media screen and (max-width: 870px) {
+
+    body{
+        background-color: palevioletred;
+    }
+    .submit-btn-container {
+        /* width: 7%; */
+        position: absolute;
+        top: 0;
+        left: 2%;
+        padding: 12px;
+    }
+
+    .register-login-btn-container {
+        position: absolute;
+        top: 0%;
+        left: 3.5%;
+        padding: 12px;
+    }
 }
