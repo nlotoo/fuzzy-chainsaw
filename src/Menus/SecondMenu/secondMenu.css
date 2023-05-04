@@ -75,7 +75,7 @@
     color: white;
     position: absolute;
     top: 20px;
-    left: 160px;
+    left: 8%;
     cursor: pointer;
     padding: 5px;
 
@@ -84,9 +84,10 @@
 
 .second-menu-arrow-right {
     color: white;
+    /* color: red; */
     position: absolute;
     top: 20px;
-    right: 160px;
+    right: 8%;
     cursor: pointer;
     padding: 5px;
 }

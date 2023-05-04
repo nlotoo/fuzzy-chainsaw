@@ -1,11 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import Slider from "react-slick";
-// import { Slider } from "react-styled-carousel";
-import useEmblaCarousel from 'embla-carousel-react'
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import './secondMenu.css'
 
 
