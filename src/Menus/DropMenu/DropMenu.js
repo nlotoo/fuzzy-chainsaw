@@ -1,9 +1,13 @@
+import './dropMenu.css'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import LinkMenu from '../LinkMenu/LinkMenu'
 
 const DropMenu = () => {
     return (
         <div className="dropdown-menu slide-in-top">
+            {<LinkMenu />}
+
 
             <div className='main-categories'>
                 <Link className='drop-down-menu-links hover-class-link' to=''><i className="fa-regular fa-comments discussions-icon"></i>Discussions</Link>

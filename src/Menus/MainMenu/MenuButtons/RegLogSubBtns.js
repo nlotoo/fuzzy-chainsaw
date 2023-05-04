@@ -1,11 +1,11 @@
 import React from 'react'
-import useScreenSize from '../../Hooks/useScreenSize';
+import useScreenSize from '../../../Hooks/useScreenSize';
 import { Link } from 'react-router-dom';
-import { useStateContext } from '../../context/StateContext';
+import { useStateContext } from '../../../context/StateContext';
 import { useState } from 'react';
 
 const RegLogSubBtns = () => {
-    let { AuthMenuState, setStateAuthMenu, switchOffAuthMenu } = useStateContext();
+    let { AuthMenuState, setStateAuthMenu } = useStateContext();
 
     let screenSize = useScreenSize();
     console.log(screenSize)

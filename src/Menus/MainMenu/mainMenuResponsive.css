@@ -126,8 +126,6 @@
 
 }
 
-
-
 @media screen and (max-width: 1120px) {
 
 
@@ -178,6 +176,11 @@
 
     body {
         background-color: palevioletred;
+    }
+
+    .link-menu {
+        display: flex;
+        flex-direction: column;
     }
 
 }
