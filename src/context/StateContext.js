@@ -4,6 +4,7 @@ const Context = createContext();
 export const StateContext = ({ children }) => {
 
     let [AuthMenuState, setStateAuthMenu] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
 
 
     const switchOffAuthMenu = () => {
@@ -12,7 +13,7 @@ export const StateContext = ({ children }) => {
     };
 
 
-   
+
 
     return (
         <Context.Provider value={
@@ -20,6 +21,8 @@ export const StateContext = ({ children }) => {
                 AuthMenuState,
                 setStateAuthMenu,
                 switchOffAuthMenu,
+                showMenu,
+                setShowMenu
             }
         }>
             {children}

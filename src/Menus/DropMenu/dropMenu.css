@@ -199,3 +199,60 @@
     width: 49%;
     /* border: 4px solid red; */
 }
+
+
+/* LINK MENU */
+
+
+
+.addative-link-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    display: none;
+    /* border-bottom: 1px solid rgb(187, 183, 183); */
+}
+
+.link-menu-in-drop-down-menu {
+
+    text-decoration: none;
+    color: inherit;
+    color: rgb(214, 212, 212);
+    margin: 10px;
+
+}
+
+.link-menu-in-drop-down-menu{
+    display: none;
+}
+
+@media screen and (max-width: 870px) {
+
+    body {
+        background-color: palevioletred;
+    }
+
+    .addative-link-menu {
+        display: flex;
+    }
+
+
+    .second-collum-second-catergories {
+        position: absolute;
+        top: 335px;
+        left: 270px;
+    }
+
+    .second-part-merchants {
+        position: absolute;
+        top: 729px;
+        left: 280px;
+    }
+
+    .link-menu-in-drop-down-menu{
+        display: flex;
+    }
+
+
+
+}

@@ -53,6 +53,7 @@
 
 .main-menu-links,
 .main-menu-links-button {
+    transition: all 400ms ease-in-out;
 
 
     text-decoration: none;
@@ -82,7 +83,14 @@
 }
 
 .vectorArrowDown {
+    transition: all 300ms ease-in-out;
     margin-left: 5px;
+}
+
+.vectorArrowDown-up {
+    margin-left: 5px;
+    transition: all 300ms ease-in-out;
+    transform: rotate(180deg);
 }
 
 
@@ -276,4 +284,12 @@
 .magnitify-glass {
     color: white;
     background-color: white;
+}
+
+.active-menu-links {
+    background-color: rgb(114, 110, 110);
+    /* padding: 10px; */
+    border-radius: 20px;
+    cursor: pointer;
+
 }

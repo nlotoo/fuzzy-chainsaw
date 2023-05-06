@@ -16,14 +16,13 @@ import LinkMenu from '../LinkMenu/LinkMenu';
 
 const MainMenu = () => {
 
-    let { AuthMenuState, switchOffAuthMenu } = useStateContext();
+    let { AuthMenuState, switchOffAuthMenu, showMenu, setShowMenu } = useStateContext();
 
     let screenSize = useScreenSize();
     console.log(screenSize)
 
 
 
-    const [showMenu, setShowMenu] = useState(false);
 
 
     // const authFormMenu = (e) => {
@@ -49,7 +48,24 @@ const MainMenu = () => {
 
 
 
+    const [onTarget, setTarget] = useState(false);
 
+    // let screenSize = useScreenSize()
+
+    const clicked = (e) => {
+        // console.log(e.target.offsetParent.childNodes[1].className)
+        console.log(e.target)
+        if (e.target.className === 'main-menu-links') {
+            e.target.offsetParent.childNodes.forEach((elementTarget) => {
+                console.log(elementTarget)
+                elementTarget.className = 'main-menu-links'
+            })
+            e.target.className = 'main-menu-links seleced'
+        } else {
+            e.target.className = 'main-menu-links'
+        }
+        setTarget(!onTarget)
+    }
 
     return (
         <div className='main-menu-container'>
@@ -67,16 +83,27 @@ const MainMenu = () => {
 
                 {
                     screenSize.width > 870 &&
-                    <LinkMenu/>
 
+                    <>
+                        <Link onClick={clicked} className='main-menu-links' to='/home'>All</Link>
+                        <Link onClick={clicked} className='main-menu-links' to='/'>Deals</Link>
+                        <Link onClick={clicked} className='main-menu-links' to=''>Voucher Codes</Link>
+                        <Link onClick={clicked} className='main-menu-links' to=''>Freebies</Link>
+                    </>
                 }
 
 
 
                 <span>
-                    <button onClick={dropDownMenu} className='main-menu-links-button'>Menu
-                        <img alt='vector-arrow-down' className='vectorArrowDown' src={vectorArrowDown}></img>
-                    </button>
+                    {/* <button onClick={dropDownMenu} className={showMenu == true ? 'main-menu-links-button' : 'main-menu-links-button asd'}>Menu */}
+                        <button onClick={dropDownMenu} className={`main-menu-links-button ${showMenu ? 'active-menu-links' : ''}`}>Menu
+                            {showMenu
+                                ?
+                                <img alt='vector-arrow-down' className='vectorArrowDown' src={vectorArrowDown}></img>
+                                :
+                                <img alt='vector-arrow-down' className='vectorArrowDown-up' src={vectorArrowDown}></img>
+                            }
+                        </button>
                 </span>
             </nav>
 

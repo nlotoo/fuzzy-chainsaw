@@ -172,15 +172,3 @@
 
 }
 
-@media screen and (max-width: 870px) {
-
-    body {
-        background-color: palevioletred;
-    }
-
-    .link-menu {
-        display: flex;
-        flex-direction: column;
-    }
-
-}
