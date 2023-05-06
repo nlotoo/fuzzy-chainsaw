@@ -222,14 +222,14 @@
 
 }
 
-.link-menu-in-drop-down-menu{
+.link-menu-in-drop-down-menu {
     display: none;
 }
 
 @media screen and (max-width: 870px) {
 
     body {
-        background-color: palevioletred;
+        background-color: aqua;
     }
 
     .addative-link-menu {
@@ -249,10 +249,18 @@
         left: 280px;
     }
 
-    .link-menu-in-drop-down-menu{
+    .link-menu-in-drop-down-menu {
         display: flex;
     }
 
+
+
+
+    .resposive-register-login-btn {
+        position: absolute;
+        top: -30%;
+        left: 95%;
+    }
 
 
 }

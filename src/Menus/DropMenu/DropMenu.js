@@ -6,11 +6,6 @@ import { Link } from 'react-router-dom'
 const DropMenu = () => {
     return (
         <div className="dropdown-menu slide-in-top">
-
-
-
-
-
             <div className='main-categories'>
                 <Link className='link-menu-in-drop-down-menu hover-class-link' to='/home'><i class="fa-solid fa-house discussions-icon"></i>All</Link>
                 <Link className='link-menu-in-drop-down-menu hover-class-link' to='/'><i class="fa-solid fa-tag discussions-icon"></i>Deals</Link>

@@ -53,7 +53,7 @@
 
 .main-menu-links,
 .main-menu-links-button {
-    transition: all 400ms ease-in-out;
+    transition: all 400ms ease-out ;
 
 
     text-decoration: none;
@@ -292,4 +292,12 @@
     border-radius: 20px;
     cursor: pointer;
 
+}
+
+
+@media screen and (max-width: 670px) {
+
+    body{
+        background-color: red;
+    }
 }
