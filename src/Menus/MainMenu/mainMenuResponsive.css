@@ -54,23 +54,23 @@
 
 
 
-    .register-login-btn {
+    /* .register-login-btn {
         position: relative;
         top: 0px;
         left: 48px;
-    }
+    } */
 
-    .register-login-btn-container {
+    .register-login-btn {
         position: relative;
-        top: 0;
-        left: 30px;
+        left: 21%;
+        /* margin-right: 10px; */
     }
 
     .search-bar {
         position: relative;
         top: 0px;
         right: 59px;
-        width: 149%;
+        width: 129%;
     }
 
     /* .main-menu-container{
@@ -111,11 +111,12 @@
         left: 10px;
     }
 
-    .register-login-btn-container {
+    .register-login-btn {
         position: relative;
-        top: 0;
-        left: 35px;
+        left: 24%;
+        /* margin-right: 10px; */
     }
+
 
 
     .second-menu-arrow-right {
@@ -137,36 +138,35 @@
         /* width: 7%; */
         position: absolute;
         top: 0;
-        left: 2%;
+        left: 0;
         padding: 12px;
     }
 
-    .register-login-btn-container {
-        position: absolute;
-        top: 0%;
-        left: 4%;
-        padding: 12px;
-        margin-right: 10px;
-    }
+
+
 
     .search-bar-container {
         position: relative;
         top: 0px;
-        left: 0px;
-
-        width: 13%;
+        left: 3%;
+        width: 9%;
     }
 
 
-    /* .resposive-register-login-btn {
+    .register-login-btn {
+        position: relative;
+        left: 25%;
+        /* margin-right: 10px; */
+    }
 
-        position: absolute;
-        top: -20px;
-        left: 0px;
+    .resposive-register-login-btn {
 
+        /* position: absolute; */
+        /* top: -20px; */
+        left: 130%;
         padding: 12px;
         width: fit-content;
-    } */
+    }
 
 
 
@@ -200,22 +200,116 @@
         display: flex;
     }
 
-
+    /* .register-login-btn-container {
+        position: absolute;
+        left: 40%;
+    } */
 
 
     .resposive-register-login-btn {
-        position: absolute;
-        top: -30%;
-        left: 95%;
+        /* position: absolute; */
+        /* top: -30%; */
+        left: 138%;
     }
+
+    .register-login-btn {
+        /* position: relative; */
+        left: 100%;
+        /* margin-right: 10px; */
+    }
+
+    .search-bar-container {
+        width: 16%;
+        margin: 0;
+        margin-left: 0px;
+        padding: 0;
+        margin-left: 2%;
+    }
+
+
 
 
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 680px) {
 
-    body{
+    body {
         background-color: red;
     }
+
+    .search-bar-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 20%;
+    }
+
+    .main-menu-links-button {
+
+        display: none;
+    }
+
+    .main-menu-container {
+        position: relative;
+        display: flex;
+        justify-content: unset;
+
+    }
+
+    .site-logo {
+        position: absolute;
+        left: 20%
+    }
+
+    .submit-btn-container {
+        position: absolute;
+        left: -68%;
+        top: 0;
+
+    }
+
+    /* .register-login-btn-container {
+        position: absolute;
+    } */
+
+    .register-login-btn-container {
+        /* position: unset; */
+        /* position: relative; */
+        /* position: relative; */
+        left: 45px;
+    }
+    .mobile-v{
+        left: 28%;
+
+    }
+
+    .register-login-btn {
+        /* z-index: 1000; */
+        /* margin-left: 20px; */
+    }
+
+
+    .active-responsive-search-bar {
+        display: block;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        margin-right: 0;
+        /* width: 300px; */
+        top: -25%;
+    }
+
+    .search-bar-container {
+        /* position: relative; */
+        position: absolute;
+        top: 0%;
+        left: 30%;
+    }
+
+  
+
+
+
 }

@@ -26,8 +26,8 @@ const RegLogSubBtns = () => {
             {screenSize.width < 1100
                 ?
                 <div className='register-login-btn-container'>
-                    <button onClick={authFormMenu} className='register-login-btn resposive-register-login-btn'><i class="fa-regular fa-user user-icon-reg-btn"></i></button>
-                </div>
+                    <button onClick={authFormMenu} className={`register-login-btn resposive-register-login-btn  ${AuthMenuState ? 'mobile-v' : ''}`}><i class="fa-regular fa-user user-icon-reg-btn"></i></button>
+                </div >
                 :
                 <div className='register-login-btn-container'>
 

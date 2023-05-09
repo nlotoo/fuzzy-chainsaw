@@ -19,8 +19,15 @@ const MainMenu = () => {
     let { AuthMenuState, switchOffAuthMenu, showMenu, setShowMenu } = useStateContext();
 
     let screenSize = useScreenSize();
-    console.log(screenSize)
+    // console.log(screenSize)
 
+
+    let [searchBarSwitch, setSwitchBar] = useState(false);
+
+
+    const switchBarClicked = () => {
+        setSwitchBar(!searchBarSwitch)
+    }
 
 
 
@@ -70,14 +77,18 @@ const MainMenu = () => {
     return (
         <div className='main-menu-container'>
 
-            <div className='site-logo'>
-                <span>
-                    <img alt='owl-logo' className='portal-logo' src={owl}></img>
-                </span>
-                <p>
-                    <Link className='logo-text' to='/'>Portal deals</Link>
-                </p>
-            </div>
+
+            {!searchBarSwitch &&
+
+                <div className='site-logo'>
+                    <span>
+                        <img alt='owl-logo' className='portal-logo' src={owl}></img>
+                    </span>
+                    <p>
+                        <Link className='logo-text' to='/'>Portal deals</Link>
+                    </p>
+                </div>
+            }
 
             <nav className='main-menu-nav'>
 
@@ -96,21 +107,25 @@ const MainMenu = () => {
 
                 <span>
                     {/* <button onClick={dropDownMenu} className={showMenu == true ? 'main-menu-links-button' : 'main-menu-links-button asd'}>Menu */}
-                        <button onClick={dropDownMenu} className={`main-menu-links-button ${showMenu ? 'active-menu-links' : ''}`}>Menu
-                            {showMenu
-                                ?
-                                <img alt='vector-arrow-down' className='vectorArrowDown' src={vectorArrowDown}></img>
-                                :
-                                <img alt='vector-arrow-down' className='vectorArrowDown-up' src={vectorArrowDown}></img>
-                            }
-                        </button>
+                    <button onClick={dropDownMenu} className={`main-menu-links-button ${showMenu ? 'active-menu-links' : ''}`}>Menu
+                        {showMenu
+                            ?
+                            <img alt='vector-arrow-down' className='vectorArrowDown' src={vectorArrowDown}></img>
+                            :
+                            <img alt='vector-arrow-down' className='vectorArrowDown-up' src={vectorArrowDown}></img>
+                        }
+                    </button>
                 </span>
             </nav>
 
             {showMenu && <DropMenu />}
 
-            <div className='search-bar-container'>
+            {screenSize.width < 680 ? <button onClick={switchBarClicked} className='search-resposive-button'><i class="fa-solid fa-magnifying-glass"></i></button> : ''}
 
+            {console.log(searchBarSwitch)}
+
+
+            <div className={`search-bar-container ${searchBarSwitch ? 'active-responsive-search-bar' : ''}`}>
                 <input className='search-bar' placeholder={'Search brands, products etc.'} ></input>
             </div>
 
