@@ -52,60 +52,59 @@ const MainAuthForm = () => {
 
             {findOutMore === true
                 ?
-                <>
-                    <div className='main-auth-form-container slide-in-fwd-top'>
-                        <span onClick={switchOffAuthMenu} className='exit-form'>X</span>
-                        <div className='left-side-auth-form'>
-                            <p className='main-heading-auth-form'>Welcome to hotukdeals!</p>
+                <div className='main-auth-form-container slide-in-fwd-top'>
+                    <span onClick={switchOffAuthMenu} className='exit-form'>X</span>
+                    <div className='left-side-auth-form'>
+                        <p className='main-heading-auth-form'>Welcome to hotukdeals!</p>
 
-                            <img className='auth-form-img-find-out' alt='site owl' src={owl}></img>
-                            <h2 className='portal-deal-heading'>Portal Deals</h2>
+                        <img className='auth-form-img-find-out' alt='site owl' src={owl}></img>
+                        <h2 className='portal-deal-heading'>Portal Deals</h2>
 
-                            <div>
-                                <p className='short-desc-left-side-find-out-one'>Join thousands of other savvy shoppers sharing their deals, vouchers and tips! </p>
-                                <p className='short-desc-left-side-find-out-two'>Discover the unbeatable  deals from your favorite brands at Portal Deals</p>
-                            </div>
-
-
-
-
-                            <div>
-                                <button onClick={FindOutMore} className='create-new-user-btn-alrd'>Already have an account?</button>
-                            </div>
+                        <div>
+                            <p className='short-desc-left-side-find-out-one'>Join thousands of other savvy shoppers sharing their deals, vouchers and tips! </p>
+                            <p className='short-desc-left-side-find-out-two'>Discover the unbeatable  deals from your favorite brands at Portal Deals</p>
                         </div>
-                        <div className='right-side-auth-form-find-out'>
-                            <div>
-                                <h3 className='heading-find-out-more'>
-                                    <i className="fa-regular fa-comment find-out-icon"></i>
-                                    Join the community
-                                </h3>
-                                <p className='find-out-more-text-left'>
-                                    Discuss the latest products and deals with the community, then vote to decide which deals are the hottest and which aren't.
-                                </p>
-                            </div>
-                            <div>
-                                <h3 className='heading-find-out-more'>
-                                    <i className="fa-solid fa-tag find-out-icon"></i>
-                                    Share your own deals
-                                </h3>
-                                <p className='find-out-more-text-left'>
-                                    Found a great deal either online or in-store? Share it on hotukdeals and let everyone know!
-                                </p>
-                            </div>
-                            <div>
-                                <h3 className='heading-find-out-more'>
-                                    <i className="fa-regular fa-bell find-out-icon"></i>
-                                    Never miss a deal again
-                                </h3>
-                                <p className='find-out-more-text-left'>
-                                    Follow deals and subscribe to alerts to ensure you get the best price at the right time.
-                                </p>
-                            </div>
-                            <button onClick={translateBetwenMenus} className='create-new-user-btn-find-out'> Create a new account</button>
+
+
+
+
+                        <div>
+                            <button onClick={FindOutMore} className='create-new-user-btn-alrd'>Already have an account?</button>
                         </div>
                     </div>
+                    <div className='right-side-auth-form-find-out'>
+                        <div>
+                            <h3 className='heading-find-out-more'>
+                                <i className="fa-regular fa-comment find-out-icon"></i>
+                                Join the community
+                            </h3>
+                            <p className='find-out-more-text-left'>
+                                Discuss the latest products and deals with the community, then vote to decide which deals are the hottest and which aren't.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 className='heading-find-out-more'>
+                                <i className="fa-solid fa-tag find-out-icon"></i>
+                                Share your own deals
+                            </h3>
+                            <p className='find-out-more-text-left'>
+                                Found a great deal either online or in-store? Share it on hotukdeals and let everyone know!
+                            </p>
+                        </div>
+                        <div>
+                            <h3 className='heading-find-out-more'>
+                                <i className="fa-regular fa-bell find-out-icon"></i>
+                                Never miss a deal again
+                            </h3>
+                            <p className='find-out-more-text-left'>
+                                Follow deals and subscribe to alerts to ensure you get the best price at the right time.
+                            </p>
+                        </div>
+                        <button onClick={translateBetwenMenus} className='create-new-user-btn-find-out'> Create a new account</button>
+                    </div>
+                </div>
 
-                </>
+
                 :
                 <div className='main-auth-form-container slide-in-fwd-top'>
                     <span onClick={switchOffAuthMenu} className='exit-form'>X</span>

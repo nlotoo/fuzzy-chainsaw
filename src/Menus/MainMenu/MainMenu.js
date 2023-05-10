@@ -78,9 +78,9 @@ const MainMenu = () => {
         <div className='main-menu-container'>
 
 
-            {searchBarSwitch &&
+            {!searchBarSwitch &&
 
-                <div className='site-logo'>
+                <div className='site-logo scale-in-top'>
                     <span>
                         <img alt='owl-logo' className='portal-logo' src={owl}></img>
                     </span>
@@ -126,7 +126,7 @@ const MainMenu = () => {
 
 
             {/* <div className={`search-bar-container ${searchBarSwitch ? 'active-responsive-search-bar' : ''}`}> */}
-            <div className={`${searchBarSwitch ? 'search-bar-container  ' : 'in-visble-bar scale-in-top'}`}>
+            <div className={`${searchBarSwitch ? 'in-visble-bar scale-in-top ' : 'search-bar-container '}`}>
                 <input className='search-bar' placeholder={'Search brands, products etc.'} ></input>
             </div>
 

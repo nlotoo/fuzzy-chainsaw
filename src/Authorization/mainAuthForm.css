@@ -1,8 +1,6 @@
 .main-auth-form-container {
     z-index: 1999;
-    position: absolute;
-    top: 100px;
-    left: 30%;
+
     width: 600px;
     height: 500px;
     border: 1px solid gray;
@@ -10,7 +8,22 @@
     background-color: white;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    position: absolute;
+    top: 100px;
+    left: 30%;
 }
+
+
+@media screen and (max-width: 680px) {
+.main-auth-form-container {
+    position: absolute;
+    left: 0;
+}
+
+}
+
+
 
 
 
