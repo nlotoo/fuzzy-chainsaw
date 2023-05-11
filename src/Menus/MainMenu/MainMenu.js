@@ -23,12 +23,18 @@ const MainMenu = () => {
 
 
     let [searchBarSwitch, setSwitchBar] = useState(false);
+    let [hamburgerSwitch, setHaburgerSwitch] = useState(false);
+
 
 
     const switchBarClicked = () => {
         setSwitchBar(!searchBarSwitch)
     }
 
+
+    const switchHaburger = () => {
+        setHaburgerSwitch(!hamburgerSwitch)
+    }
 
 
 
@@ -76,7 +82,14 @@ const MainMenu = () => {
 
     return (
         <div className='main-menu-container'>
-
+            {
+                screenSize.width < 680 &&
+                <div onClick={switchHaburger} className={`hamburger-menu ${!hamburgerSwitch && 'hamburger-active'}`} >
+                    <div className='hamburger-line-one'></div>
+                    <div className='hamburger-line-two'></div>
+                    <div className='hamburger-line-three'></div>
+                </div>
+            }
 
             {!searchBarSwitch &&
 
