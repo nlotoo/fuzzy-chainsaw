@@ -1,0 +1,103 @@
+.hamburger-menu {
+    position: absolute;
+    top: 11%;
+    left: 2%;
+    z-index: 2000;
+
+    padding: 10px;
+
+    cursor: pointer;
+    width: 22px;
+    height: 20px;
+
+    background-color: rgba(128, 128, 128, 0.267);
+    border-radius: 20%;
+
+}
+
+.hamburger-menu:hover {
+    transition: all 300ms ease-in;
+    background-color: #35373B;
+    border-radius: 20%;
+}
+
+.hamburger-menu div:first-of-type {
+    /* width: 20px; */
+    /* border: 2px solid lime; */
+
+    transform: rotate(0deg);
+
+    /* transform: translateY(50%); */
+    position: relative;
+
+
+    transition: all 500ms ease-in;
+}
+
+.hamburger-menu div:last-of-type {
+    /* width: 20px; */
+    /* border: 2px solid lime; */
+
+    transform: rotate(0deg);
+
+    /* transform: translateY(50%); */
+    position: relative;
+
+
+    transition: all 500ms ease-in;
+}
+
+.hamburger-menu div:nth-of-type(2) {
+    width: 25px;
+
+    /* border: 2px solid lime; */
+    transform: rotate(0deg);
+
+    /* transform: rotate(-45deg); */
+    transition: all 300ms ease-in;
+}
+
+
+
+
+.hamburger-active div:first-of-type {
+    width: 20px;
+    /* border: 2px solid lime; */
+
+    transform: rotate(45deg);
+
+    /* transform: translateY(50%); */
+    position: relative;
+    top: 6px;
+    left: 1px;
+
+    transition: all 300ms ease-in;
+}
+
+.hamburger-active div:nth-of-type(2) {
+    width: 20px;
+    background-color: #00000000;
+
+}
+
+.hamburger-active div:last-of-type {
+    width: 20px;
+    /* border: 2px solid lime; */
+    transform: rotate(-45deg);
+    position: relative;
+    bottom: 8px;
+    left: 1px;
+
+
+    transition: all 300ms ease-in;
+}
+
+.hamburger-line-one,
+.hamburger-line-two,
+.hamburger-line-three {
+    background-color: white;
+    width: 25px;
+    height: 4px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
