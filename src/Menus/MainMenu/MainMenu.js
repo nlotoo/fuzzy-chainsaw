@@ -86,7 +86,7 @@ const MainMenu = () => {
         <div className='main-menu-container'>
             {
                 screenSize.width < 680 &&
-                <div onClick={switchHaburger} className={`hamburger-menu ${!hamburgerSwitch && 'hamburger-active'}`} >
+                <div onClick={dropDownMenu} className={`hamburger-menu ${showMenu && 'hamburger-active'}`} >
                     <div className='hamburger-line-one'></div>
                     <div className='hamburger-line-two'></div>
                     <div className='hamburger-line-three'></div>
@@ -137,7 +137,7 @@ const MainMenu = () => {
 
             {screenSize.width < 680 ? <button onClick={switchBarClicked} className='search-resposive-button'><i class="fa-solid fa-magnifying-glass"></i></button> : ''}
 
-            {console.log(searchBarSwitch)}
+            {/* {console.log(searchBarSwitch)} */}
 
 
             {/* <div className={`search-bar-container ${searchBarSwitch ? 'active-responsive-search-bar' : ''}`}> */}

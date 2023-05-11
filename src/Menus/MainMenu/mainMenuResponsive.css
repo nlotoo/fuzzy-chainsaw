@@ -227,7 +227,7 @@
     }
 
 
-
+ 
 
 }
 
@@ -244,6 +244,12 @@
         top: 0;
         left: 0;
         width: 20%;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 55px;
+        left: 0%;
     }
 
 
