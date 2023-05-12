@@ -34,7 +34,7 @@
     .submit-btn {
         margin-left: 20px;
 
-        position: absolute;
+        position: relative;
         top: 0;
         left: 0px;
     }
@@ -106,7 +106,7 @@
     .submit-btn {
         margin-left: 20px;
 
-        position: absolute;
+        position: relative;
         top: 0;
         left: 10px;
     }
@@ -124,6 +124,51 @@
         top: 20px;
         right: 110px;
     }
+
+}
+
+@media screen and (max-width: 1120px) {
+
+
+    body {
+        background-color: darkseagreen;
+    }
+
+    .submit-btn-container {
+        /* width: 7%; */
+        /* position: absolute;
+        top: 0;
+        left: -68%; */
+        padding: 12px;
+    }
+
+
+
+
+    .search-bar-container {
+        position: relative;
+        top: 0px;
+        left: 3%;
+        width: 9%;
+    }
+
+
+    .register-login-btn {
+        position: relative;
+        left: 25%;
+        /* margin-right: 10px; */
+    }
+
+    .resposive-register-login-btn {
+
+        /* position: absolute; */
+        /* top: -20px; */
+        left: 130%;
+        padding: 12px;
+        width: fit-content;
+    }
+
+
 
 }
 
@@ -178,23 +223,25 @@
     }
 
     .submit-btn-container {
-        position: absolute;
+        /* position: absolute;
         left: -68%;
-        top: 0;
+        top: 0; */
+        position: relative;
+        right: 20%;
 
     }
 
 
     .register-login-btn-container {
-        left: 28%;
+        left: 64%;
     }
 
 
 
     .in-visble-bar {
         position: relative;
-        left: 24%;
-        width: 22%;
+        left: 45%;
+        width: 18%;
     }
 
     .active-responsive-search-bar {
@@ -207,6 +254,10 @@
         /* position: absolute; */
         top: 0%;
         left: 28%;
+    }
+
+    .search-bar{
+        width: 208%;
     }
 
 
@@ -269,52 +320,13 @@
 }
 
 
-@media screen and (max-width: 1120px) {
 
+
+@media screen and (max-width:439px) {
 
     body {
-        background-color: darkseagreen;
+        background-color: yellowgreen;
     }
-
-    .submit-btn-container {
-        /* width: 7%; */
-        position: absolute;
-        top: 0;
-        left: -68%;
-        padding: 12px;
-    }
-
-
-
-
-    .search-bar-container {
-        position: relative;
-        top: 0px;
-        left: 3%;
-        width: 9%;
-    }
-
-
-    .register-login-btn {
-        position: relative;
-        left: 25%;
-        /* margin-right: 10px; */
-    }
-
-    .resposive-register-login-btn {
-
-        /* position: absolute; */
-        /* top: -20px; */
-        left: 130%;
-        padding: 12px;
-        width: fit-content;
-    }
-
-
-
-}
-
-@media screen and (max-width:440px) {
     .main-auth-form-container {
         position: absolute;
         left: 0% !important;
@@ -324,10 +336,10 @@
     }
 
     .submit-btn-container {
-        position: absolute;
+        /* position: absolute;
         top: 15%;
         left: 7%;
-        padding: 22px;
+        padding: 22px; */
         /* width: 80px; */
     }
 
