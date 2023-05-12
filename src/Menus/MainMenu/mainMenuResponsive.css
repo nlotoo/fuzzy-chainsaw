@@ -10,7 +10,7 @@
 
 
     .main-menu-container {
-        width: 90%;
+        width: 100%;
     }
 
 
@@ -127,115 +127,22 @@
 
 }
 
-@media screen and (max-width: 1120px) {
 
-
-    body {
-        background-color: darkseagreen;
-    }
-
-    .submit-btn-container {
-        /* width: 7%; */
-        position: absolute;
-        top: 0;
-        left: 0;
-        padding: 12px;
-    }
-
-
-
-
-    .search-bar-container {
-        position: relative;
-        top: 0px;
-        left: 3%;
-        width: 9%;
-    }
-
-
-    .register-login-btn {
-        position: relative;
-        left: 25%;
-        /* margin-right: 10px; */
-    }
-
-    .resposive-register-login-btn {
-
-        /* position: absolute; */
-        /* top: -20px; */
-        left: 130%;
-        padding: 12px;
-        width: fit-content;
-    }
-
-
-
-}
-
-
-@media screen and (max-width: 870px) {
-
-    body {
-        background-color: aqua;
-    }
-
-    .addative-link-menu {
-        display: flex;
-    }
-
-
-    .second-collum-second-catergories {
-        position: absolute;
-        top: 335px;
-        left: 270px;
-    }
-
-    .second-part-merchants {
-        position: absolute;
-        top: 729px;
-        left: 280px;
-    }
-
-    .link-menu-in-drop-down-menu {
-        display: flex;
-    }
-
-    /* .register-login-btn-container {
-        position: absolute;
-        left: 40%;
-    } */
-
-
-    .resposive-register-login-btn {
-        /* position: absolute; */
-        /* top: -30%; */
-        left: 138%;
-    }
-
-    .register-login-btn {
-        /* position: relative; */
-        left: 100%;
-        /* margin-right: 10px; */
-    }
-
-    .search-bar-container {
-        width: 16%;
-        margin: 0;
-        margin-left: 0px;
-        padding: 0;
-        margin-left: 2%;
-    }
-
-
- 
-
-}
 
 
 @media screen and (max-width: 680px) {
 
     body {
         background-color: red;
+    }
+
+    .main-auth-form-container {
+        display: block;
+        grid-template-columns: none;
+    }
+
+    .left-side-auth-form {
+        display: none;
     }
 
     .search-bar-container {
@@ -359,4 +266,122 @@
 
 
 
+}
+
+
+@media screen and (max-width: 1120px) {
+
+
+    body {
+        background-color: darkseagreen;
+    }
+
+    .submit-btn-container {
+        /* width: 7%; */
+        position: absolute;
+        top: 0;
+        left: -68%;
+        padding: 12px;
+    }
+
+
+
+
+    .search-bar-container {
+        position: relative;
+        top: 0px;
+        left: 3%;
+        width: 9%;
+    }
+
+
+    .register-login-btn {
+        position: relative;
+        left: 25%;
+        /* margin-right: 10px; */
+    }
+
+    .resposive-register-login-btn {
+
+        /* position: absolute; */
+        /* top: -20px; */
+        left: 130%;
+        padding: 12px;
+        width: fit-content;
+    }
+
+
+
+}
+
+@media screen and (max-width:440px) {
+    .main-auth-form-container {
+        position: absolute;
+        left: 0% !important;
+        display: block;
+        grid-template-columns: none;
+        width: 100% !important;
+    }
+
+    .submit-btn-container {
+        position: absolute;
+        top: 15%;
+        left: 7%;
+        padding: 22px;
+        /* width: 80px; */
+    }
+
+    .responsive-submit-btn {
+        width: fit-content;
+    }
+
+    .in-visble-bar {
+        position: relative;
+        left: 22%;
+        width: 18%;
+    }
+
+    .search-bar {
+        position: relative;
+        left: 26%;
+        /* width: 100%; */
+        width: 200px;
+    }
+
+    .search-resposive-button {
+        position: absolute;
+        top: 16%;
+        right: 13%;
+    }
+
+
+
+    .register-login-btn-container {
+        left: 71%;
+    }
+
+    .resposive-register-login-btn {
+        left: 0 !important;
+        top: 0;
+    }
+
+    .site-logo {
+        width: 40%;
+        left: 8%;
+    }
+
+
+
+
+    .login-fb-icon {
+        display: none;
+    }
+
+    .login-google-icon {
+        display: none;
+    }
+
+    .login-apple-icon {
+        display: none;
+    }
 }

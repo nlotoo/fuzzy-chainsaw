@@ -120,9 +120,9 @@ const MainAuthForm = () => {
                                 ?
                                 <div>
                                     <h2 className='heading-signup'>Social Sign up</h2>
-                                    <Link className='login-social-links' to=''><img src={facebookIcon} className="login-fb-icon" />Sign up with Facebook</Link>
-                                    <Link className='login-social-links' to=''><img src={googleIcon} className="login-google-icon" />Sign up with Google</Link>
-                                    <Link className='login-social-links' to=''><img src={appleIcon} className="login-apple-icon" />Sign up with Apple</Link>
+                                    <Link className='login-social-links' to=''><img alt='social-media' src={facebookIcon} className="login-fb-icon" />Sign up with Facebook</Link>
+                                    <Link className='login-social-links' to=''><img alt='social-media' src={googleIcon} className="login-google-icon" />Sign up with Google</Link>
+                                    <Link className='login-social-links' to=''><img alt='social-media' src={appleIcon} className="login-apple-icon" />Sign up with Apple</Link>
                                 </div> :
                                 <>
                                     <p className='short-desc-left-side-one'>Discover a new world of amazing deals! <span className='join-us-today'>Join us today!</span></p>
@@ -159,9 +159,9 @@ const MainAuthForm = () => {
                                 :
                                 <div className='social-login-container'>
                                     <h2 className='heading-login'>Social Login</h2>
-                                    <Link className='login-social-links' to=''><img src={facebookIcon} className="login-fb-icon" />Login with Facebook</Link>
-                                    <Link className='login-social-links' to=''><img src={googleIcon} className="login-google-icon" />Login with Google</Link>
-                                    <Link className='login-social-links' to=''><img src={appleIcon} className="login-apple-icon" />Login with Apple</Link>
+                                    <Link className='login-social-links' to=''><img alt='social-media' src={facebookIcon} className="login-fb-icon" />Login with Facebook</Link>
+                                    <Link className='login-social-links' to=''><img alt='social-media' src={googleIcon} className="login-google-icon" />Login with Google</Link>
+                                    <Link className='login-social-links' to=''><img alt='social-media' src={appleIcon} className="login-apple-icon" />Login with Apple</Link>
                                     <Login></Login>
                                 </div>
                         }

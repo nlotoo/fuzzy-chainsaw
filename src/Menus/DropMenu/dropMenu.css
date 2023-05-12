@@ -226,6 +226,11 @@
     display: none;
 }
 
+
+
+
+
+
 @media screen and (max-width: 870px) {
 
     body {
@@ -275,7 +280,7 @@
 
     .register-login-btn {
         /* position: relative; */
-        left: 100%;
+        /* left: 100%; */
         /* margin-right: 10px; */
     }
 
@@ -288,6 +293,5 @@
     }
 
 
-
-
 }
+

@@ -9,14 +9,13 @@ import Submit from './Components/Submit/Submit'
 import { useStateContext } from './context/StateContext';
 
 function App() {
-  let { AuthMenuState, switchOffAuthMenu } = useStateContext();
+  let { AuthMenuState } = useStateContext();
 
 
 
   return (
 
     <div className={AuthMenuState ? 'trasnp-bg' : undefined}
-    // onClick={AuthMenuState ? switchOffAuthMenu : null}
     >
       <BrowserRouter>
         <MainMenu></MainMenu>
