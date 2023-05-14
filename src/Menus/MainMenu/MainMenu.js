@@ -72,11 +72,14 @@ const MainMenu = () => {
 
                 <div className='site-logo scale-in-top'>
                     <span>
-                        <img alt='owl-logo' className='portal-logo' src={owl}></img>
+                        <img alt='owl-logo' className='portal-logo mobile-owl' src={owl}></img>
                     </span>
-                    <p>
-                        <Link className='logo-text' to='/'>Portal deals</Link>
-                    </p>
+                    {screenSize.width > 440 &&
+
+                        <p>
+                            <Link className='logo-text' to='/'>Portal deals</Link>
+                        </p>
+                    }
                 </div>
             }
 

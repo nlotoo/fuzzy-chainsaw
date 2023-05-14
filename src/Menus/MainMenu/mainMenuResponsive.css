@@ -336,6 +336,14 @@
         background-color: yellowgreen;
     }
 
+
+    .mobile-owl {
+        position: relative;
+        left: 18%;
+        bottom: -20%;
+      
+    }
+
     .main-auth-form-container {
         position: absolute;
         left: 0% !important;
@@ -364,9 +372,9 @@
 
     .search-bar {
         position: relative;
-        left: 26%;
+        left: 60%;
         /* width: 100%; */
-        width: 200px;
+        width: 150px;
     }
 
     .search-resposive-button {
@@ -386,10 +394,10 @@
         top: 0;
     }
 
-    .site-logo {
+    /* .site-logo {
         width: 40%;
         left: 8%;
-    }
+    } */
 
 
 
