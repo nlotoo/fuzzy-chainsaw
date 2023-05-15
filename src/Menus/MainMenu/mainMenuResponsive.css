@@ -344,6 +344,11 @@
       
     }
 
+    .site-logo {
+        position: absolute;
+        left: 11%;
+      }
+
     .main-auth-form-container {
         position: absolute;
         left: 0% !important;
