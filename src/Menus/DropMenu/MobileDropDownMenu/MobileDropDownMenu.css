@@ -1,9 +1,16 @@
 .just-line {
-    position: relative;
-    right: 4%;
-    top: 20px;
     border-top: 1px solid white;
+    /* position: relative;  */
+    /* right: 5%; */
+    /* top: 10px;  */
     width: 100%;
-    padding: 20px;
+    padding-top:20px ;
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
+    /* padding: 20px; */
 
+}
+
+.all-catergories{
+    width: 100%;
 }

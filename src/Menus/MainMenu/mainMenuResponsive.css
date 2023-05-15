@@ -189,6 +189,9 @@
         background-color: red;
     }
 
+    
+
+
     .main-auth-form-container {
         display: block;
         grid-template-columns: none;
@@ -336,6 +339,12 @@
         background-color: yellowgreen;
     }
 
+    .dropdown-menu
+    {
+        width: 100% !important;
+    }
+
+ 
 
     .mobile-owl {
         position: relative;

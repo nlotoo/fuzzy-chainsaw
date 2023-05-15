@@ -7,11 +7,12 @@ import Submit from './Components/Submit/Submit'
 
 
 import { useStateContext } from './context/StateContext';
+import useScreenSize from './Hooks/useScreenSize';
 
 function App() {
   let { AuthMenuState } = useStateContext();
 
-
+  let screenSize = useScreenSize()
 
   return (
 
@@ -22,7 +23,7 @@ function App() {
         <SecondMenu></SecondMenu>
         <div>asdds</div>
         <Routes>
-          <Route path="/" element={<div style={{ height: '600px' }}>asdds</div>} />
+          <Route path="/" element={<div> width: {screenSize.width}- - height: {screenSize.height}</div>} />
           <Route path='/submit' element={<Submit />}></Route>
         </Routes>
       </BrowserRouter>

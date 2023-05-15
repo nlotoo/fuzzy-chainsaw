@@ -25,8 +25,8 @@ const DropDownMenu = () => {
                 <Link className='drop-down-menu-links' to=''>Gaming</Link>
                 <Link className='drop-down-menu-links' to=''>Car 7 Motorcycle</Link>
 
-                <div className='just-line'></div>
-                <Link className='drop-down-menu-links all-catergories hover-class-link' to=''><i className="fa-solid fa-shop all-merchants-icon"></i>All merchants</Link>
+                {/* <div className='just-line'></div> */}
+                <Link className='drop-down-menu-links all-catergories hover-class-link just-line' to=''><i className="fa-solid fa-shop all-merchants-icon"></i>All merchants</Link>
 
                 <Link className='drop-down-menu-links mechants-only' to=''>Ebay</Link>
                 <Link className='drop-down-menu-links mechants-only' to=''>Currys</Link>
