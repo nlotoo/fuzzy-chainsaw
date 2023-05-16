@@ -189,7 +189,9 @@
         background-color: red;
     }
 
-    
+    .search-resposive-button {
+        right: 12%;
+    }
 
 
     .main-auth-form-container {
@@ -230,28 +232,28 @@
 
     .site-logo {
         position: absolute;
-        left: 20%
+        left: 15%
     }
 
     .submit-btn-container {
-        /* position: absolute;
-        left: -68%;
-        top: 0; */
         position: relative;
         right: 20%;
 
     }
 
 
-    .register-login-btn-container {
-        left: 64%;
-    }
 
+    .register-login-btn-container {
+        position: relative;
+        top: 0;
+        right: -62%;
+        margin-right: 10px;
+    }
 
 
     .in-visble-bar {
         position: relative;
-        left: 45%;
+        left: 35%;
         width: 18%;
     }
 
@@ -260,9 +262,10 @@
 
     }
 
+
     .search-bar-container {
         position: relative;
-        /* position: absolute; */
+       
         top: 0%;
         left: 28%;
     }
@@ -339,24 +342,23 @@
         background-color: yellowgreen;
     }
 
-    .dropdown-menu
-    {
+    .dropdown-menu {
         width: 100% !important;
     }
 
- 
+
 
     .mobile-owl {
         position: relative;
         left: 18%;
         bottom: -20%;
-      
+
     }
 
     .site-logo {
         position: absolute;
         left: 11%;
-      }
+    }
 
     .main-auth-form-container {
         position: absolute;
@@ -427,4 +429,15 @@
     .login-apple-icon {
         display: none;
     }
+}
+
+
+@media screen and (max-width:360px) {
+
+
+    .site-logo {
+        position: absolute;
+        left: 6%;
+    }
+
 }
