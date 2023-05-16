@@ -169,9 +169,8 @@
 
     .resposive-register-login-btn {
 
-        /* position: absolute; */
-        /* top: -20px; */
-        left: 130%;
+
+        left: 120%;
         padding: 12px;
         width: fit-content;
     }
@@ -180,7 +179,75 @@
 
 }
 
+@media screen and (max-width: 870px) {
 
+    .main-auth-form-container {
+        position: absolute;
+        top: 100px;
+        left: 18% !important;
+    }
+
+    body {
+        background-color: aqua;
+    }
+
+
+    .addative-link-menu {
+        display: flex;
+    }
+
+
+    .second-collum-second-catergories {
+        position: absolute;
+        top: 335px;
+        left: 270px;
+    }
+
+    .second-part-merchants {
+        position: absolute;
+        top: 729px;
+        left: 280px;
+    }
+
+    .link-menu-in-drop-down-menu {
+        display: flex;
+    }
+
+    /* .register-login-btn-container {
+        position: absolute;
+        left: 40%;
+    } */
+
+    .dropdown-menu {
+        position: absolute;
+        top: 55px;
+        left: 0%;
+    }
+
+
+
+    .resposive-register-login-btn {
+        /* position: absolute; */
+        /* top: -30%; */
+        left: 138%;
+    }
+
+    .register-login-btn {
+        /* position: relative; */
+        /* left: 100%; */
+        /* margin-right: 10px; */
+    }
+
+    .search-bar-container {
+        width: 16%;
+        margin: 0;
+        margin-left: 0px;
+        padding: 0;
+        margin-left: 2%;
+    }
+
+
+}
 
 
 @media screen and (max-width: 680px) {
@@ -189,14 +256,18 @@
         background-color: red;
     }
 
+
     .search-resposive-button {
-        right: 12%;
+        right: 13%;
     }
 
 
     .main-auth-form-container {
         display: block;
         grid-template-columns: none;
+        position: absolute;
+        top: 100px;
+        left: 20% !important;
     }
 
     .left-side-auth-form {
@@ -232,12 +303,12 @@
 
     .site-logo {
         position: absolute;
-        left: 15%
+        left: 21%
     }
 
     .submit-btn-container {
         position: relative;
-        right: 20%;
+        right: 25%;
 
     }
 
@@ -246,14 +317,14 @@
     .register-login-btn-container {
         position: relative;
         top: 0;
-        right: -62%;
+        right: -57%;
         margin-right: 10px;
     }
 
 
     .in-visble-bar {
         position: relative;
-        left: 35%;
+        left: 40%;
         width: 18%;
     }
 
@@ -265,7 +336,7 @@
 
     .search-bar-container {
         position: relative;
-       
+
         top: 0%;
         left: 28%;
     }
@@ -334,6 +405,24 @@
 }
 
 
+@media screen and (max-width:460px) {
+    .site-logo {
+        position: absolute;
+        left: 11%
+    }
+
+    .login-fb-icon {
+        display: none;
+    }
+
+    .login-google-icon {
+        display: none;
+    }
+
+    .login-apple-icon {
+        display: none;
+    }
+}
 
 
 @media screen and (max-width:439px) {
@@ -418,17 +507,16 @@
 
 
 
-    .login-fb-icon {
-        display: none;
+
+}
+
+@media screen and (max-width:430px) {
+
+    .resposive-register-login-btn {
+        right: 39% !important;
+        top: 0;
     }
 
-    .login-google-icon {
-        display: none;
-    }
-
-    .login-apple-icon {
-        display: none;
-    }
 }
 
 

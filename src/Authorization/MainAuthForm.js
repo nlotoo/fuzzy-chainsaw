@@ -55,7 +55,7 @@ const MainAuthForm = () => {
                 <div className='main-auth-form-container slide-in-fwd-top'>
                     <span onClick={switchOffAuthMenu} className='exit-form'>X</span>
                     <div className='left-side-auth-form'>
-                        <p className='main-heading-auth-form'>Welcome to hotukdeals!</p>
+                        <p className='main-heading-auth-form'>Welcome to portal deals!</p>
 
                         <img className='auth-form-img-find-out' alt='site owl' src={owl}></img>
                         <h2 className='portal-deal-heading'>Portal Deals</h2>
