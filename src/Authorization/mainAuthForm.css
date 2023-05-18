@@ -28,6 +28,8 @@
         display: block;
         grid-template-columns: none;
         width: 50%;
+        height: fit-content;
+        padding-bottom: 30px;
     }
 
     .left-side-auth-form {

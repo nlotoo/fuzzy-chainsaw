@@ -199,18 +199,18 @@
 
     .second-collum-second-catergories {
         position: absolute;
-        top: 335px;
+        top: 335px !important;
         left: 270px;
     }
 
     .second-part-merchants {
         position: absolute;
-        top: 729px;
+        top: 729px !important;
         left: 280px;
     }
 
     .link-menu-in-drop-down-menu {
-        display: flex;
+        display: flex !important;
     }
 
     /* .register-login-btn-container {
@@ -285,7 +285,7 @@
     .dropdown-menu {
         position: absolute;
         top: 55px;
-        left: 0%;
+        left: 0% !important;
     }
 
 
@@ -324,8 +324,8 @@
 
     .in-visble-bar {
         position: relative;
-        left: 40%;
-        width: 18%;
+        left: 35%;
+        width: 22%;
     }
 
     .active-responsive-search-bar {
@@ -406,6 +406,7 @@
 
 
 @media screen and (max-width:460px) {
+ 
     .site-logo {
         position: absolute;
         left: 11%
@@ -421,6 +422,10 @@
 
     .login-apple-icon {
         display: none;
+    }
+
+    .dropdown-menu{
+        width: 100% !important;
     }
 }
 
