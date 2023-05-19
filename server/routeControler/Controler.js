@@ -8,9 +8,10 @@ const authService = require('../services/authServices.js')
 // function random() {  console.log('Registered'); }
 router.post('/sign-up', async (request, response) => {
     try {
-        console.log(request.body);
+        // console.log(request.body);
         let data = await authService.CreateUser(request.body)
-        response.status(200).json(data);
+        response.status(200).json({ message: 'User Created' });
+        // console.log(data)
     }
     catch (err) {
         response.status(401).json({ message: err });

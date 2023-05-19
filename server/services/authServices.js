@@ -8,47 +8,46 @@ const { SALT_ROUNDS, JWT_SECRET } = require('../config/config.js');
 
 async function CreateUser(data) {
 
+    // console.log(data)
+    let { email, password, } = data;
 
-
-    let { username, password, } = data
-
+    // console.log(email,password)
 
     let obj = {
-        username: username.toLowerCase().trim(),
+        email: email.toLowerCase().trim(),
         password: password.toLowerCase().trim(),
-
     }
 
-    let userNameExist = await User.findOne({ username: obj.username })
+    let emailExist = await User.findOne({ email: obj.email })
 
 
-
-
-    if (userNameExist)
-    {
-        throw "This username is  exist"
+    if (emailExist) {
+        throw "This email is  exist"
     }
-
-    userNameExist = ''
-    if (obj.username.length < 5)
-    {
+    
+    
+    emailExist = ''
+    if (obj.email.length < 5) {
         throw new Error('User name is to short!')
     }
-
-    if (obj.password.length < 6)
-    {
+    
+    if (obj.password.length < 6) {
         new Error('User password is to short!')
     }
-
-
+    
+    
     const hash = bcrypt.hashSync(password.trim(), SALT_ROUNDS);
-
+    
     obj.password = hash
-
+    
     let newUserData = new User(obj)
+    
+    console.log(newUserData)
+
 
     return newUserData.save()
 };
+
 async function loginUser(data) {
 
 
@@ -58,8 +57,7 @@ async function loginUser(data) {
     console.log(user);
 
 
-    if (user.length == 0)
-    {
+    if (user.length == 0) {
         // throw 'Incorect email or password';
         throw 'Incorect User';
     }
@@ -67,8 +65,7 @@ async function loginUser(data) {
     itTrue = bcrypt.compareSync(data.password, user[0].password)
 
 
-    if (!itTrue)
-    {
+    if (!itTrue) {
         throw 'Incorect email or password'
     }
 

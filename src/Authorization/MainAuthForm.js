@@ -32,17 +32,15 @@ const MainAuthForm = () => {
     }
 
     const FindOutMore = (e) => {
-
         setFindOutMore(!findOutMore)
-
-
-
     }
 
     const translateBetwenMenus = (e) => {
         setFindOutMore(!findOutMore);
         setSwitch(!switchCreateForm)
     }
+
+
 
 
 
@@ -64,10 +62,6 @@ const MainAuthForm = () => {
                             <p className='short-desc-left-side-find-out-one'>Join thousands of other savvy shoppers sharing their deals, vouchers and tips! </p>
                             <p className='short-desc-left-side-find-out-two'>Discover the unbeatable  deals from your favorite brands at Portal Deals</p>
                         </div>
-
-
-
-
                         <div>
                             <button onClick={FindOutMore} className='create-new-user-btn-alrd'>Already have an account?</button>
                         </div>

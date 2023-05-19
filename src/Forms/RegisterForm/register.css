@@ -8,3 +8,12 @@
   .heading-register{
     margin-left: 20px;
   }
+  .notice-msg{
+    background-color: #dc3546c0;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    width: 95%;
+    margin: auto;
+  }
