@@ -27,13 +27,20 @@
         left: 25%;
         display: block;
         grid-template-columns: none;
-        width: 50%;
+        width: 52%;
         height: fit-content;
         padding-bottom: 30px;
     }
 
     .left-side-auth-form {
         display: none;
+    }
+
+    .create-new-user-btn {
+        /* left: 18% !important; */
+        left: 11% !important;
+        width: 80%;
+
     }
 
 }
@@ -196,11 +203,12 @@
 
 .create-new-user-btn {
     position: relative;
-    left: 4%;
+    left: 6%;
+    bottom: -45%;
     margin-top: 10px;
     color: #474545;
 
-    padding: 10px 70px 10px 70px;
+    padding: 10px 60px 10px 60px;
 
     margin-bottom: 5px;
 

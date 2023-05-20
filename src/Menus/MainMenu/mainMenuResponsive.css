@@ -345,6 +345,11 @@
         width: 208%;
     }
 
+    .create-new-user-btn-alrd {  
+        width: 80%;
+        left: 11% !important;
+    }
+
 
 
     .scale-in-top {
@@ -406,7 +411,7 @@
 
 
 @media screen and (max-width:460px) {
- 
+
     .site-logo {
         position: absolute;
         left: 11%
@@ -424,8 +429,12 @@
         display: none;
     }
 
-    .dropdown-menu{
+    .dropdown-menu {
         width: 100% !important;
+    }
+
+    .main-auth-form-container {
+        width: 60%;
     }
 }
 

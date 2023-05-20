@@ -8,6 +8,7 @@ import Submit from './Components/Submit/Submit'
 
 import { useStateContext } from './context/StateContext';
 import useScreenSize from './Hooks/useScreenSize';
+import GraphQL from './Components/GraphQl/GraphQL';
 
 function App() {
   let { AuthMenuState } = useStateContext();
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<div> width: {screenSize.width}- - height: {screenSize.height}</div>} />
           <Route path='/submit' element={<Submit />}></Route>
+          <Route path='/test' element={<GraphQL />}></Route>
         </Routes>
       </BrowserRouter>
     </div >

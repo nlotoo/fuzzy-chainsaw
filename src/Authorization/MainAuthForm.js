@@ -20,16 +20,11 @@ const MainAuthForm = () => {
 
 
 
-    let { switchOffAuthMenu } = useStateContext();
+    let { switchOffAuthMenu, switchCreateForm, setSwitch, CreateAccForm, } = useStateContext();
 
 
-    let [switchCreateForm, setSwitch] = useState(false);
     let [findOutMore, setFindOutMore] = useState(false);
 
-    const CreateAccForm = (e) => {
-        setSwitch(!switchCreateForm)
-
-    }
 
     const FindOutMore = (e) => {
         setFindOutMore(!findOutMore)
@@ -131,15 +126,7 @@ const MainAuthForm = () => {
 
                         </div>
 
-                        <div>
-                            {
-                                switchCreateForm === true
-                                    ?
-                                    <button onClick={CreateAccForm} className='create-new-user-btn-alrd'>Already have an account?</button>
-                                    :
-                                    <button onClick={CreateAccForm} className='create-new-user-btn'>Create a new account</button>
-                            }
-                        </div>
+
                     </div>
                     <div className='right-side-auth-form'>
 
@@ -156,8 +143,15 @@ const MainAuthForm = () => {
                                     <Link className='login-social-links' to=''><img alt='social-media' src={facebookIcon} className="login-fb-icon" />Login with Facebook</Link>
                                     <Link className='login-social-links' to=''><img alt='social-media' src={googleIcon} className="login-google-icon" />Login with Google</Link>
                                     <Link className='login-social-links' to=''><img alt='social-media' src={appleIcon} className="login-apple-icon" />Login with Apple</Link>
-                                    <Login></Login>
+                                    <Login data={switchCreateForm} ></Login>
                                 </div>
+                        }
+                        {
+                            switchCreateForm === true
+                                ?
+                                <button onClick={CreateAccForm} className='create-new-user-btn-alrd'>Already have an account?</button>
+                                :
+                                <button onClick={CreateAccForm} className='create-new-user-btn'>Create a new account</button>
                         }
                     </div>
                 </div >

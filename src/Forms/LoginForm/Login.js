@@ -2,7 +2,11 @@ import React from 'react'
 import './login.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
+
 const Login = () => {
+  
+
+ 
     return (
         <div className='login-form-container'>
             <h2 className='heading-login'>Login</h2>
@@ -47,9 +51,9 @@ const Login = () => {
                     </Form>
                 )}
             </Formik>
+          
 
-
-        </div>
+        </div >
     )
 }
 

@@ -12,6 +12,12 @@ export const StateContext = ({ children }) => {
 
     };
 
+    let [switchCreateForm, setSwitch] = useState(false);
+
+    const CreateAccForm = (e) => {
+        setSwitch(!switchCreateForm)
+
+    }
 
 
 
@@ -22,7 +28,10 @@ export const StateContext = ({ children }) => {
                 setStateAuthMenu,
                 switchOffAuthMenu,
                 showMenu,
-                setShowMenu
+                setShowMenu,
+                switchCreateForm,
+                setSwitch,
+                CreateAccForm,
             }
         }>
             {children}

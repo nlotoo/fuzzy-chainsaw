@@ -8,7 +8,7 @@ const RegLogSubBtns = () => {
     let { AuthMenuState, setStateAuthMenu } = useStateContext();
 
     let screenSize = useScreenSize();
-    console.log(screenSize)
+    // console.log(screenSize)
     const [showMenu, setShowMenu] = useState(false);
 
     const authFormMenu = (e) => {

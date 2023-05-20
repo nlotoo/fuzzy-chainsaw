@@ -7,14 +7,6 @@ import { useState } from 'react';
 
 const Register = () => {
 
-    let [fetchJsonMsg, setfetchJsonMsg] = useState(false);
-
-
-
-
-
-
-
 
     return (
         <div className='register-form-container'>
@@ -31,14 +23,27 @@ const Register = () => {
                     ) {
                         errors.email = 'Invalid email address';
                     }
+                        // console.log(values)
+                        if(values.password !== values.rePassword){
+                            errors.rePassword = 'Password doesnt match'
+                            console.log(!/^(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[a-zA-Z]).{6,}$/.test(values.password))
+                        }
+                        else if(!/^(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[a-zA-Z]).{6,}$/.test(values.password)){
+                            errors.rePassword='To weak passsword password need to containes '
+                        }
+                    console.log(values)
+
                     return errors;
                 }}
                 onSubmit={(values, { setSubmitting }) => {
 
 
                     RegisterUser(values).then((data) => {
-                        setfetchJsonMsg(data.message)
-                        toast.success(data.message)
+                        if (data.message.includes('This')) {
+                            toast.error(data.message)
+                        } else {
+                            toast.success(data.message)
+                        }
                     })
                     setSubmitting(false);
 
@@ -58,11 +63,10 @@ const Register = () => {
 
                         <label className='login-label'>Repeat password</label>
                         <Field placeholder='Repeat password' className='input-field-login' type="password" name="rePassword" />
-                        <ErrorMessage className='error-msg-login' name="password" component="div" />
+                        <ErrorMessage className='error-msg-login' name="rePassword" component="div" />
 
 
-                        {/* {fetchJsonMsg} */}
-                        {fetchJsonMsg && <span className='error-msg-login'>  {fetchJsonMsg}</span>}
+                
                         <div className='checkbox-container'>
                             <Field className='chekbox-login-form' type="checkbox" id='0' value='in' name='keepLogIn' />
                             <p className='checkbox-login-text-register'>I agree to and have read Rules & Regulations and Privacy Policy</p>
@@ -75,7 +79,6 @@ const Register = () => {
                 )}
             </Formik>
             <Toaster />
-
 
         </div>
     )
