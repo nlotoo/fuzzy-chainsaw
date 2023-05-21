@@ -10,6 +10,9 @@ import { useStateContext } from './context/StateContext';
 import useScreenSize from './Hooks/useScreenSize';
 import GraphQL from './Components/GraphQl/GraphQL';
 
+
+
+
 function App() {
   let { AuthMenuState } = useStateContext();
 

@@ -5,14 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { StateContext } from './context/StateContext';
 
+import { ApolloProvider } from '@apollo/client';
+import client from '../src/client.js';
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-  <StateContext>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </StateContext>
+  <ApolloProvider client={client}>
+    <StateContext>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </StateContext>
+  </ApolloProvider>
 
 
 );
