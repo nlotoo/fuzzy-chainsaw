@@ -114,7 +114,7 @@ const MainMenu = () => {
 
             {showMenu && <DropMenu />}
 
-            {screenSize.width < 680 ? <button onClick={switchBarClicked} className='search-resposive-button'><i class="fa-solid fa-magnifying-glass"></i></button> : ''}
+            {screenSize.width < 680 ? <button onClick={switchBarClicked} className='search-resposive-button'><i className="fa-solid fa-magnifying-glass"></i></button> : ''}
 
             {/* {console.log(searchBarSwitch)} */}
 

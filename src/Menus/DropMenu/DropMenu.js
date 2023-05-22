@@ -8,10 +8,10 @@ const DropMenu = () => {
     return (
         <div className="dropdown-menu slide-in-top mobile-v-drop-down-menu">
             <div className='main-categories'>
-                <Link className='link-menu-in-drop-down-menu hover-class-link' to='/home'><i class="fa-solid fa-house discussions-icon"></i>All</Link>
-                <Link className='link-menu-in-drop-down-menu hover-class-link' to='/'><i class="fa-solid fa-tag discussions-icon"></i>Deals</Link>
-                <Link className='link-menu-in-drop-down-menu hover-class-link' to=''><i class="fa-solid fa-scissors discussions-icon"></i>Voucher Codes</Link>
-                <Link className='link-menu-in-drop-down-menu hover-class-link' to=''><i class="fa-solid fa-sterling-sign discussions-icon"></i>Freebies</Link>
+                <Link className='link-menu-in-drop-down-menu hover-class-link' to='/home'><i className="fa-solid fa-house discussions-icon"></i>All</Link>
+                <Link className='link-menu-in-drop-down-menu hover-class-link' to='/'><i className="fa-solid fa-tag discussions-icon"></i>Deals</Link>
+                <Link className='link-menu-in-drop-down-menu hover-class-link' to=''><i className="fa-solid fa-scissors discussions-icon"></i>Voucher Codes</Link>
+                <Link className='link-menu-in-drop-down-menu hover-class-link' to=''><i className="fa-solid fa-sterling-sign discussions-icon"></i>Freebies</Link>
                 <Link className='drop-down-menu-links hover-class-link' to=''><i className="fa-regular fa-comments discussions-icon"></i>Discussions</Link>
                 <Link className='drop-down-menu-links hover-class-link' to=''><i className="fa-solid fa-book-open-reader buyers-guides-icon"></i>Buyer`s guides</Link>
             </div>

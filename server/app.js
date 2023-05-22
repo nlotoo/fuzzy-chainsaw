@@ -12,9 +12,6 @@ expressConfig(app)
 app.use(router)
 
 
-
-
-
 app.listen(PORT, () => console.log(`Server listen on port http://localhost:${PORT}/`))
 
 //express.listen(PORT, () => console.log(`Server listen on port http://localhost:${PORT}/`))

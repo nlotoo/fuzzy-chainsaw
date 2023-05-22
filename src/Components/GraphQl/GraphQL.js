@@ -28,7 +28,6 @@ const GraphQL = () => {
             <div>
                 <p>NEW REQUEST</p>
 
-
             </div>
         </div>
     )
