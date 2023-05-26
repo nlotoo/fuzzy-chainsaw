@@ -4,6 +4,8 @@ import { useQuery, useLazyQuery } from '@apollo/client';
 
 const GraphQL = () => {
 
+
+
   const GET_BOOKS_QUERY = gql`
   query {
     books {
@@ -58,19 +60,23 @@ query Buyers {
   const { loading: buyersLoading, error: buyersError, data: buyersData } = useQuery(GET_BUYERS_QUERY);
 
 
-  let { magazineSearched, setMagazinSearched } = useState('')
   const [concreteMagazine, { data: concreteMagazineData, error: concreteMagazineError }] = useLazyQuery(GET_MAGAZINE_BY_NAME)
 
   // console.log(buyersData)
 
+  let { magazineSearched, setValue } = useState('')
 
-  const OnchangesettingData = (e) => {
-    console.log(e.target.value)
+  let { abv, setAbv } = useState('')
+
+
+  function OnchangesettingData(e) {
+    console.log(e.target.value);
+
+
+
+
     // console.log(e.traget.value)
-    setMagazinSearched(e.target.value)
   }
-
-
 
   return (
     <div style={{ display: 'flex' }}>
@@ -112,7 +118,6 @@ query Buyers {
                 <li>gender: {buyer.gender}</li>
                 <li>buyer collection:
                   {buyer?.collection.map((x) => {
-                    { console.log(x) }
                     return <ul>
                       <li>id: {x.id}</li>
                       <li>title: {x.title}</li>
@@ -133,8 +138,8 @@ query Buyers {
       </div>
 
       <div>
-        {magazineSearched}
-        <input type='text' placeholder='add..' onChange={OnchangesettingData} />
+
+        <input type='text' placeholder='add...' onChange={OnchangesettingData} />
         <button onClick={
           () => concreteMagazine({ variables: { title: magazineSearched } })
         }>Fetch data</button>
