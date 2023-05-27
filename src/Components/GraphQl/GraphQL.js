@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { gql } from '@apollo/client';
+import { gql, useMutation } from '@apollo/client';
 import { useQuery, useLazyQuery } from '@apollo/client';
 
 const GraphQL = () => {
@@ -46,11 +46,14 @@ query Buyers {
 }`;
 
 
-  const GET_MAGAZINE_BY_NAME = gql`
+  const GET_MAGAZINE_BY_ID = gql`
 
-  query Magaz($title:String){
-    query magaz(title:$title){
-    title
+  query Magaz($id:ID){
+     magaz(id:$id){
+       id
+       title
+       author
+       country
     }
   }
 `;
@@ -60,23 +63,39 @@ query Buyers {
   const { loading: buyersLoading, error: buyersError, data: buyersData } = useQuery(GET_BUYERS_QUERY);
 
 
-  const [concreteMagazine, { data: concreteMagazineData, error: concreteMagazineError }] = useLazyQuery(GET_MAGAZINE_BY_NAME)
+  const [concreteMagazine, { data: concreteMagazineData, error: concreteMagazineError }] = useLazyQuery(GET_MAGAZINE_BY_ID);
 
   // console.log(buyersData)
 
-  let { magazineSearched, setValue } = useState('')
 
-  let { abv, setAbv } = useState('')
-
+  const [inputValue, setInputValue] = React.useState("");
 
   function OnchangesettingData(e) {
-    console.log(e.target.value);
-
-
-
-
-    // console.log(e.traget.value)
+    setInputValue(e.target.value);
   }
+
+
+
+  // create book states and .. 
+
+
+  const [author, setAuthor] = useState()
+  const [title, setTitle] = useState()
+
+
+  const CREATE_NEW_BOOK = gql`
+  mutation createBook($input: CreateBookInput) {
+    createBook(input:$input){
+      author
+      title
+    }
+  }
+  `
+
+  const [createNewBook,] = useMutation(CREATE_NEW_BOOK)
+
+
+  // end create magazin states
 
   return (
     <div style={{ display: 'flex' }}>
@@ -139,12 +158,40 @@ query Buyers {
 
       <div>
 
-        <input type='text' placeholder='add...' onChange={OnchangesettingData} />
+        <input
+          type='text'
+          placeholder='add...'
+          onChange={OnchangesettingData}
+        />
         <button onClick={
-          () => concreteMagazine({ variables: { title: magazineSearched } })
+          () => concreteMagazine({ variables: { id: inputValue } })
         }>Fetch data</button>
+        <div>
+
+          <div>
+            {
+              concreteMagazineData?.magaz ? <div>
+                <ul>
+                  <li>id: {concreteMagazineData?.magaz.id}</li>
+                  <li>author: {concreteMagazineData?.magaz.author}</li>
+                  <li>title: {concreteMagazineData?.magaz.title}</li>
+                  <li>country: {concreteMagazineData?.magaz.country}</li>
+
+                </ul>
+              </div> : <div>
+                No data fetch
+              </div>
+            }
+          </div>
+        </div>
       </div>
 
+
+      <div style={{ marginLeft: '20px', }}>
+        <input onChange={setTitle} placeholder='title' type='text' name='title'></input>
+        <input onChange={setAuthor} placeholder='author' type='text' name='author'></input>
+        <button onClick={() => { createNewBook({ variables: { input: author, title } }) }}>Create book</button>
+      </div>
 
     </div >
   )
