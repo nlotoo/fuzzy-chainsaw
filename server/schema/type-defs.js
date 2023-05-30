@@ -3,6 +3,13 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
 
+
+type user {
+name:String 
+password:Int
+
+} 
+
 type Magazine{
 
     id:ID

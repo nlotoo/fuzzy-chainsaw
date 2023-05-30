@@ -89,10 +89,7 @@ const resolvers = {
                 if (book.title == args.title) {
                     return books.splice(index, index + 1)
                 }
-            })
-
-
-            // return result
+            });
 
         }
 

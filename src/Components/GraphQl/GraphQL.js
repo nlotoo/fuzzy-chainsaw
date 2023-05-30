@@ -6,6 +6,31 @@ const GraphQL = () => {
 
 
 
+
+  // get user account from mongo
+
+  const GET_ACCOUNT_MONGO = gql`
+  query {
+  account {
+    _id
+    account_id
+    limit
+    products
+  }
+}
+  `
+
+
+  const { loading: AcountsMongoLoading, error: AcountsMongoError, data: AcountsMongoData, } = useQuery(GET_ACCOUNT_MONGO);
+
+
+
+
+
+
+  //get all books query logic 
+
+
   const GET_BOOKS_QUERY = gql`
   query {
     books {
@@ -14,6 +39,11 @@ const GraphQL = () => {
     }
   }
 `;
+
+  //get all books query logic 
+  const { loading, error, data, refetch } = useQuery(GET_BOOKS_QUERY);
+
+
 
 
   const GET_MAGAZINES_QUERY = gql`
@@ -58,7 +88,6 @@ query Buyers {
   }
 `;
 
-  const { loading, error, data } = useQuery(GET_BOOKS_QUERY);
   const { loading: magazinesLoading, error: magazinesError, data: magazinesData } = useQuery(GET_MAGAZINES_QUERY);
   const { loading: buyersLoading, error: buyersError, data: buyersData } = useQuery(GET_BUYERS_QUERY);
 
@@ -79,6 +108,8 @@ query Buyers {
   // create book states and .. 
 
 
+  // trqbwa da proverq dali raboti
+
   const [author, setAuthor] = useState()
   const [title, setTitle] = useState()
 
@@ -92,7 +123,7 @@ query Buyers {
   }
   `
 
-  const [createNewBook,] = useMutation(CREATE_NEW_BOOK)
+  const [createBook] = useMutation(CREATE_NEW_BOOK)
 
 
   // end create magazin states
@@ -190,7 +221,24 @@ query Buyers {
       <div style={{ marginLeft: '20px', }}>
         <input onChange={setTitle} placeholder='title' type='text' name='title'></input>
         <input onChange={setAuthor} placeholder='author' type='text' name='author'></input>
-        <button onClick={() => { createNewBook({ variables: { input: author, title } }) }}>Create book</button>
+        <button onClick={() => {
+          createBook({ variables: { input: { author: author.target.value, title: title.target.value, } } })
+          refetch()
+
+        }}>Create book</button>
+      </div>
+
+
+      <div>
+        <p>graphql to mongo</p>
+        {AcountsMongoLoading && <div>LOADING....</div>}
+
+
+        {console.log(AcountsMongoError)}
+        
+        <div>
+          {console.log(AcountsMongoData)}
+        </div>
       </div>
 
     </div >

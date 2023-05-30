@@ -11,7 +11,8 @@ import GraphQL from './Components/GraphQl/GraphQL';
 import { useStateContext } from './context/StateContext';
 import useScreenSize from './Hooks/useScreenSize';
 
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client'
+
 
 
 
@@ -19,9 +20,38 @@ function App() {
   let { AuthMenuState } = useStateContext();
   let screenSize = useScreenSize();
 
+
+
+
+
+  // Email/Password Authentication
+  const email = 'nlotoo93';
+  const password = 'asdasd';
+
+
+
+
+
+  const httpLink = createHttpLink({
+    uri: 'https://realm.mongodb.com/api/client/v2.0/app/test-graphql-react-oyfpv/graphql', // Replace with your MongoDB Realm GraphQL API URL
+    // uri: 'https://eu-west-2.aws.data.mongodb.com/api/client/v2.0/app/data-sqpuv/graphql',
+    headers: {
+      email: `${email}`, // Replace with your email address
+      password: `${password}`, // Replace with your password
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin,': '*',
+    },
+  });
+
+
+
+
   const client = new ApolloClient({
+    link: httpLink,
     cache: new InMemoryCache(),
-    uri: 'http://localhost:4000/graphql',
+    // uri: 'http://localhost:4000/graphql',
+    // uri: 'https://eu-west-2.aws.realm.mongodb.com/api/client/v2.0/app/data-sqpuv/graphql'
+
   });
 
 
