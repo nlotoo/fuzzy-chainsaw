@@ -4,7 +4,7 @@ const { gql } = require('apollo-server');
 const typeDefs = gql`
 
 
-type user {
+type User {
 name:String 
 password:Int
 
@@ -45,6 +45,8 @@ type Customer{
 
 
 type Query {
+
+  user(id:ID): [User]
 
   books: [Book]
 

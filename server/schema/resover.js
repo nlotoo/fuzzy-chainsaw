@@ -4,12 +4,18 @@ const { magazines } = require("./fake-data");
 const _ = require("lodash")
 
 
-
+const USER = require('../schemes/USER.js')
 const resolvers = {
 
     Query: {
 
-        books: () => books,
+        // user: ()=> user,
+
+        async user(_, args) {
+
+            console.log(args)
+            return await USER.findById({id: args.id});
+        },
 
         magazines: () => magazines,
 

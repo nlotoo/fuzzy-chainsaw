@@ -20,6 +20,9 @@ const GraphQL = () => {
 }
   `
 
+  
+
+
 
   const { loading: AcountsMongoLoading, error: AcountsMongoError, data: AcountsMongoData, } = useQuery(GET_ACCOUNT_MONGO);
 
