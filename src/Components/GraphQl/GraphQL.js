@@ -6,6 +6,19 @@ const GraphQL = () => {
 
 
 
+  const GET_ACCOUNTA_MONGO = gql`
+  query user($id:ID){
+    user(id:$id) {
+      email,
+      password,
+    }
+  }
+  `
+
+
+  const { loading: accLoading, error: errorLoadingAcc, data: accData, } = useQuery(GET_ACCOUNTA_MONGO)
+
+
 
   // get user account from mongo
 
@@ -20,17 +33,7 @@ const GraphQL = () => {
 }
   `
 
-  
-
-
-
   const { loading: AcountsMongoLoading, error: AcountsMongoError, data: AcountsMongoData, } = useQuery(GET_ACCOUNT_MONGO);
-
-
-
-
-
-
   //get all books query logic 
 
 
@@ -45,8 +48,6 @@ const GraphQL = () => {
 
   //get all books query logic 
   const { loading, error, data, refetch } = useQuery(GET_BOOKS_QUERY);
-
-
 
 
   const GET_MAGAZINES_QUERY = gql`
@@ -237,13 +238,26 @@ query Buyers {
         {AcountsMongoLoading && <div>LOADING....</div>}
 
 
-        {console.log(AcountsMongoError)}
-        
+        {/* {console.log(AcountsMongoError)} */}
+
         <div>
-          {console.log(AcountsMongoData)}
+          {/* {console.log(AcountsMongoData)} */}
         </div>
       </div>
 
+
+      <div>
+        <p> New  request</p>
+        <p>
+          in {accLoading && <div>LOADING Eee....</div>}
+          {accData && <div>
+              <p>{accData.email}</p>
+
+          </div>}
+
+          {console.log(accData)}
+        </p>
+      </div>
     </div >
   )
 }

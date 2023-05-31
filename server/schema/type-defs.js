@@ -5,8 +5,9 @@ const typeDefs = gql`
 
 
 type User {
-name:String 
-password:Int
+
+email:String 
+password:String
 
 } 
 
@@ -46,7 +47,7 @@ type Customer{
 
 type Query {
 
-  user(id:ID): [User]
+  user(id:ID): User!
 
   books: [Book]
 

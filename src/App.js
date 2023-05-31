@@ -47,9 +47,9 @@ function App() {
 
 
   const client = new ApolloClient({
-    link: httpLink,
+    uri: 'http://localhost:5001/graphql',
+    // link: httpLink,
     cache: new InMemoryCache(),
-    // uri: 'http://localhost:4000/graphql',
     // uri: 'https://eu-west-2.aws.realm.mongodb.com/api/client/v2.0/app/data-sqpuv/graphql'
 
   });

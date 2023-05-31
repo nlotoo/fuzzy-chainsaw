@@ -14,7 +14,11 @@ const resolvers = {
         async user(_, args) {
 
             console.log(args)
-            return await USER.findById({id: args.id});
+            let result = await USER.findById(args.id)
+            console.log(result)
+            return result
+
+
         },
 
         magazines: () => magazines,
