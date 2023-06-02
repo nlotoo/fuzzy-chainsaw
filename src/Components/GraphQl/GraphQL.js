@@ -5,7 +5,7 @@ import { useQuery, useLazyQuery } from '@apollo/client';
 const GraphQL = () => {
 
 
-  let userID = '6467d9d01a908d95d149078d'
+  let userID = '6467da551a908d95d1490798'
 
 
   const GET_ACCOUNTA_MONGO = gql`
@@ -16,6 +16,8 @@ const GraphQL = () => {
     }
   }
   `
+
+
 
 
   const [hastag, { loading: accLoading, error: errorLoadingAcc, data: accData, }] = useLazyQuery(GET_ACCOUNTA_MONGO)
@@ -258,12 +260,18 @@ query Buyers {
 
         <p>
           in {accLoading && <div>LOADING Eee....</div>}
-          {console.log(accData?.user?.email)}
-    
+          {console.log(accData?.user)}
+
           {/* {console.log(accData)} */}
 
           <div>
+            <label>acc</label><br></br>
             {accData?.user?.email}
+          </div>
+          <div>
+            <label>pass</label><br></br>
+
+            {accData?.user?.password}
           </div>
         </p>
       </div>

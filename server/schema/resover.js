@@ -14,9 +14,8 @@ const resolvers = {
         async user(_, args) {
 
             console.log(args)
-            let result = await USER.findById(args.id)
-            console.log(result)
-            return result
+            return await USER.findById(args.id)
+
 
 
         },
