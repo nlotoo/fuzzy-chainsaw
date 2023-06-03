@@ -9,7 +9,7 @@ const resolvers = {
 
     Query: {
 
-        // user: ()=> user,
+        
 
         async user(_, args) {
 

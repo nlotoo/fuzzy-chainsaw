@@ -3,11 +3,15 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
 
+type UserLogin{
+  email:String
+  password:String,
+}
+
 
 type User {
-
-email:String 
-password:String
+    email:String 
+    password:String
 
 } 
 
@@ -47,6 +51,7 @@ type Customer{
 
 type Query {
 
+
   user(id:ID): User!
 
   books: [Book]
@@ -59,8 +64,7 @@ type Query {
 
   csearch(name:String):Customer
 
-
- 
+  UserLogin(email:String,password:String):User
 },
 
 input CreateBookInput {

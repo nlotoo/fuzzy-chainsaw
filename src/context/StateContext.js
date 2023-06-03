@@ -3,6 +3,9 @@ const Context = createContext();
 
 export const StateContext = ({ children }) => {
 
+
+    let [LoginDataUser, setLoginDataUser] = useState(false)
+
     let [AuthMenuState, setStateAuthMenu] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
 
@@ -32,6 +35,8 @@ export const StateContext = ({ children }) => {
                 switchCreateForm,
                 setSwitch,
                 CreateAccForm,
+                LoginDataUser,
+                setLoginDataUser,
             }
         }>
             {children}

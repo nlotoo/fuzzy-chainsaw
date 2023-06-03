@@ -1,12 +1,19 @@
 import React from 'react'
 import './login.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-
+import { useState } from 'react';
+import { useStateContext } from '../../context/StateContext';
 
 const Login = () => {
-  
 
- 
+
+
+    let { LoginDataUser, setLoginDataUser } = useStateContext();
+
+    let [value, setInputValue] = useState();
+
+    console.log(LoginDataUser);
+
     return (
         <div className='login-form-container'>
             <h2 className='heading-login'>Login</h2>
@@ -26,11 +33,12 @@ const Login = () => {
                 }}
                 onSubmit={(values, { setSubmitting }) => {
 
-                    console.log(values)
                     // setTimeout(() => {
                     //     alert(JSON.stringify(values, null, 2));
-                    //     setSubmitting(false);
                     // }, 400);
+                    setLoginDataUser(values)
+                    setSubmitting(false);
+
                 }}
             >
                 {({ isSubmitting }) => (
@@ -51,7 +59,7 @@ const Login = () => {
                     </Form>
                 )}
             </Formik>
-          
+
 
         </div >
     )

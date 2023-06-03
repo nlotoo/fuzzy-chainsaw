@@ -12,7 +12,7 @@ import vectorArrowDown from '../../public/siteIcons/vectorArrowDown.png';
 import useScreenSize from '../../Hooks/useScreenSize';
 import RegLogSubBtns from './MenuButtons/RegLogSubBtns';
 import DropMenu from '../DropMenu/DropMenu';
-import MainAuthForm from '../../Authorization/MainAuthForm';
+import MainAuthForm from '../../AuthorizationModal/MainAuthForm';
 
 
 const MainMenu = () => {
