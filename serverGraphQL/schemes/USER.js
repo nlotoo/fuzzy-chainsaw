@@ -4,17 +4,23 @@ const userSchema = new mongoose.Schema({
 
     email: {
         type: String,
-        requred: true,
+        required: true,
         // minLength: 4,
         // maxLength: 30,
     },
 
     password: {
         type: String,
-        requred: true,
+        required: true,
         // minLength: 4,
         // maxLength: 30,
     },
+
+    createdAt: {
+        type: Date,
+    }
+    // coments: [],
+
 
 })
 
