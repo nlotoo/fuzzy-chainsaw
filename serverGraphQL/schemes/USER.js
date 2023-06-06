@@ -18,9 +18,9 @@ const userSchema = new mongoose.Schema({
 
     createdAt: {
         type: String,
-    }
-    // coments: [],
+    },
 
+    Comment: []
 
 })
 

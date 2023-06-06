@@ -1,14 +1,13 @@
 const { ApolloServer } = require('apollo-server');
 const mongoose = require('mongoose');
 
-const { typeDefs } = require("./graphql/type-defs.js");
+
 const { resolvers } = require('./graphql/resover.js');
 
-
 const { DB_PORT, MONGODB } = require('./config.js');
+const { typeDefs } = require('./graphql/type-defs.js');
 
 mongoose.set('strictQuery', true);
-
 
 
 
