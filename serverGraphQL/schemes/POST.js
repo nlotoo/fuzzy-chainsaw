@@ -1,4 +1,4 @@
-const mongoose = required('mongoose');
+const mongoose = require("mongoose");
 
 
 
@@ -11,10 +11,10 @@ const postSchema = new mongoose.Schema({
         type: String
     },
     tumbsUP: {
-        type: String
+        type: Number
     },
     tumbsDown: {
-        type: String
+        type: Number
     },
 
 
