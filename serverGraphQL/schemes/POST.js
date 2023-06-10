@@ -10,12 +10,30 @@ const postSchema = new mongoose.Schema({
     description: {
         type: String
     },
+
+    createAt:{
+        type:String,
+    },
+    
     tumbsUP: {
         type: Number
     },
     tumbsDown: {
         type: Number
     },
+
+    comments: [
+        {
+            body: String,
+            username: String,
+            createAt: String
+        }
+    ],
+
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users'
+    }
 
 
 

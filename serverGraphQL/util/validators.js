@@ -51,5 +51,28 @@ module.exports.validatorLoginInput = (email, password) => {
 }
 
 
+module.exports.validatorPostInput = (data) => {
+
+    const errors = {};
+
+    if (data.owner.trim() === '') {
+        errors.owner = 'Owner is required'
+    }
+
+
+    if (data.description.trim() === '') {
+        errors.description = 'Description is required'
+    }
+
+    return {
+        errors,
+        valid: Object.keys(errors).length < 1
+    }
+
+
+
+}
+
+
 
 

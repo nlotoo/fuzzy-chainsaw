@@ -17,7 +17,11 @@ mongoose.set('strictQuery', true);
 
 // TODO: middleware
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context: ({ req }) => ({ req })
+});
 
 
 mongoose.connect(MONGODB, { useNewUrlParser: true })
