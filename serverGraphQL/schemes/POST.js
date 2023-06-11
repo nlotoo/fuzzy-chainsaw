@@ -11,21 +11,23 @@ const postSchema = new mongoose.Schema({
         type: String
     },
 
-    createAt:{
-        type:String,
+    createAt: {
+        type: String,
     },
-    
-    tumbsUP: {
-        type: Number
-    },
-    tumbsDown: {
-        type: Number
-    },
+
+
+
+    likes: [{
+        owner: String,
+        ownerEmail: String,
+        createAt: String,
+    }],
 
     comments: [
         {
             body: String,
-            username: String,
+            owner: String,
+            ownerEmail: String,
             createAt: String
         }
     ],
