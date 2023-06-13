@@ -5,7 +5,30 @@ import { useQuery, useLazyQuery } from '@apollo/client';
 const GraphQL = () => {
 
 
+
   let userID = '6467da551a908d95d1490798'
+
+
+  const FETCH_POST = gql`
+
+        query GetPosts {
+          getPosts {
+            id
+            owner
+            description
+            user
+            createAt
+         
+          }
+        }
+  `
+
+  const { loading: getLoadingPost, data: getDataPost } = useQuery(FETCH_POST)
+
+  console.log(getDataPost)
+
+
+
 
 
   const GET_ACCOUNTA_MONGO = gql`
@@ -139,6 +162,14 @@ query Buyers {
 
   return (
     <div style={{ display: 'flex' }}>
+      <div>
+        <h1>getPosts</h1>
+        <div>
+
+        </div>
+      </div>
+
+
 
       <div >
         <h3>Books</h3>

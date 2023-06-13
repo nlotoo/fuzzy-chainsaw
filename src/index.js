@@ -13,13 +13,13 @@ import client from '../src/client.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-  <ApolloProvider client={client}>
-    <StateContext>
-      <React.StrictMode>
+  <StateContext>
+    <React.StrictMode>
+      <ApolloProvider client={client}>
         <App />
-      </React.StrictMode>
-    </StateContext>
-  </ApolloProvider>
+      </ApolloProvider>
+    </React.StrictMode>
+  </StateContext>
 
 
 );
