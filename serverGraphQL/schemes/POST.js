@@ -25,6 +25,7 @@ const postSchema = new mongoose.Schema({
 
     comments: [
         {
+            
             body: String,
             owner: String,
             ownerEmail: String,

@@ -4,8 +4,32 @@ import './register.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { RegisterUser } from '../services';
 import { useState } from 'react';
+import { useMutation } from '@apollo/client'
+import { gql } from 'graphql-tag'
 
 const Register = () => {
+
+    const [userValues, setValues] = useState();
+
+    // console.log(userValues)
+
+    const [addUser, { loading, data, error }] = useMutation(REGISTER_USER)
+    // {
+    //     update(proxy, result) {
+    //         console.log(result)
+    //     },
+    //     variables: userValues
+    // }
+
+    console.log(data)
+
+
+    // const registerUser = () => {
+    //     console.log('inside func')
+    //     addUser(userValues);
+    // }
+
+
 
 
     return (
@@ -16,6 +40,8 @@ const Register = () => {
                 initialValues={{ email: '', password: '', rePassword: '' }}
                 validate={values => {
                     const errors = {};
+
+
                     if (!values.email) {
                         errors.email = 'Required';
                     } else if (
@@ -23,30 +49,33 @@ const Register = () => {
                     ) {
                         errors.email = 'Invalid email address';
                     }
-                        // console.log(values)
-                        if(values.password !== values.rePassword){
-                            errors.rePassword = 'Password doesnt match'
-                            console.log(!/^(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[a-zA-Z]).{6,}$/.test(values.password))
-                        }
-                        else if(!/^(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[a-zA-Z]).{6,}$/.test(values.password)){
-                            errors.rePassword='To weak passsword password need to containes '
-                        }
-                    console.log(values)
+                    // console.log(values)
+                    if (values.password !== values.rePassword) {
+                        errors.rePassword = 'Password doesnt match'
+                        // console.log(!/^(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[a-zA-Z]).{6,}$/.test(values.password))
+                    }
+                    // else if(!/^(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[a-zA-Z]).{6,}$/.test(values.password)){
+                    //     errors.rePassword='To weak passsword password need to containes '
+                    // }
+                    // console.log(values)  
 
                     return errors;
                 }}
                 onSubmit={(values, { setSubmitting }) => {
 
 
-                    RegisterUser(values).then((data) => {
-                        if (data.message.includes('This')) {
-                            toast.error(data.message)
-                        } else {
-                            toast.success(data.message)
-                        }
-                    })
+                    setValues(values)
+
                     setSubmitting(false);
 
+
+
+                    // Toaster for logged user
+                    // if (data.message.includes('This')) {
+                    //     toast.error(data.message)
+                    // } else {
+                    //     toast.success(data.message)
+                    // }
 
                 }}
             >
@@ -66,13 +95,13 @@ const Register = () => {
                         <ErrorMessage className='error-msg-login' name="rePassword" component="div" />
 
 
-                
+
                         <div className='checkbox-container'>
                             <Field className='chekbox-login-form' type="checkbox" id='0' value='in' name='keepLogIn' />
                             <p className='checkbox-login-text-register'>I agree to and have read Rules & Regulations and Privacy Policy</p>
                         </div>
-
-                        <button className='login-btn' type="submit" disabled={isSubmitting}>
+                        {/* onClick={() => concreteMagazine({ variables: { id: inputValue } })} */}
+                        <button onClick={() => addUser({ variables: { email: 'asd', password: '123' } })} className='login-btn' type="submit" disabled={isSubmitting}>
                             Register
                         </button>
                     </Form>
@@ -83,5 +112,19 @@ const Register = () => {
         </div>
     )
 }
+
+const REGISTER_USER = gql`
+
+mutation Register($input: CreateUserInput) {
+  register(input: $input) {
+    createAt
+    email
+    id
+    token
+    password
+  }
+}
+
+`
 
 export default Register
