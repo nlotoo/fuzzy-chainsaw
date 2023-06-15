@@ -1,32 +1,60 @@
 import toast, { Toaster } from 'react-hot-toast';
-import React from 'react'
+import React, { useEffect } from 'react'
 import './register.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { RegisterUser } from '../services';
 import { useState } from 'react';
-import { useMutation } from '@apollo/client'
+import { useLazyQuery, useMutation } from '@apollo/client'
 import { gql } from 'graphql-tag'
 
 const Register = () => {
 
     const [userValues, setValues] = useState();
 
-    // console.log(userValues)
 
-    const [addUser, { loading, data, error }] = useMutation(REGISTER_USER)
+    // console.log(userValues)
+    const REGISTER_USER = gql`
+
+    mutation Register($input: CreateUserInput) {
+      register(input: $input) {
+        createAt
+        email
+        id
+        token
+        password
+      }
+    }
+    
+    `
+
+
+    const [Register, { loading, data, error }] = useMutation(REGISTER_USER)
+
+    const handleRegister = (input) => {
+        console.log(input)
+
+        Register({ variables: { input } });
+    };
+
+    // ,
     // {
     //     update(proxy, result) {
     //         console.log(result)
     //     },
     //     variables: userValues
+    // })
+
+    // if (flag) {
+    //     console.log('flaged')
     // }
+
 
     console.log(data)
 
 
     // const registerUser = () => {
     //     console.log('inside func')
-    //     addUser(userValues);
+    //     register(userValues);
     // }
 
 
@@ -61,13 +89,15 @@ const Register = () => {
 
                     return errors;
                 }}
-                onSubmit={(values, { setSubmitting }) => {
+                onSubmit={(values, { setSubmitting },) => {
 
 
-                    setValues(values)
+                    // setValues(values)
 
                     setSubmitting(false);
-
+                    // register();
+                    // console.log(userValues)
+                    handleRegister(values);
 
 
                     // Toaster for logged user
@@ -78,6 +108,7 @@ const Register = () => {
                     // }
 
                 }}
+
             >
                 {({ isSubmitting }) => (
                     <Form className='login-form'>
@@ -101,7 +132,7 @@ const Register = () => {
                             <p className='checkbox-login-text-register'>I agree to and have read Rules & Regulations and Privacy Policy</p>
                         </div>
                         {/* onClick={() => concreteMagazine({ variables: { id: inputValue } })} */}
-                        <button onClick={() => addUser({ variables: { email: 'asd', password: '123' } })} className='login-btn' type="submit" disabled={isSubmitting}>
+                        <button className='login-btn' type="submit" disabled={isSubmitting}>
                             Register
                         </button>
                     </Form>
@@ -109,22 +140,10 @@ const Register = () => {
             </Formik>
             <Toaster />
 
-        </div>
+        </div >
     )
 }
 
-const REGISTER_USER = gql`
 
-mutation Register($input: CreateUserInput) {
-  register(input: $input) {
-    createAt
-    email
-    id
-    token
-    password
-  }
-}
-
-`
 
 export default Register
