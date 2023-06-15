@@ -24,7 +24,12 @@ function App() {
       <BrowserRouter>
         <MainMenu></MainMenu>
         <SecondMenu></SecondMenu>
-        <div>asdds</div>
+        <div>{() => {
+
+          //  to create user sesion for fron-end
+
+          console.log(localStorage.getItem('userToken'))
+        }}</div>
         <Routes>
           <Route path="/" element={<div> width: {screenSize.width}- - height: {screenSize.height}</div>} />
           <Route path='/submit' element={<Submit />}></Route>

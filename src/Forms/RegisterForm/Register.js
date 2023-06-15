@@ -1,18 +1,13 @@
 import toast, { Toaster } from 'react-hot-toast';
-import React, { useEffect } from 'react'
+import React from 'react'
 import './register.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { RegisterUser } from '../services';
-import { useState } from 'react';
-import { useLazyQuery, useMutation } from '@apollo/client'
+
+import { useMutation } from '@apollo/client'
 import { gql } from 'graphql-tag'
 
 const Register = () => {
 
-    const [userValues, setValues] = useState();
-
-
-    // console.log(userValues)
     const REGISTER_USER = gql`
 
     mutation Register($input: CreateUserInput) {
@@ -31,31 +26,22 @@ const Register = () => {
     const [Register, { loading, data, error }] = useMutation(REGISTER_USER)
 
     const handleRegister = (input) => {
-        console.log(input)
+        // console.log(input)
 
         Register({ variables: { input } });
     };
 
-    // ,
-    // {
-    //     update(proxy, result) {
-    //         console.log(result)
-    //     },
-    //     variables: userValues
-    // })
 
-    // if (flag) {
-    //     console.log('flaged')
-    // }
+    if (error) {
+        toast.error(error.message)
+    }
 
 
-    console.log(data)
+    if (data) {
+        toast.success('Account has created')
+        localStorage.setItem('userToken', `${data.register.token}`)
 
-
-    // const registerUser = () => {
-    //     console.log('inside func')
-    //     register(userValues);
-    // }
+    }
 
 
 
@@ -87,6 +73,8 @@ const Register = () => {
                     // }
                     // console.log(values)  
 
+
+
                     return errors;
                 }}
                 onSubmit={(values, { setSubmitting },) => {
@@ -100,7 +88,6 @@ const Register = () => {
                     handleRegister(values);
 
 
-                    // Toaster for logged user
                     // if (data.message.includes('This')) {
                     //     toast.error(data.message)
                     // } else {
