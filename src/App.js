@@ -10,11 +10,16 @@ import GraphQL from './Components/GraphQl/GraphQL';
 
 import { useStateContext } from './context/StateContext';
 import useScreenSize from './Hooks/useScreenSize';
+import { useEffect } from 'react';
 
 
 function App() {
-  let { AuthMenuState } = useStateContext();
+  let { AuthMenuState, userToken } = useStateContext();
   let screenSize = useScreenSize();
+
+
+  console.log(userToken)
+
 
   return (
 
@@ -24,12 +29,7 @@ function App() {
       <BrowserRouter>
         <MainMenu></MainMenu>
         <SecondMenu></SecondMenu>
-        <div>{() => {
-
-          //  to create user sesion for fron-end
-
-          console.log(localStorage.getItem('userToken'))
-        }}</div>
+        <div>userToken: {userToken}</div>
         <Routes>
           <Route path="/" element={<div> width: {screenSize.width}- - height: {screenSize.height}</div>} />
           <Route path='/submit' element={<Submit />}></Route>

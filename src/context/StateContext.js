@@ -8,6 +8,9 @@ export const StateContext = ({ children }) => {
     let [AuthMenuState, setStateAuthMenu] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
 
+    const [userToken, setUserToken] = useState(null);
+
+
 
     const switchOffAuthMenu = () => {
         setStateAuthMenu(!AuthMenuState);
@@ -34,6 +37,9 @@ export const StateContext = ({ children }) => {
                 switchCreateForm,
                 setSwitch,
                 CreateAccForm,
+
+                userToken,
+                setUserToken,
             }
         }>
             {children}

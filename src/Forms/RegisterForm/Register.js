@@ -4,9 +4,14 @@ import './register.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import { useMutation } from '@apollo/client'
-import { gql } from 'graphql-tag'
+import { gql } from 'graphql-tag';
+
+import { useStateContext } from '../../context/StateContext';
+
 
 const Register = () => {
+
+    let { setUserToken,switchOffAuthMenu } = useStateContext();
 
     const REGISTER_USER = gql`
 
@@ -40,6 +45,9 @@ const Register = () => {
     if (data) {
         toast.success('Account has created')
         localStorage.setItem('userToken', `${data.register.token}`)
+        setUserToken(data.register.token)
+        switchOffAuthMenu();
+
 
     }
 
@@ -66,11 +74,11 @@ const Register = () => {
                     // console.log(values)
                     if (values.password !== values.rePassword) {
                         errors.rePassword = 'Password doesnt match'
-                        // console.log(!/^(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[a-zA-Z]).{6,}$/.test(values.password))
+                        console.log(!/^(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[a-zA-Z]).{6,}$/.test(values.password))
                     }
-                    // else if(!/^(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[a-zA-Z]).{6,}$/.test(values.password)){
-                    //     errors.rePassword='To weak passsword password need to containes '
-                    // }
+                    else if (!/^(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])(?=.*[a-zA-Z]).{6,}$/.test(values.password)) {
+                        errors.rePassword = 'To weak passsword password need to containes '
+                    }
                     // console.log(values)  
 
 

@@ -126,6 +126,7 @@ const MainMenu = () => {
 
             {AuthMenuState && <MainAuthForm />}
 
+            
             {<RegLogSubBtns />}
 
 

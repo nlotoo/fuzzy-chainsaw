@@ -3,6 +3,7 @@ import useScreenSize from '../../../Hooks/useScreenSize';
 import { Link } from 'react-router-dom';
 import { useStateContext } from '../../../context/StateContext';
 import { useState } from 'react';
+import UserMenu from '../../../Components/UserDropDownMenu/UserMenu';
 
 const RegLogSubBtns = () => {
     let { AuthMenuState, setStateAuthMenu } = useStateContext();
@@ -22,7 +23,8 @@ const RegLogSubBtns = () => {
 
     return (
         <>
-
+            < UserMenu/>
+            
             {screenSize.width < 1100
                 ?
                 <div className='register-login-btn-container'>

@@ -1,18 +1,58 @@
 import React from 'react'
 import './login.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+
+import { gql } from 'graphql-tag';
+import { useMutation } from '@apollo/client';
+
+
 import { useState } from 'react';
 import { useStateContext } from '../../context/StateContext';
+import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const Login = () => {
 
+    let { setUserToken, switchOffAuthMenu } = useStateContext()
+
+    let navigate = useNavigate();
+
+    const LOGIN_USER = gql`
+            mutation Login($email: String, $password: String) {
+              login(email: $email, password: $password) {
+                createAt
+                email
+                password
+                token
+               }
+            }
+            `
+
+    const [Login, { loading, data, error }] = useMutation(LOGIN_USER)
+
+    const handleLogin = (input) => {
+        console.log(input)
+
+        Login({ variables: input });
+    };
+
+    if (error) {
+        localStorage.setItem('userToken', null)
+        toast.error(error.message)
+    }
+
+    if (data) {
+        toast.success('User is loged')
+        setUserToken(data.login.token)
+        localStorage.setItem('userToken', data.login.token)
+        switchOffAuthMenu();
+
+    }
 
 
-    let { LoginDataUser, setLoginDataUser } = useStateContext();
 
-    let [value, setInputValue] = useState();
-
-    console.log(LoginDataUser);
 
     return (
         <div className='login-form-container'>
@@ -36,7 +76,7 @@ const Login = () => {
                     // setTimeout(() => {
                     //     alert(JSON.stringify(values, null, 2));
                     // }, 400);
-                    setLoginDataUser(values)
+                    handleLogin(values)
                     setSubmitting(false);
 
                 }}
@@ -59,6 +99,7 @@ const Login = () => {
                     </Form>
                 )}
             </Formik>
+            <Toaster />
 
 
         </div >
