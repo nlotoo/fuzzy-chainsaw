@@ -19,6 +19,13 @@ function App() {
 
 
   console.log(userToken)
+  useEffect(() => {
+
+    if (userToken == null) {
+      return console.log('userToken i clean')
+    }
+
+  }, [])
 
 
   return (

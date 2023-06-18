@@ -13,11 +13,12 @@ import useScreenSize from '../../Hooks/useScreenSize';
 import RegLogSubBtns from './MenuButtons/RegLogSubBtns';
 import DropMenu from '../DropMenu/DropMenu';
 import MainAuthForm from '../../AuthorizationModal/MainAuthForm';
+import UserMenu from '../UserDropDownMenu/UserMenu';
 
 
 const MainMenu = () => {
 
-    let { AuthMenuState, switchOffAuthMenu, showMenu, setShowMenu } = useStateContext();
+    let { AuthMenuState, switchOffAuthMenu, showMenu, setShowMenu, userToken } = useStateContext();
 
     let screenSize = useScreenSize();
 
@@ -74,7 +75,7 @@ const MainMenu = () => {
 
                     {screenSize.width > 440 &&
                         <span>
-                            <img alt='owl-logo' className='portal-logo mobile-owl' src={owl}></img>
+                            <img alt='owl-logo' className='fa-bounce portal-logo mobile-owl' src={owl}></img>
                         </span>
 
                     }
@@ -126,8 +127,15 @@ const MainMenu = () => {
 
             {AuthMenuState && <MainAuthForm />}
 
-            
-            {<RegLogSubBtns />}
+
+            {
+                userToken !== null
+                    ?
+                    <UserMenu></UserMenu>
+                    :
+                    <RegLogSubBtns />
+
+            }
 
 
 

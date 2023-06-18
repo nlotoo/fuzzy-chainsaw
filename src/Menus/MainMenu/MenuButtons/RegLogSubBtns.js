@@ -3,10 +3,11 @@ import useScreenSize from '../../../Hooks/useScreenSize';
 import { Link } from 'react-router-dom';
 import { useStateContext } from '../../../context/StateContext';
 import { useState } from 'react';
-import UserMenu from '../../../Components/UserDropDownMenu/UserMenu';
+import UserMenu from '../../UserDropDownMenu/UserMenu';
+
 
 const RegLogSubBtns = () => {
-    let { AuthMenuState, setStateAuthMenu } = useStateContext();
+    let { AuthMenuState, setStateAuthMenu, userToken } = useStateContext();
 
     let screenSize = useScreenSize();
     // console.log(screenSize)
@@ -23,8 +24,12 @@ const RegLogSubBtns = () => {
 
     return (
         <>
-            < UserMenu/>
-            
+
+    
+
+
+
+
             {screenSize.width < 1100
                 ?
                 <div className='register-login-btn-container'>
@@ -35,8 +40,11 @@ const RegLogSubBtns = () => {
 
                     <button onClick={authFormMenu} className='register-login-btn'><i className="fa-regular fa-user  right-to-bracket"></i>Register/Log in</button>
                 </div>
+
             }
 
+
+            {/*  trqbwa da go dignba v  sobstwen element */}
             <div className='submit-btn-container'>
                 {
                     screenSize.width < 1100
