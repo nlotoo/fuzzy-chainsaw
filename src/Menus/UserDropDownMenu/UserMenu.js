@@ -9,7 +9,7 @@ const UserMenu = () => {
     let navigate = useNavigate();
 
     let logout = () => {
-        localStorage.setItem('userToken', null)
+        localStorage.clear();
         navigate('/')
         window.location.reload(false);
 
@@ -24,14 +24,14 @@ const UserMenu = () => {
     return (
 
         <div className='main-container-usermenu' >
-            <i onClick={OpenClose} class="fa-solid fa-circle-chevron-down user-menu-icon-style" ></i>
+            <i onClick={OpenClose} className="fa-solid fa-circle-chevron-down user-menu-icon-style" ></i>
 
             {openMenu &&
                 <div className='sub-menu-user-menu scale-in-top '>
                     <div className='sub-user-menu-div'>userEmail</div>
                     <div className='sub-user-menu-div'>userDetails</div>
                     <div className='sub-user-menu-div'>userName</div>
-                    <div className='sub-user-menu-div'>createRecord</div>
+                    <div className='sub-user-menu-div'>createRecord </div>
                 </div>
             }
 

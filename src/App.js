@@ -11,21 +11,13 @@ import GraphQL from './Components/GraphQl/GraphQL';
 import { useStateContext } from './context/StateContext';
 import useScreenSize from './Hooks/useScreenSize';
 import { useEffect } from 'react';
+import useUserToken from './Hooks/useUserToken';
 
 
 function App() {
-  let { AuthMenuState, userToken } = useStateContext();
+  let { AuthMenuState } = useStateContext();
   let screenSize = useScreenSize();
-
-
-  console.log(userToken)
-  useEffect(() => {
-
-    if (userToken == null) {
-      return console.log('userToken i clean')
-    }
-
-  }, [])
+  let userToken = useUserToken();
 
 
   return (

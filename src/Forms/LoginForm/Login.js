@@ -44,9 +44,11 @@ const Login = () => {
     }
 
     if (data) {
-        toast.success('User is loged')
-        setUserToken(data.login.token)
-        localStorage.setItem('userToken', data.login.token)
+        toast.success('User is loged');
+        setUserToken(data.login.token);
+        localStorage.setItem('userToken', data.login.token);
+        window.location.reload(false);
+        
         switchOffAuthMenu();
 
     }
@@ -83,7 +85,7 @@ const Login = () => {
             >
                 {({ isSubmitting }) => (
                     <Form className='login-form'>
-                        <label for='email' className='login-label'>Username or Email</label>
+                        <label htmlFor='email' className='login-label'>Username or Email</label>
                         <Field placeholder='Jon_Dawn' className='input-field-login' type="email" name="email" />
                         <ErrorMessage className='error-msg-login' name="email" component="div" />
                         <label className='login-label'>Password <span className='span-forgot'>Forgot?</span></label>

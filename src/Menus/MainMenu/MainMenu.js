@@ -14,13 +14,18 @@ import RegLogSubBtns from './MenuButtons/RegLogSubBtns';
 import DropMenu from '../DropMenu/DropMenu';
 import MainAuthForm from '../../AuthorizationModal/MainAuthForm';
 import UserMenu from '../UserDropDownMenu/UserMenu';
+import useUserToken from '../../Hooks/useUserToken';
 
 
 const MainMenu = () => {
 
-    let { AuthMenuState, switchOffAuthMenu, showMenu, setShowMenu, userToken } = useStateContext();
+
+
+    let { AuthMenuState, switchOffAuthMenu, showMenu, setShowMenu } = useStateContext();
 
     let screenSize = useScreenSize();
+    let userToken = useUserToken();
+    console.log(userToken)
 
 
     let [searchBarSwitch, setSwitchBar] = useState(false);
@@ -57,6 +62,7 @@ const MainMenu = () => {
         }
         setTarget(!onTarget)
     }
+
 
     return (
         <div className='main-menu-container'>
@@ -129,7 +135,7 @@ const MainMenu = () => {
 
 
             {
-                userToken !== null
+                userToken !== null 
                     ?
                     <UserMenu></UserMenu>
                     :
