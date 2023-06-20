@@ -44,14 +44,17 @@ const Login = () => {
     }
 
     if (data) {
+        console.log(data)
         toast.success('User is loged');
         setUserToken(data.login.token);
         localStorage.setItem('userToken', data.login.token);
+        localStorage.setItem('email', data.login.email);
         window.location.reload(false);
         
         switchOffAuthMenu();
-
+        
     }
+    
 
 
 

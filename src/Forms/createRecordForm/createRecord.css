@@ -1,0 +1,11 @@
+.create-record-container {
+    position: absolute;
+    top: 600%;
+    right: 350%;
+    color: black;
+    z-index: 1999;
+    border: 1px solid red;
+
+    width: 400px;
+    height: 400px;
+}

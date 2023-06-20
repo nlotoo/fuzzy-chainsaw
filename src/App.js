@@ -30,7 +30,7 @@ function App() {
         <SecondMenu></SecondMenu>
         <div>userToken: {userToken}</div>
         <Routes>
-          <Route path="/" element={<div> width: {screenSize.width}- - height: {screenSize.height}</div>} />
+          <Route path="/" element={<div> width: {screenSize.width} - - height: {screenSize.height}</div>} />
           <Route path='/submit' element={<Submit />}></Route>
           <Route path='/test' element={<GraphQL />}></Route>
         </Routes>

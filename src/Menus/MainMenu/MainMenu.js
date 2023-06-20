@@ -123,7 +123,7 @@ const MainMenu = () => {
 
             {screenSize.width < 680 ? <button onClick={switchBarClicked} className='search-resposive-button'><i className="fa-solid fa-magnifying-glass"></i></button> : ''}
 
-            {/* {console.log(searchBarSwitch)} */}
+    
 
 
             {/* <div className={`search-bar-container ${searchBarSwitch ? 'active-responsive-search-bar' : ''}`}> */}

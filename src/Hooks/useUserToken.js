@@ -17,7 +17,7 @@ const useUserToken = () => {
     };
   }, []);
 
-  console.log(userToken);
+//   console.log(userToken);
   return userToken;
 };
 

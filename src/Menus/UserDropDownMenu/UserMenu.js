@@ -3,6 +3,7 @@ import './userMenu.css'
 
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import CreateRecord from '../../Forms/createRecordForm/CreateRecord';
 const UserMenu = () => {
 
 
@@ -21,6 +22,20 @@ const UserMenu = () => {
         return setOpenMenu(!openMenu)
     }
 
+
+
+    let userEmail = localStorage.getItem('email');
+
+
+    let [openCloseRecord, setOpenCloseRecord] = useState(false);
+
+
+    let openCloseCreateRecord = () => {
+
+        return setOpenCloseRecord(!openCloseRecord)
+    }
+
+
     return (
 
         <div className='main-container-usermenu' >
@@ -28,12 +43,12 @@ const UserMenu = () => {
 
             {openMenu &&
                 <div className='sub-menu-user-menu scale-in-top '>
-                    <div className='sub-user-menu-div'>userEmail</div>
-                    <div className='sub-user-menu-div'>userDetails</div>
-                    <div className='sub-user-menu-div'>userName</div>
-                    <div className='sub-user-menu-div'>createRecord </div>
+                    <div className='sub-user-menu-div'>{userEmail}</div>
+                    <div onClick={openCloseCreateRecord} className='sub-user-menu-div'>createRecord</div>
                 </div>
             }
+
+            {openCloseRecord && <CreateRecord />}
 
             <div className='logout-btn ' onClick={logout}>Logout</div>
         </div >
