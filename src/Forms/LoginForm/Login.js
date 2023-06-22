@@ -30,7 +30,7 @@ const Login = () => {
             }
             `
 
-    const [Login, { loading, data, error }] = useMutation(LOGIN_USER)
+    const [Login, { loading, data, error }] = useMutation(LOGIN_USER);
 
     const handleLogin = (input) => {
         console.log(input)
@@ -44,7 +44,7 @@ const Login = () => {
     }
 
     if (data) {
-        console.log(data)
+        console.log(data);
         toast.success('User is loged');
         setUserToken(data.login.token);
         localStorage.setItem('userToken', data.login.token);
@@ -83,6 +83,7 @@ const Login = () => {
                     // }, 400);
                     handleLogin(values)
                     setSubmitting(false);
+                    console.log(values)
 
                 }}
             >
@@ -112,3 +113,5 @@ const Login = () => {
 }
 
 export default Login
+
+ 
