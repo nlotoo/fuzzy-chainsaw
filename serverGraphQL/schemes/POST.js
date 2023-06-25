@@ -1,6 +1,15 @@
 const mongoose = require("mongoose");
 
-
+const imageSchema = new mongoose.Schema({
+    filename: {
+        type: String,
+        required: true,
+    },
+    mimetype: {
+        type: String,
+        required: true,
+    },
+});
 
 const postSchema = new mongoose.Schema({
 
@@ -25,7 +34,7 @@ const postSchema = new mongoose.Schema({
 
     comments: [
         {
-            
+
             body: String,
             owner: String,
             ownerEmail: String,
@@ -36,9 +45,9 @@ const postSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
-    }
+    },
 
-
+    images: [imageSchema],
 
 
 

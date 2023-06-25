@@ -6,22 +6,20 @@ import { gql } from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
+
+
 const CreateRecord = () => {
 
     let userEmail = localStorage.getItem('email');
     let userToken = localStorage.getItem('userToken')
 
     const CREATE_POST = gql`
-    mutation createPost($body: String) {
-        createPost(body: $body) {
+    mutation createPost($body: String, $dataImages: [inputImages]) {
+        createPost(body: $body,dataImages: $dataImages) {
             id
             createAt
             description
             owner
-            user
-              likes {
-                 id
-             }
         }
     }
     `
@@ -37,12 +35,28 @@ const CreateRecord = () => {
 
 
 
-
     const handCreatePost = (input) => {
 
-        // console.log(input)
+        console.log(input.file)
 
-        createPost({ variables: { body: input.desc } })
+        let file = input.file
+
+        let file2 = {
+            filename: `${input.file.name}`,
+            mimetype: `${input.file.type}`,
+            encoding: 'utf-8',
+        }
+        // formData.append('file', input.file);
+
+        // Reminder  все още не изпращам снимки към базата трябва първо да я настрая
+
+
+        createPost({
+            variables: {
+                body: input.desc,
+                dataImages: file2
+            }
+        })
     }
 
 
@@ -69,15 +83,25 @@ const CreateRecord = () => {
                     handCreatePost(values)
 
                     setSubmitting(false);
-                    console.log(values)
+                    // console.log(values)
 
                 }}
             >
-                {({ isSubmitting }) => (
+                {({ isSubmitting, setFieldValue }) => (
                     <Form className='create-record-container '>
                         <label htmlFor='desc' className='login-label'>create post</label>
                         <Field placeholder='text something...' type="text" name="desc" />
                         <ErrorMessage className='error-msg-login' name="desc" component="textarea" />
+
+                        <label htmlFor='file'>Upload File:</label>
+                        <input
+                            id='file'
+                            name='file'
+                            type='file'
+                            onChange={(event) => {
+                                setFieldValue('file', event.currentTarget.files[0]);
+                            }}
+                            multiple />
 
                         <button className='login-btn' type="submit" disabled={isSubmitting}>
                             create
