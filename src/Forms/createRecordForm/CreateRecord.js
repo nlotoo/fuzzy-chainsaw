@@ -35,28 +35,34 @@ const CreateRecord = () => {
 
 
 
-    const handCreatePost = (input) => {
+    const handCreatePost =  (input) => {
 
         console.log(input.file)
 
-        let file = input.file
+        let dataImages = input.file
+
+
+
+        // console.log(result)
 
         let file2 = {
             filename: `${input.file.name}`,
             mimetype: `${input.file.type}`,
             encoding: 'utf-8',
         }
-        // formData.append('file', input.file);
-
-        // Reminder  все още не изпращам снимки към базата трябва първо да я настрая
 
 
-        createPost({
+        // Reminder  все още не изпращам снимки към базата трябва първо да я настрая /sttream
+
+
+         createPost({
             variables: {
                 body: input.desc,
-                dataImages: file2
+                dataImages: dataImages
             }
         })
+
+      
     }
 
 
@@ -88,7 +94,7 @@ const CreateRecord = () => {
                 }}
             >
                 {({ isSubmitting, setFieldValue }) => (
-                    <Form className='create-record-container '>
+                    <Form encType="multipart/form-data" className='create-record-container '>
                         <label htmlFor='desc' className='login-label'>create post</label>
                         <Field placeholder='text something...' type="text" name="desc" />
                         <ErrorMessage className='error-msg-login' name="desc" component="textarea" />
