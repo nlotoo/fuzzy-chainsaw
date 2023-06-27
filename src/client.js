@@ -1,7 +1,10 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { createUploadLink } from 'apollo-upload-client'
 
 const client = new ApolloClient({
-    uri: 'http://localhost:5000/',
+    link: createUploadLink({
+        uri: 'http://localhost:5000/',
+    }),
     cache: new InMemoryCache(),
 });
 

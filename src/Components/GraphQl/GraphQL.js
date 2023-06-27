@@ -6,6 +6,35 @@ const GraphQL = () => {
 
 
 
+
+
+  const UPLOAD_FILE = gql`
+    mutation SingleUpload($file: MyFile) {
+        singleUpload(file: $file) {
+          lastModified
+    name
+    size
+    type
+    webkitRelativePath
+         }
+        }
+  `
+  const [uploadFile, { data: dataUpload, error: dataError }] = useMutation(UPLOAD_FILE);
+
+
+
+  const handleFileChange = e => {
+    const file = e.target.files[0]
+
+    console.log(e.target.files[0])
+
+    if (!file) return
+    let asd = uploadFile({ variables: file })
+
+  }
+
+
+
   let userID = '6467da551a908d95d1490798'
 
 
@@ -39,9 +68,6 @@ const GraphQL = () => {
     }
   }
   `
-
-
-
 
   const [hastag, { loading: accLoading, error: errorLoadingAcc, data: accData, }] = useLazyQuery(GET_ACCOUNTA_MONGO)
   // const [concreteMagazine, { data: concreteMagazineData, error: concreteMagazineError }] = useLazyQuery(GET_MAGAZINE_BY_ID);
@@ -160,8 +186,21 @@ query Buyers {
 
   // end create magazin states
 
+
+
+
   return (
+
+
+
     <div style={{ display: 'flex' }}>
+      <div>
+        <h1>Upload file</h1>
+        <input name='file' type='file' onChange={handleFileChange}></input>
+      </div>
+
+
+
       <div>
         <h1>getPosts</h1>
         <div>

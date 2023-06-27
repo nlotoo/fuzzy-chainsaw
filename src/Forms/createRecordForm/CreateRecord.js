@@ -14,7 +14,7 @@ const CreateRecord = () => {
     let userToken = localStorage.getItem('userToken')
 
     const CREATE_POST = gql`
-    mutation createPost($body: String, $dataImages: [inputImages]) {
+    mutation createPost($body: String, $dataImages: [Upload]) {
         createPost(body: $body,dataImages: $dataImages) {
             id
             createAt
