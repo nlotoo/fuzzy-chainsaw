@@ -9,7 +9,7 @@ const GraphQL = () => {
 
 
   const UPLOAD_FILE = gql`
-    mutation SingleUpload($file: MyFile) {
+    mutation SingleUpload($file: Upload) {
         singleUpload(file: $file) {
           lastModified
     name
@@ -21,15 +21,35 @@ const GraphQL = () => {
   `
   const [uploadFile, { data: dataUpload, error: dataError }] = useMutation(UPLOAD_FILE);
 
+  // const uploadFile = async (file) => {
+  //   const formData = new FormData();
+  //   formData.append('file', file);
+
+  //   console.log(formData.get('file'))
+
+  //   // const response = await client.mutate({
+  //   //   mutation: UPLOAD_FILE,
+  //   //   variables: { file: formData },
+  //   // });
+
+  //   // console.log(response);
+  // };
+
 
 
   const handleFileChange = e => {
-    const file = e.target.files[0]
 
     console.log(e.target.files[0])
+    let file = e.target.files[0]
 
-    if (!file) return
-    let asd = uploadFile({ variables: file })
+
+
+      //  uploadFile(formData)
+
+      // console.log(e.target.files[0])
+
+      // if (!file) return
+       uploadFile({ variables: file })
 
   }
 
@@ -196,7 +216,7 @@ query Buyers {
     <div style={{ display: 'flex' }}>
       <div>
         <h1>Upload file</h1>
-        <input name='file' type='file' onChange={handleFileChange}></input>
+        <input id='file-input' name='file' type='file' onChange={handleFileChange}></input>
       </div>
 
 
