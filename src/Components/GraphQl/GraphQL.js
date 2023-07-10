@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { gql, useMutation } from '@apollo/client';
-import { useQuery, useLazyQuery } from '@apollo/client';
+import { useQuery, useLazyQuery, Mutation } from '@apollo/client';
 
 const GraphQL = () => {
 
@@ -8,18 +8,18 @@ const GraphQL = () => {
 
 
 
-  const UPLOAD_FILE = gql`
-    mutation SingleUpload($file: Upload) {
-        singleUpload(file: $file) {
-          lastModified
-    name
-    size
-    type
-    webkitRelativePath
-         }
-        }
-  `
-  const [uploadFile, { data: dataUpload, error: dataError }] = useMutation(UPLOAD_FILE);
+  // const UPLOAD_FILE = gql`
+  //   mutation SingleUpload($file: Upload) {
+  //       singleUpload(file: $file) {
+  //         lastModified
+  //   name
+  //   size
+  //   type
+  //   webkitRelativePath
+  //        }
+  //       }
+  // `
+  // const [uploadFile, { data: dataUpload, error: dataError }] = useMutation(UPLOAD_FILE);
 
   // const uploadFile = async (file) => {
   //   const formData = new FormData();
@@ -44,12 +44,12 @@ const GraphQL = () => {
 
 
 
-      //  uploadFile(formData)
+    //  uploadFile(formData)
 
-      // console.log(e.target.files[0])
+    // console.log(e.target.files[0])
 
-      // if (!file) return
-       uploadFile({ variables: file })
+    // if (!file) return
+    // uploadFile({ variables: file })
 
   }
 
@@ -74,7 +74,7 @@ const GraphQL = () => {
 
   const { loading: getLoadingPost, data: getDataPost } = useQuery(FETCH_POST)
 
-  console.log(getDataPost)
+  // console.log(getDataPost)
 
 
 
@@ -206,18 +206,95 @@ query Buyers {
 
   // end create magazin states
 
+  //   const UPLOAD_FILE2 = gql`
+  //   mutation SingleUpload($file: Upload!) {
+  //     singleUpload(file: $file) {
+  //       filename
+  //       mimetype
+  //       encoding
+  //     }
+  //   }
+  // `;
 
+
+  //   const [singleUpload, { data: singleUploadData, loading: singleUploadLoad }] = useMutation(UPLOAD_FILE2);
+
+
+  const UPLOAD_FILE = gql`
+mutation SingleUpload($file: Upload!) {
+    singleUpload(file: $file) {
+          id
+          filename
+          mimetype
+          path
+          _id
+       }
+    }
+
+
+`;
+
+  const [singleUpload] = useMutation(UPLOAD_FILE);
+
+
+  function uploadFileHandler(e) {
+
+    let file = e.target.files[0];
+
+    // console.log(inputFile);
+
+    // let file = {
+    //   lastModified: inputFile.lastModified,
+    //   name: inputFile.name,
+    //   size: inputFile.size,
+    //   type: inputFile.type,
+    // }
+
+    console.log(file);
+
+
+
+    singleUpload({ variables: { file } })
+      .then((response) => {
+        console.log('Upload response:', response.data.singleUpload);
+      })
+      .catch((error) => {
+        console.error('Upload error:', error);
+      });
+  }
 
 
   return (
 
 
 
+
+
+
     <div style={{ display: 'flex' }}>
+
       <div>
+        <header className="App-header">
+
+          <h2>Save Local</h2>
+          {/* <form onSubmit={handleSubmit} encType="multipart/form-data"> */}
+          <input name="document" type="file" onChange={uploadFileHandler} />
+
+
+          {/* </form> */}
+
+          <h2>Stream to Server</h2>
+
+        </header>
+      </div>
+
+
+
+
+      {/* <div>
         <h1>Upload file</h1>
         <input id='file-input' name='file' type='file' onChange={handleFileChange}></input>
-      </div>
+      </div> */}
 
 
 

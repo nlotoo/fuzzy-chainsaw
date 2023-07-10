@@ -1,5 +1,13 @@
-const { ApolloServer } = require('apollo-server');
+const { ApolloServer, gql } = require('apollo-server-express');
+
 const mongoose = require('mongoose');
+const express = require('express');
+
+
+const { ApolloServerPluginLandingPageLocalDefault } = require('apollo-server-core');
+const { graphqlUploadExpress } = require('graphql-upload');
+const { GraphQLUpload } = require('graphql-upload');
+
 
 
 const { resolvers } = require('./graphql/resover.js');
@@ -18,27 +26,63 @@ const { createUploadLink } = require('apollo-upload-client')
 
 // TODO: middleware
 
-const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-    context: ({ req }) => ({ req }),
- 
-    link: createUploadLink()
+// const server = new ApolloServer({
+//     typeDefs,
+//     resolvers,
+//     context: ({ req }) => ({ req }),
 
-});
+//     link: createUploadLink(),
+//     headers: {
+//         "keep-alive": "true"
+//     }
+
+// });
 
 
 
 
-mongoose.connect(MONGODB, { useNewUrlParser: true })
+
+async function startServer() {
+    const server = new ApolloServer({
+        typeDefs,
+        resolvers,
+        // Using graphql-upload without CSRF prevention is very insecure.
+        csrfPrevention: true,
+        cache: 'bounded',
+        plugins: [ApolloServerPluginLandingPageLocalDefault({ embed: true })],
+    });
+
+   
+
+    await server.start();
+
+    const app = express();
+
+    mongoose.connect(MONGODB, { useNewUrlParser: true })
     .then(() => {
         console.log('MongoDB Connection succsessful');
-
-        return server.listen({ port: DB_PORT });
+        return app.listen({ port: DB_PORT });
     })
     .then((res) => {
-        console.log(`Server runing at  ${res.url}`)
+        console.log(`Server runing at ${DB_PORT}`)
     })
+
+    // This middleware should be added before calling `applyMiddleware`.
+    app.use(graphqlUploadExpress());
+
+    server.applyMiddleware({ app });
+
+    // await new Promise((r) => app.listen({ port: 5001 }, r));
+    // console.log(`🚀 Server ready at http://localhost:${DB_PORT}${server.graphqlPath}`);
+
+ 
+}
+
+startServer();
+
+
+
+
 
 
 
