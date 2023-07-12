@@ -202,27 +202,13 @@ query Buyers {
   `
 
   const [createBook] = useMutation(CREATE_NEW_BOOK)
+  // create a new book
 
-
-  // end create magazin states
-
-  //   const UPLOAD_FILE2 = gql`
-  //   mutation SingleUpload($file: Upload!) {
-  //     singleUpload(file: $file) {
-  //       filename
-  //       mimetype
-  //       encoding
-  //     }
-  //   }
-  // `;
-
-
-  //   const [singleUpload, { data: singleUploadData, loading: singleUploadLoad }] = useMutation(UPLOAD_FILE2);
 
 
   const UPLOAD_FILE = gql`
-mutation SingleUpload($file: Upload!) {
-    singleUpload(file: $file) {
+    mutation SingleUpload($file: Upload!) {
+      singleUpload(file: $file) {
           id
           filename
           mimetype
@@ -240,19 +226,6 @@ mutation SingleUpload($file: Upload!) {
   function uploadFileHandler(e) {
 
     let file = e.target.files[0];
-
-    // console.log(inputFile);
-
-    // let file = {
-    //   lastModified: inputFile.lastModified,
-    //   name: inputFile.name,
-    //   size: inputFile.size,
-    //   type: inputFile.type,
-    // }
-
-    console.log(file);
-
-
 
     singleUpload({ variables: { file } })
       .then((response) => {
@@ -279,8 +252,6 @@ mutation SingleUpload($file: Upload!) {
           <h2>Save Local</h2>
           {/* <form onSubmit={handleSubmit} encType="multipart/form-data"> */}
           <input name="document" type="file" onChange={uploadFileHandler} />
-
-
           {/* </form> */}
 
           <h2>Stream to Server</h2>
@@ -288,13 +259,6 @@ mutation SingleUpload($file: Upload!) {
         </header>
       </div>
 
-
-
-
-      {/* <div>
-        <h1>Upload file</h1>
-        <input id='file-input' name='file' type='file' onChange={handleFileChange}></input>
-      </div> */}
 
 
 

@@ -3,7 +3,7 @@ import './createRecord.css';
 
 
 import { gql } from 'graphql-tag';
-import { useMutation } from '@apollo/client';
+import { useMutation,useLazyQuery } from '@apollo/client';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 
@@ -24,6 +24,7 @@ const CreateRecord = () => {
     }
     `
 
+
     const [createPost, { loading, data, error }] = useMutation(CREATE_POST, {
         context: {
             headers: {
@@ -35,34 +36,21 @@ const CreateRecord = () => {
 
 
 
-    const handCreatePost =  (input) => {
+    const handCreatePost = (input) => {
 
-        console.log(input.file)
+        // console.log(input.file)
 
         let dataImages = input.file
 
 
-
-        // console.log(result)
-
-        let file2 = {
-            filename: `${input.file.name}`,
-            mimetype: `${input.file.type}`,
-            encoding: 'utf-8',
-        }
-
-
-        // Reminder  все още не изпращам снимки към базата трябва първо да я настрая /sttream
-
-
-         createPost({
+        createPost({
             variables: {
                 body: input.desc,
                 dataImages: dataImages
             }
         })
 
-      
+
     }
 
 
@@ -83,9 +71,6 @@ const CreateRecord = () => {
                 }}
                 onSubmit={(values, { setSubmitting }) => {
 
-                    // setTimeout(() => {
-                    //     alert(JSON.stringify(values, null, 2));
-                    // }, 400);
                     handCreatePost(values)
 
                     setSubmitting(false);

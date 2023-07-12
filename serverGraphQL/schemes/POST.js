@@ -1,24 +1,24 @@
 const mongoose = require("mongoose");
+const { FileModel } = require("./FILE");
+
 
 const imageSchema = new mongoose.Schema({
-    name: {
-        type: String
+    id: {
+        type: String,
+        required: true,
     },
-    lastModified: {
-        type: Number
+    filename: {
+        type: String,
+        required: true,
     },
-
-    size: {
-        type: Number
+    mimetype: {
+        type: String,
+        required: true,
     },
-    type:{
-        type:String
+    path: {
+        type: String,
+        required: true,
     },
-    webkitRelativePath: {
-        type: String
-    },
-
-
 });
 
 const postSchema = new mongoose.Schema({
