@@ -1,13 +1,20 @@
 .create-record-container {
     position: absolute;
     top: 600%;
-    right: 350%;
+    right: 250%;
     color: black;
     z-index: 1999;
-    border: 1px solid red;
+    border: 1px solid grey;
+    background-color: rgba(128, 128, 128, 0.483);
+    border-radius: 20px;
 
-    width: 400px;
-    height: 400px;
+    width: 700px;
+    height: fit-content;
+
+
+    text-align: center;
+    overflow: hidden;
+
 }
 
 .textarea-create-form {
@@ -20,6 +27,122 @@
 
 }
 
+.input-field-create-records {
+    text-align: center;
+    height: 20px;
+
+    border-radius: 20px;
+    margin-bottom: 10px;
+
+    border: none;
+    outline: none;
+}
+
+.input-field-create-records:focus {
+
+    border: 4px var(--magic-yellow) solid;
+
+    transition-duration: .2s;
+    transition-timing-function: ease-in;
+}
+
 .create-post-heading {
     text-align: center;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid-section {
+
+    /* border: 2px solid red; */
+    /* border: 1px solid grey; */
+    padding-bottom: 15px;
+
+}
+
+.left-section-border {
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+}
+
+.right-section-border {
+    border-left: 1px solid grey;
+    border-top: 1px solid grey;
+}
+
+
+.input-section-create-record {
+
+    margin: 5px;
+
+}
+
+
+
+.input-create-error-msg {
+    width: 160px;
+    border-radius: 5px;
+    color: white;
+    padding: 3px;
+    background-color: #E56774;
+    text-align: center;
+    margin: auto;
+}
+
+/* .add-image-button {
+    border: 2px solid var(--magic-yellow);
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide-image-button {
+    visibility: hidden;
+
+} */
+
+/* create record slide in  */
+.slide-in-top {
+    -webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+@-webkit-keyframes slide-in-top {
+    0% {
+        -webkit-transform: translateY(-1000px);
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-top {
+    0% {
+        -webkit-transform: translateY(-1000px);
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* create record slide in  */

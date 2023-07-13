@@ -38,6 +38,7 @@ const postSchema = new mongoose.Schema({
     },
     offertDetails: {
         title: String,
+        body:String,
         normalPrice: String,
         curentPrice: String,
         voucherCode: String,

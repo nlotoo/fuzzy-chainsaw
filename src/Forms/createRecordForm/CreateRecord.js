@@ -8,11 +8,16 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 
 
+
+
 const CreateRecord = () => {
 
     let userEmail = localStorage.getItem('email');
     let userToken = localStorage.getItem('userToken')
 
+
+
+    // desc is heading of post
     const CREATE_POST = gql`
     mutation createPost($desc: String, $link: String,$dataImages: [Upload], $offertDetails: OffertDetails) {
         createPost(desc: $desc, link:$link ,dataImages: $dataImages, offertDetails: $offertDetails) {
@@ -36,6 +41,7 @@ const CreateRecord = () => {
 
 
 
+
     const handCreatePost = (input) => {
 
         let dataImages = input.file
@@ -44,14 +50,14 @@ const CreateRecord = () => {
 
         createPost({
             variables: {
-                desc: input.desc,
+                desc: input.desc, //heading of post
                 link: input.link,
                 dataImages: dataImages,
                 offertDetails: {
-                    title: 'first title',
-                    normalPrice: '200',
-                    curentPrice: '2',
-                    voucherCode: 'none',
+                    title: input.title,
+                    normalPrice: input.price.toString(),
+                    curentPrice: input.newPrice.toString(),
+                    body: input.body,
                 }
             }
         })
@@ -67,20 +73,40 @@ const CreateRecord = () => {
 
 
             <Formik
-                initialValues={{ desc: '', link: '' }}
+                initialValues={{ desc: '', link: '', price: '', title: '', newPrice: '', body: '', file: null, }}
                 validate={values => {
                     const errors = {};
+                    console.log(values)
                     if (!values.desc) {
-                        errors.desc = 'Required';
+                        errors.desc = 'Deal heading required';
                     }
-                    else if (!values.link) {
-                        errors.link = 'Link is required'
+                    if (!values.link) {
+                        errors.link = 'Link is required';
                     }
+                    if (!values.title) {
+                        errors.title = 'Title is required';
+                    }
+
+                    if (!values.body) {
+                        errors.body = 'Description is required';
+                    }
+
+                    if (!values.price) {
+                        errors.price = 'Price is required';
+                    }
+                    if (!values.newPrice) {
+                        errors.newPrice = 'Price is required';
+                    }
+
+                    if (!values.file) {
+                        errors.file = 'File is required';
+                    }
+
                     return errors;
                 }}
                 onSubmit={(values, { setSubmitting }) => {
 
-                    // console.log(values)
+                    console.log(values);
 
                     handCreatePost(values)
 
@@ -89,40 +115,81 @@ const CreateRecord = () => {
 
                 }}
             >
+
+
                 {({ isSubmitting, setFieldValue }) => (
 
 
-                    <Form encType="multipart/form-data" className='create-record-container '>
+                    <Form className='create-record-container slide-in-top'>
                         <h1 className='create-post-heading'>Create Deal</h1>
+                        <div className='grid-container'>
 
-                        <label htmlFor='desc' className='login-label'>create post</label>
-                        <Field placeholder='text something...' type="text" name="desc" />
-                        <ErrorMessage className='error-msg-login' name="desc" component="div" />
+                            <div className='grid-section left-section-border'>
 
-                        <label htmlFor='file'>Upload File:</label>
-                        <input
-                            id='file'
-                            name='file'
-                            type='file'
-                            onChange={(event) => {
-                                setFieldValue('file', event.currentTarget.files[0]);
-                            }}
-                            multiple />
-
-                        <label>LINK</label>
-                        <Field type='text' name='link' placeholder='add link here..' ></Field>
-                        <ErrorMessage className='error-msg-login' name="link" component="div" />
+                                <h3>Details </h3>
+                                <label htmlFor='desc' className='login-label'>Heading of post</label>
+                                <div className='input-section-create-record'>
+                                    <Field className='input-field-create-records' placeholder='add heading here...' type="text" name="desc" />
+                                    <ErrorMessage className='input-create-error-msg' name="desc" component="div" />
+                                </div>
 
 
-                        <h3>Offer Details</h3>
-                        <label>Title</label>
-                        <Field type='text' name='title' placeholder='add title here..' ></Field>
-                        <ErrorMessage className='error-msg-login' name="link" component="div" />
+                                <label>Link</label>
+                                <div className='input-section-create-record' >
+                                    <Field className='input-field-create-records' type='text' name='link' placeholder='add link here...' ></Field>
+                                    <ErrorMessage className='input-create-error-msg' name="link" component="div" />
+                                </div>
 
+                                <label htmlFor='file'>Upload File:</label>
+                                <div className='input-section-create-record'>
+                                    <input
+                                        
+                                        id='file'
+                                        name='file'
+                                        type='file'
+                                        accept="image/x-png,image/gif,image/jpeg"
+                                        onChange={(event) => {
+                                            setFieldValue('file', event.currentTarget.files[0]);
+                                        }}
+                                    />
+                                    <ErrorMessage className='input-create-error-msg' name="file" component="div" />
 
-                        <button className='login-btn' type="submit" disabled={isSubmitting}>
-                            create
-                        </button>
+                                </div>
+
+                            </div>
+
+                            <div className='grid-section right-section-border'>
+                                <h3>Offert Details</h3>
+                                <label>Title</label>
+                                <div className='input-section-create-record'>
+                                    <Field className='input-field-create-records' type='text' name='title' placeholder='add title here...' ></Field>
+                                    <ErrorMessage className='input-create-error-msg' name="title" component="div" />
+                                </div>
+
+                                <label>Description body</label>
+                                <div className='input-section-create-record' >
+                                    <Field className='input-field-create-records' type='text' name='body' placeholder='add description here...' ></Field>
+                                    <ErrorMessage className='input-create-error-msg' name="body" component="div" />
+                                </div>
+
+                                <label>Price</label>
+                                <div className='input-section-create-record' >
+                                    <Field className='input-field-create-records' type='number' name='price' placeholder='add price here...' ></Field>
+                                    <ErrorMessage className='input-create-error-msg' name="price" component="div" />
+                                </div>
+                                <label>New price</label>
+                                <div className='input-section-create-record' >
+                                    <Field className='input-field-create-records' type='number' name='newPrice' placeholder='add new price here...' ></Field>
+                                    <ErrorMessage className='input-create-error-msg' name="newPrice" component="div" />
+                                </div>
+
+                                <button className='login-btn' type="submit" disabled={isSubmitting}>
+                                    create
+                                </button>
+                            </div>
+
+                        </div>
+
                     </Form>
                 )}
             </Formik>
