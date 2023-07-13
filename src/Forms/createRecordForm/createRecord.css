@@ -10,6 +10,16 @@
     height: 400px;
 }
 
-.textarea-create-form{
+.textarea-create-form {
     resize: none;
+}
+
+.main-container-create-post {
+
+    /* border: 2px solid blue; */
+
+}
+
+.create-post-heading {
+    text-align: center;
 }

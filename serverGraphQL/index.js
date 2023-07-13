@@ -47,6 +47,7 @@ async function startServer() {
         typeDefs,
         resolvers,
         // Using graphql-upload without CSRF prevention is very insecure.
+        context: ({ req }) => ({req}),
         csrfPrevention: true,
         cache: 'bounded',
         plugins: [ApolloServerPluginLandingPageLocalDefault({ embed: true })],

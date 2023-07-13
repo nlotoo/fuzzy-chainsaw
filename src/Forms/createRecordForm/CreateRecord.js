@@ -3,7 +3,7 @@ import './createRecord.css';
 
 
 import { gql } from 'graphql-tag';
-import { useMutation,useLazyQuery } from '@apollo/client';
+import { useMutation, useLazyQuery } from '@apollo/client';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 
@@ -14,8 +14,8 @@ const CreateRecord = () => {
     let userToken = localStorage.getItem('userToken')
 
     const CREATE_POST = gql`
-    mutation createPost($body: String, $dataImages: [Upload]) {
-        createPost(body: $body,dataImages: $dataImages) {
+    mutation createPost($desc: String, $link: String,$dataImages: [Upload], $offertDetails: OffertDetails) {
+        createPost(desc: $desc, link:$link ,dataImages: $dataImages, offertDetails: $offertDetails) {
             id
             createAt
             description
@@ -38,15 +38,21 @@ const CreateRecord = () => {
 
     const handCreatePost = (input) => {
 
-        // console.log(input.file)
-
         let dataImages = input.file
+        // console.log(input)
 
 
         createPost({
             variables: {
-                body: input.desc,
-                dataImages: dataImages
+                desc: input.desc,
+                link: input.link,
+                dataImages: dataImages,
+                offertDetails: {
+                    title: 'first title',
+                    normalPrice: '200',
+                    curentPrice: '2',
+                    voucherCode: 'none',
+                }
             }
         })
 
@@ -57,19 +63,24 @@ const CreateRecord = () => {
 
 
     return (
-        <div>
+        <div className='main-container-create-post'>
 
 
             <Formik
-                initialValues={{ desc: '' }}
+                initialValues={{ desc: '', link: '' }}
                 validate={values => {
                     const errors = {};
                     if (!values.desc) {
                         errors.desc = 'Required';
                     }
+                    else if (!values.link) {
+                        errors.link = 'Link is required'
+                    }
                     return errors;
                 }}
                 onSubmit={(values, { setSubmitting }) => {
+
+                    // console.log(values)
 
                     handCreatePost(values)
 
@@ -79,10 +90,14 @@ const CreateRecord = () => {
                 }}
             >
                 {({ isSubmitting, setFieldValue }) => (
+
+
                     <Form encType="multipart/form-data" className='create-record-container '>
+                        <h1 className='create-post-heading'>Create Deal</h1>
+
                         <label htmlFor='desc' className='login-label'>create post</label>
                         <Field placeholder='text something...' type="text" name="desc" />
-                        <ErrorMessage className='error-msg-login' name="desc" component="textarea" />
+                        <ErrorMessage className='error-msg-login' name="desc" component="div" />
 
                         <label htmlFor='file'>Upload File:</label>
                         <input
@@ -94,12 +109,24 @@ const CreateRecord = () => {
                             }}
                             multiple />
 
+                        <label>LINK</label>
+                        <Field type='text' name='link' placeholder='add link here..' ></Field>
+                        <ErrorMessage className='error-msg-login' name="link" component="div" />
+
+
+                        <h3>Offer Details</h3>
+                        <label>Title</label>
+                        <Field type='text' name='title' placeholder='add title here..' ></Field>
+                        <ErrorMessage className='error-msg-login' name="link" component="div" />
+
+
                         <button className='login-btn' type="submit" disabled={isSubmitting}>
                             create
                         </button>
                     </Form>
                 )}
             </Formik>
+
 
 
 

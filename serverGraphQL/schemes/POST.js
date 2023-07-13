@@ -26,6 +26,9 @@ const postSchema = new mongoose.Schema({
     owner: {
         type: String
     },
+    link: {
+        type: String
+    },
     description: {
         type: String
     },
@@ -33,9 +36,12 @@ const postSchema = new mongoose.Schema({
     createAt: {
         type: String,
     },
-
-
-
+    offertDetails: {
+        title: String,
+        normalPrice: String,
+        curentPrice: String,
+        voucherCode: String,
+    },
     likes: [{
         owner: String,
         ownerEmail: String,
@@ -58,9 +64,6 @@ const postSchema = new mongoose.Schema({
     },
 
     images: [imageSchema],
-
-
-
 
 })
 
