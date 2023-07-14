@@ -92,6 +92,21 @@
     margin: auto;
 }
 
+.hidden {
+    display: none;
+
+}
+
+.upload-file-button {
+    color: white;
+
+
+}
+
+.description-field {
+    height: 80px;
+    resize: none;
+}
 /* .add-image-button {
     border: 2px solid var(--magic-yellow);
     border-radius: 50%;

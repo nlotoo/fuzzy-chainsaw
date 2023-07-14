@@ -6,6 +6,7 @@ import { useState } from 'react';
 import CreateRecord from '../../Forms/createRecordForm/CreateRecord';
 const UserMenu = () => {
 
+    // da го преместя  в openCloseRecord контекста
 
     let navigate = useNavigate();
 
@@ -35,6 +36,9 @@ const UserMenu = () => {
         return setOpenCloseRecord(!openCloseRecord)
     }
 
+
+
+    
 
     return (
 
