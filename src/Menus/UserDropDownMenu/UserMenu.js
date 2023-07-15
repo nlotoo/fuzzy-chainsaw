@@ -4,9 +4,11 @@ import './userMenu.css'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import CreateRecord from '../../Forms/createRecordForm/CreateRecord';
+import { useStateContext } from '../../context/StateContext';
 const UserMenu = () => {
 
-    // da го преместя  в openCloseRecord контекста
+
+    let { openCloseRecord, openCloseCreateRecord } = useStateContext();
 
     let navigate = useNavigate();
 
@@ -20,7 +22,11 @@ const UserMenu = () => {
     let [openMenu, setOpenMenu] = useState()
 
     let OpenClose = () => {
-        return setOpenMenu(!openMenu)
+        setOpenMenu(!openMenu)
+        return setTimeout(() => {
+            console.log('in')
+            setOpenMenu(false)
+        }, 10000)
     }
 
 
@@ -28,17 +34,8 @@ const UserMenu = () => {
     let userEmail = localStorage.getItem('email');
 
 
-    let [openCloseRecord, setOpenCloseRecord] = useState(false);
 
 
-    let openCloseCreateRecord = () => {
-
-        return setOpenCloseRecord(!openCloseRecord)
-    }
-
-
-
-    
 
     return (
 

@@ -8,6 +8,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import toast, { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
+import { useStateContext } from '../../context/StateContext';
 
 // Да довърша createRecord form
 
@@ -17,7 +18,7 @@ const CreateRecord = () => {
     let userEmail = localStorage.getItem('email');
     let userToken = localStorage.getItem('userToken');
 
-
+    let { openCloseCreateRecord } = useStateContext()
 
     // desc is heading of post
     const CREATE_POST = gql`
@@ -45,19 +46,15 @@ const CreateRecord = () => {
         console.log(error);
 
         if (error) {
-            toast.error('Post is not created.')
+            toast.error(`Post is not created: ${error.message} `)
+
         }
         if (data) {
-            toast.success('Post created.')
+            toast.success('Post created')
         }
 
     };
 
-    const [peg, setSwitch] = useState(false);
-
-    const switchOFF = () => {
-        setSwitch(!peg)
-    }
 
 
 
@@ -100,7 +97,7 @@ const CreateRecord = () => {
                 <Toaster />
 
                 <Formik
-                    initialValues={{ desc: '', link: '', price: '', title: '', newPrice: '', body: '', file: null, }}
+                    initialValues={{ desc: '', link: '', price: '', title: '', newPrice: '', body: '', file: null, ofertTitle: '' }}
                     validate={values => {
                         const errors = {};
                         console.log(values);
@@ -126,7 +123,10 @@ const CreateRecord = () => {
                         }
 
                         if (!values.file) {
-                            errors.file = 'File is required';
+                            errors.file = 'Image is required';
+                        }
+                        if (!values.ofertTitle) {
+                            errors.ofertTitle = 'Ofert title  is required'
                         }
 
                         return errors;
@@ -148,7 +148,10 @@ const CreateRecord = () => {
 
 
                         <Form className='create-record-container slide-in-top'>
+                            <div className='heading-create-deal'>
                             <h1 className='create-post-heading'>Create Deal</h1>
+                            <span className='close-X-create-deal'>+</span>
+                            </div>
                             <div className='grid-container'>
 
                                 <div className='grid-section left-section-border'>
@@ -161,11 +164,7 @@ const CreateRecord = () => {
                                         <ErrorMessage className='input-create-error-msg' name="title" component="div" />
                                     </div>
 
-                                    <label htmlFor='desc' className='login-label'>Description  post</label>
-                                    <div className='input-section-create-record'>
-                                        <Field className='input-field-create-records description-field' placeholder='add heading here...' component="textarea" type="text" name="desc" />
-                                        <ErrorMessage className='input-create-error-msg' name="desc" component="div" />
-                                    </div>
+
 
 
                                     <label>Link</label>
@@ -174,32 +173,7 @@ const CreateRecord = () => {
                                         <ErrorMessage className='input-create-error-msg' name="link" component="div" />
                                     </div>
 
-
-
-                                </div>
-
-                                <div className='grid-section right-section-border'>
-                                    <h3>Offert Details</h3>
-
-
-                                    <label>Description body</label>
-                                    <div className='input-section-create-record' >
-                                        <Field className='input-field-create-records' type='text' name='body' placeholder='add description here...' ></Field>
-                                        <ErrorMessage className='input-create-error-msg' name="body" component="div" />
-                                    </div>
-
-                                    <label>Price</label>
-                                    <div className='input-section-create-record' >
-                                        <Field className='input-field-create-records' type='number' name='price' placeholder='add price here...' ></Field>
-                                        <ErrorMessage className='input-create-error-msg' name="price" component="div" />
-                                    </div>
-                                    <label>New price</label>
-                                    <div className='input-section-create-record' >
-                                        <Field className='input-field-create-records' type='number' name='newPrice' placeholder='add new price here...' ></Field>
-                                        <ErrorMessage className='input-create-error-msg' name="newPrice" component="div" />
-                                    </div>
-
-                                    <label className='upload-file-button' htmlFor='file'>Upload file click here:</label>
+                                    <label className='upload-file-button' htmlFor='file'>upload image click here:</label>
                                     <div className='input-section-create-record'>
                                         <input
                                             className='hidden'
@@ -215,8 +189,37 @@ const CreateRecord = () => {
 
                                     </div>
 
+                                </div>
+
+                                <div className='grid-section right-section-border'>
+                                    <h3>Offert Details</h3>
+                                    <label htmlFor='desc' className='login-label'>Heading  post</label>
+                                    <div className='input-section-create-record'>
+                                        <Field className='input-field-create-records ' placeholder='add heading here...' type="text" name="ofertTitle" />
+                                        <ErrorMessage className='input-create-error-msg' name="ofertTitle" component="div" />
+                                    </div>
+
+                                    <label>Description body</label>
+                                    <div className='input-section-create-record' >
+                                        <Field className='input-field-create-records description-field' type='text' name='body' component="textarea" placeholder='add description here...' ></Field>
+                                        <ErrorMessage className='input-create-error-msg' name="body" component="div" />
+                                    </div>
+
+                                    <label>Price</label>
+                                    <div className='input-section-create-record' >
+                                        <Field className='input-field-create-records' type='number' name='price' placeholder='add price here...' ></Field>
+                                        <ErrorMessage className='input-create-error-msg' name="price" component="div" />
+                                    </div>
+                                    <label>New price</label>
+                                    <div className='input-section-create-record' >
+                                        <Field className='input-field-create-records' type='number' name='newPrice' placeholder='add new price here...' ></Field>
+                                        <ErrorMessage className='input-create-error-msg' name="newPrice" component="div" />
+                                    </div>
+
+
+
                                     <button onClick={notify} className='login-btn' type="submit" disabled={isSubmitting}>
-                                        create
+                                        Create deal
                                     </button>
                                 </div>
 

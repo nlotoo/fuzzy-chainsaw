@@ -24,6 +24,16 @@ export const StateContext = ({ children }) => {
 
     }
 
+    let [openCloseRecord, setOpenCloseRecord] = useState(false);
+
+
+    let openCloseCreateRecord = () => {
+
+        
+
+        return setOpenCloseRecord(!openCloseRecord)
+    }
+
 
 
     return (
@@ -40,6 +50,10 @@ export const StateContext = ({ children }) => {
 
                 userToken,
                 setUserToken,
+
+                openCloseCreateRecord,
+                openCloseRecord,
+                setOpenCloseRecord,
             }
         }>
             {children}
