@@ -12,6 +12,7 @@ import { useStateContext } from './context/StateContext';
 import useScreenSize from './Hooks/useScreenSize';
 import { useEffect } from 'react';
 import useUserToken from './Hooks/useUserToken';
+import AllPost from './Components/AllPost/AllPost';
 
 
 function App() {
@@ -33,8 +34,9 @@ function App() {
           <Route path="/" element={<div> width: {screenSize.width} - - height: {screenSize.height}</div>} />
           <Route path='/submit' element={<Submit />}></Route>
           <Route path='/test' element={<GraphQL />}></Route>
-        </Routes>
-      </BrowserRouter>
+          <Route path='/all' element={<AllPost />}></Route>
+      </Routes>
+    </BrowserRouter>
     </div >
 
   );

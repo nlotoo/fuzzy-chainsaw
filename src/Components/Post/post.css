@@ -1,0 +1,7 @@
+.post-container {
+    border: 2px solid green;
+    display: grid;
+    height: 150px;
+
+    margin: 4px;
+}

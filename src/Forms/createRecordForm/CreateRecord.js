@@ -149,8 +149,8 @@ const CreateRecord = () => {
 
                         <Form className='create-record-container slide-in-top'>
                             <div className='heading-create-deal'>
-                            <h1 className='create-post-heading'>Create Deal</h1>
-                            <span className='close-X-create-deal'>+</span>
+                            <h1  className='create-post-heading'>Create Deal</h1>
+                            <span onClick={openCloseCreateRecord}className='close-X-create-deal'>X</span>
                             </div>
                             <div className='grid-container'>
 
