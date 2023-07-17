@@ -1,8 +1,29 @@
  .all-post-page-frame {
-     border: 2px solid red;
-     width: 98%;
+     /* border: 2px solid red; */
+     border-radius: 5px;
+
+     width: 98.2%;
      height: 100%;
 
-     margin: 14px;
-     /* display: grid; */
+     padding: 14px;
+     display: flex;
+
+     background-color: #E9EAED;
  }
+
+ .post-collum {
+
+     width: 85%;
+ }
+
+ .aside-section {
+     margin: 15px;
+     border: 1px solid purple;
+     width: 20%;
+ }
+
+
+ /* aside */
+.aside-heading{
+    text-align: center;
+}

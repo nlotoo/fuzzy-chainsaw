@@ -6,6 +6,8 @@
 .pnp.js
 .env
 GraphQl/
+/dumysuff
+dumysuff/
 # testing
 /coverage
 /server

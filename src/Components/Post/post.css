@@ -1,7 +1,87 @@
 .post-container {
-    border: 2px solid green;
-    display: grid;
-    height: 150px;
+    border: 1px solid black;
+    border-radius: 5px;
 
-    margin: 4px;
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas:
+        'grid-item1 grid-item3 grid-item3'
+        'grid-item1 grid-item2 grid-item2'
+        'grid-item1 grid-item4 grid-item4';
+
+    height: 200px;
+
+    margin: 15px;
+    margin-right: 10px;
+}
+
+
+
+.post-image {
+    /* margin: 15px; */
+    padding: 10px;
+    border-radius: 5%;
+    grid-area: grid-item1;
+    height: 90%;
+}
+
+.post-details-row-one {
+    grid-area: grid-item3;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+
+}
+
+.post-details-row-two {
+    grid-area: grid-item2;
+
+}
+
+.post-details-row-three {
+    grid-area: grid-item4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+
+.grey {
+    color: rgb(157, 157, 157);
+}
+
+.price-post {
+    color: #FF9300;
+    font-size: 25px;
+
+}
+
+.get-deal-btn {
+    padding: 10px;
+    margin-right: 30px;
+    background-color: #FF9300;
+    border-radius: 12px;
+}
+
+.get-deal-btn:hover {
+    cursor: pointer;
+}
+
+.get-deal-btn:active {}
+
+.post-comment-btn {
+    font-size: 14px;
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 5px;
+
+}
+
+.post-comment-btn:hover {
+    cursor: pointer;
 }

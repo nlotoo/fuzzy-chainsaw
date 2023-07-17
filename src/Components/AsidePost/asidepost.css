@@ -1,0 +1,15 @@
+.aside-post-container {
+    border: 1px solid rgb(157, 157, 157);
+    padding: 4px;
+    margin: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.aside-post-img {
+    margin: 9px;
+    width: 100px;
+    height: 100px;
+}

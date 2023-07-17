@@ -13,6 +13,7 @@ import useScreenSize from './Hooks/useScreenSize';
 import { useEffect } from 'react';
 import useUserToken from './Hooks/useUserToken';
 import AllPost from './Components/AllPost/AllPost';
+import Footer from './Components/Footer/Footer';
 
 
 function App() {
@@ -29,14 +30,15 @@ function App() {
       <BrowserRouter>
         <MainMenu></MainMenu>
         <SecondMenu></SecondMenu>
-        <div>userToken: {userToken}</div>
+        {/* <div>userToken: {userToken}</div> */}
         <Routes>
           <Route path="/" element={<div> width: {screenSize.width} - - height: {screenSize.height}</div>} />
           <Route path='/submit' element={<Submit />}></Route>
           <Route path='/test' element={<GraphQL />}></Route>
           <Route path='/all' element={<AllPost />}></Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+        <Footer></Footer>
+      </BrowserRouter>
     </div >
 
   );
