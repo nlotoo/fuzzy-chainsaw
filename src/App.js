@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 import useUserToken from './Hooks/useUserToken';
 import AllPost from './Components/AllPost/AllPost';
 import Footer from './Components/Footer/Footer';
-
+import CreateRecord from './Components/CreateRecord/CreateRecord';
 
 function App() {
   let { AuthMenuState } = useStateContext();
@@ -36,6 +36,7 @@ function App() {
           <Route path='/submit' element={<Submit />}></Route>
           <Route path='/test' element={<GraphQL />}></Route>
           <Route path='/all' element={<AllPost />}></Route>
+          <Route path='/create' element={<CreateRecord />}></Route>
         </Routes>
         <Footer></Footer>
       </BrowserRouter>

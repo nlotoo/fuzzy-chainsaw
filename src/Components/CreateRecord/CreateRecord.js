@@ -1,5 +1,5 @@
 import React from 'react';
-import './createRecord.css';
+import './create-record.css';
 
 
 import { gql } from 'graphql-tag';
@@ -97,7 +97,38 @@ const CreateRecord = () => {
                 <Toaster />
 
                 <Formik
-                    initialValues={{ desc: '', link: '', price: '', title: '', newPrice: '', body: '', file: null, ofertTitle: '', startDate: '', endDate: '' }}
+                    initialValues={{
+                        desc: '',
+                        link: '',
+                        price: '',
+                        title: '',
+                        newPrice: '',
+                        body: '',
+                        file: null,
+                        ofertTitle: '',
+                        startDate: '',
+                        endDate: '',
+
+                        homeAndLivings: '',
+                        familyAndKids: '',
+                        gardeDoItYourself: '',
+                        groceries: '',
+                        travel: '',
+                        sportsAndOutdors: '',
+                        broadBandAndPhoneContracts: '',
+                        financeInsurance: '',
+                        electronics: '',
+                        fashionAccessories: '',
+                        cultureLeisure: '',
+                        servicesContracts: '',
+                        healtBeat: '',
+                        gaming: '',
+                        carMotorcycle: '',
+
+
+
+
+                    }}
                     validate={values => {
                         const errors = {};
                         console.log(values);
@@ -129,12 +160,12 @@ const CreateRecord = () => {
                             errors.ofertTitle = 'Ofert title  is required'
                         }
 
-                        if(!values.startDate){
-                            errors.startDate ='Start date is  required';
+                        if (!values.startDate) {
+                            errors.startDate = 'Start date is  required';
                         }
 
-                        if(!values.endDate){
-                            errors.endDate='End date is required'
+                        if (!values.endDate) {
+                            errors.endDate = 'End date is required'
                         }
 
                         return errors;
@@ -155,14 +186,11 @@ const CreateRecord = () => {
                     {({ isSubmitting, setFieldValue }) => (
 
 
-                        <Form className='create-record-container slide-in-top'>
-                            <div className='heading-create-deal'>
-                                <h1 className='create-post-heading'>Create Deal</h1>
-                                <span onClick={openCloseCreateRecord} className='close-X-create-deal'>X</span>
-                            </div>
+                        <Form className='create-record-containera'>
+
                             <div className='grid-container'>
 
-                                <div className='grid-section left-section-border'>
+                                <div className='grid-section first-section-border'>
                                     <h3>Details </h3>
 
 
@@ -195,23 +223,11 @@ const CreateRecord = () => {
 
                                     </div>
 
-                                    <label>Start/end data</label>
 
-                                    <div>
-                                        <span>Start</span> <Field name='startDate' type="date" id="date"></Field>
-                                        <ErrorMessage className='input-create-error-msg' name="startDate" component="div" />
-
-                                    </div>
-
-                                    <div>
-                                        <span>End</span> <Field name='endDate' type="date" id="date"></Field>
-                                        <ErrorMessage className='input-create-error-msg' name="endDate" component="div" />
-
-                                    </div>
 
                                 </div>
 
-                                <div className='grid-section right-section-border'>
+                                <div className='grid-section second-section-border'>
                                     <h3>Offert Details</h3>
                                     <label htmlFor='desc' className='login-label'>Heading  post</label>
                                     <div className='input-section-create-record'>
@@ -241,6 +257,106 @@ const CreateRecord = () => {
                                     <button onClick={notify} className='login-btn' type="submit" disabled={isSubmitting}>
                                         Create deal
                                     </button>
+                                </div>
+
+                                <div className='grid-section third-section-border'>
+                                    <label>Start/end data</label>
+
+                                    <div>
+                                        <span>Start</span> <Field name='startDate' type="date" id="date"></Field>
+                                        <ErrorMessage className='input-create-error-msg' name="startDate" component="div" />
+
+                                    </div>
+
+                                    <div>
+                                        <span>End</span> <Field name='endDate' type="date" id="date"></Field>
+                                        <ErrorMessage className='input-create-error-msg' name="endDate" component="div" />
+
+                                    </div>
+
+                                    <label>Categories</label>
+
+                                    <div className='create-container-categories'>
+                                        <div className='create-container-categories-sub-component'>
+                                            <span>
+                                                <Field className='asd' type="checkbox" id="homeAndLivings" name="homeAndLivings" value="homeAndLivings" />
+                                                <label for="homeAndLivings">Home & Livings</label>
+                                            </span>
+                                            <span>
+
+                                                <Field type="checkbox" id="familyAndKids" name="familyAndKids" value="familyAndKids" />
+                                                <label for="familyAndKids">Family & Kids</label>
+                                            </span>
+                                            <span>
+                                                <Field type="checkbox" id="gardeDoItYourself" name="gardeDoItYourself" value="gardeDoItYourself" />
+                                                <label for="gardeDoItYourself">Garden & Do it Yourself</label>
+                                            </span>
+                                            <span>
+
+                                                <Field type="checkbox" id="groceries" name="groceries" value="groceries" />
+                                                <label for="groceries">Groceries</label>
+                                            </span>
+                                            <span>
+
+                                                <Field type="checkbox" id="travel" name="travel" value="travel" />
+                                                <label for="travel">Travel</label>
+                                            </span>
+                                            <span>
+
+                                                <Field type="checkbox" id="sportsAndOutdors" name="sportsAndOutdors" value="sportsAndOutdors" />
+                                                <label for="sportsAndOutdors">Sports & Outdors</label>
+                                            </span>
+                                            <span>
+
+                                                <Field type="checkbox" id="broadBandAndPhoneContracts" name="broadBandAndPhoneContracts" value="broadBandAndPhoneContracts" />
+                                                <label for="broadBandAndPhoneContracts">BroadBand & Phone Contracts</label>
+                                            </span>
+                                            <span>
+
+                                                <Field type="checkbox" id="financeInsurance" name="financeInsurance" value="financeInsurance" />
+                                                <label for="financeInsurance">Finance & Insurance</label>
+                                            </span>
+
+                                        </div>
+
+                                        <div className='create-container-categories-sub-component'>
+                                            <span>
+                                                <Field type="checkbox" id="electronics" name="electronics" value="electronics" />
+                                                <label for="electronics">Electronics</label>
+                                            </span>
+                                            <span>
+                                                <Field type="checkbox" id="fashionAccessories" name="fashionAccessories" value="fashionAccessories" />
+                                                <label for="fashionAccessories">Fashion & Accessories</label>
+                                            </span>
+                                            <span>
+                                                <Field type="checkbox" id="cultureLeisure" name="cultureLeisure" value="cultureLeisure" />
+                                                <label for="cultureLeisure">Culture & Leisure</label>
+                                            </span>
+
+                                            <span>
+                                                <Field type="checkbox" id="servicesContracts" name="servicesContracts" value="servicesContracts" />
+                                                <label for="servicesContracts">Services & Contracts</label>
+                                            </span>
+
+                                            <span>
+                                                <Field type="checkbox" id="healtBeaty" name="healtBeaty" value="healtBeaty" />
+                                                <label for="healtBeaty">Healt & Beaty</label>
+                                            </span>
+
+
+                                            <span>
+                                                <Field type="checkbox" id="gaming" name="gaming" value="gaming" />
+                                                <label for="gaming">Gaming</label>
+                                            </span>
+                                            <span>
+                                                <Field type="checkbox" id="carMotorcycle" name="carMotorcycle" value="carMotorcycle" />
+                                                <label for="carMotorcycle">Car 7 Motorcycle</label>
+                                            </span>
+
+
+                                        </div>
+
+                                    </div>
                                 </div>
 
                             </div>
