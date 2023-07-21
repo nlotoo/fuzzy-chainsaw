@@ -29,11 +29,14 @@ export const StateContext = ({ children }) => {
 
     let openCloseCreateRecord = () => {
 
-        
+
 
         return setOpenCloseRecord(!openCloseRecord)
     }
 
+
+
+    let [categoriesHolder, setCategoriesHolder] = useState('No category')
 
 
     return (
@@ -54,6 +57,9 @@ export const StateContext = ({ children }) => {
                 openCloseCreateRecord,
                 openCloseRecord,
                 setOpenCloseRecord,
+
+                categoriesHolder,
+                 setCategoriesHolder
             }
         }>
             {children}

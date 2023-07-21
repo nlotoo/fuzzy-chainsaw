@@ -10,7 +10,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
 import { useStateContext } from '../../context/StateContext';
 
-// Да довърша createRecord form
+// Да изпратя целият обек към базата данни.
 
 
 const CreateRecord = () => {
@@ -18,12 +18,12 @@ const CreateRecord = () => {
     let userEmail = localStorage.getItem('email');
     let userToken = localStorage.getItem('userToken');
 
-    let { openCloseCreateRecord } = useStateContext()
+    let { openCloseCreateRecord, categoriesHolder, setCategoriesHolder } = useStateContext()
 
     // desc is heading of post
     const CREATE_POST = gql`
-    mutation createPost($desc: String, $link: String,$dataImages: [Upload], $offertDetails: OffertDetails) {
-        createPost(desc: $desc, link:$link ,dataImages: $dataImages, offertDetails: $offertDetails) {
+    mutation createPost($desc: String, $link: String,$dataImages: [Upload], $offertDetails: OffertDetails,$categories: Categories) {
+        createPost(desc: $desc, link:$link ,dataImages: $dataImages, offertDetails: $offertDetails,categories: $categories) {
             id
             createAt
             description
@@ -65,6 +65,7 @@ const CreateRecord = () => {
         let dataImages = input.file
         // console.log(input)
 
+        console.log(categoriesHolder)
 
         createPost({
             variables: {
@@ -76,7 +77,9 @@ const CreateRecord = () => {
                     normalPrice: input.price.toString(),
                     curentPrice: input.newPrice.toString(),
                     body: input.body,
-                }
+                },
+                categories: categoriesHolder
+
             }
         })
 
@@ -168,6 +171,66 @@ const CreateRecord = () => {
                             errors.endDate = 'End date is required'
                         }
 
+
+
+                        let categories = {
+                            home: values.homeAndLivings[0],
+                            family: values.familyAndKids[0],
+                            garden: values.gardeDoItYourself[0],
+                            groceries: values.groceries[0],
+                            travel: values.travel[0],
+                            sports: values.sportsAndOutdors[0],
+                            phones: values.broadBandAndPhoneContracts[0],
+                            finance: values.financeInsurance[0],
+                            electronics: values.electronics[0],
+                            fashion: values.fashionAccessories[0],
+                            cuture: values.cultureLeisure[0],
+                            services: values.servicesContracts[0],
+                            healt: values.healtBeat[0],
+                            gaming: values.gaming[0],
+                            car: values.carMotorcycle[0],
+                        }
+
+
+
+                        function categoriesChek(c) {
+                            let chosedCategories = [];
+                            let arr = Object.values(c)
+
+
+                            arr.forEach((category, index) => {
+
+                                if (category !== undefined) {
+                                    chosedCategories.push(category)
+                                }
+                            })
+
+
+
+                            if (chosedCategories.length === 0) {
+                                return 'Category is required';
+                            } else {
+                                return chosedCategories
+                            }
+
+                        }
+
+                        let result = categoriesChek(categories)
+
+
+                        if (result.length === 20) {
+                            errors.homeAndLivings = result
+                        } else {
+                            console.log(result)
+                            setCategoriesHolder(result)
+                        }
+
+
+
+
+
+
+
                         return errors;
                     }}
                     onSubmit={(values, { setSubmitting }) => {
@@ -192,7 +255,9 @@ const CreateRecord = () => {
 
                                 <div className='grid-section first-section-border'>
                                     <h3>Details </h3>
-
+                                    {/* да бъде махнат този фиелд desc
+                         */}
+                                    <Field className='input-field-create-records' type='text' name='desc' placeholder='add desc here...' ></Field>
 
                                     <label>Title</label>
                                     <div className='input-section-create-record'>
@@ -352,6 +417,7 @@ const CreateRecord = () => {
                                                 <Field type="checkbox" id="carMotorcycle" name="carMotorcycle" value="carMotorcycle" />
                                                 <label for="carMotorcycle">Car 7 Motorcycle</label>
                                             </span>
+                                            <ErrorMessage className='input-create-error-msg' name="homeAndLivings" component="div" />
 
 
                                         </div>
