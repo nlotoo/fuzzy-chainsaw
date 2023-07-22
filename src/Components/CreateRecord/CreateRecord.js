@@ -22,8 +22,8 @@ const CreateRecord = () => {
 
     // desc is heading of post
     const CREATE_POST = gql`
-    mutation createPost($desc: String, $link: String,$dataImages: [Upload], $offertDetails: OffertDetails,$categories: Categories) {
-        createPost(desc: $desc, link:$link ,dataImages: $dataImages, offertDetails: $offertDetails,categories: $categories) {
+    mutation createPost($desc: String, $link: String,$dataImages: [Upload], $offertDetails: OffertDetails, $categories: Categories) {
+        createPost(desc: $desc, link:$link ,dataImages: $dataImages, offertDetails: $offertDetails, categories: $categories) {
             id
             createAt
             description
@@ -57,15 +57,17 @@ const CreateRecord = () => {
 
 
 
-
+    //  da izprtq categorite na backenda
 
 
     const handCreatePost = (input) => {
 
         let dataImages = input.file
-        // console.log(input)
+        console.log(input.startDate)
+        console.log(input.endDate)
 
-        console.log(categoriesHolder)
+        // console.log(categoriesHolder)
+        // categoriesHolder
 
         createPost({
             variables: {
@@ -77,9 +79,9 @@ const CreateRecord = () => {
                     normalPrice: input.price.toString(),
                     curentPrice: input.newPrice.toString(),
                     body: input.body,
+                    periodOfPost: [ input.startDate,input.endDate]
                 },
-                categories: categoriesHolder
-
+                categories: { categories: categoriesHolder },
             }
         })
 
@@ -164,14 +166,23 @@ const CreateRecord = () => {
                         }
 
                         if (!values.startDate) {
-                            errors.startDate = 'Start date is  required';
+                            errors.startDate = 'Start date is required';
                         }
 
                         if (!values.endDate) {
                             errors.endDate = 'End date is required'
                         }
 
-
+                        if (values.startDate > values.endDate) {
+                            console.log('start date is biger / wrong ')
+                            errors.endDate = 'End date need to after start date'
+                        } else if (values.startDate < values.endDate) {
+                            console.log('end date is bigger /true way')
+                        } else {
+                            console.log('there are same')
+                        }
+                        // console.log(values.endDate)
+                        // console.log(values.startDate)
 
                         let categories = {
                             home: values.homeAndLivings[0],

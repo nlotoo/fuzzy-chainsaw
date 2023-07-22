@@ -38,7 +38,7 @@ const postSchema = new mongoose.Schema({
     },
     offertDetails: {
         title: String,
-        body:String,
+        body: String,
         normalPrice: String,
         curentPrice: String,
         voucherCode: String,
@@ -65,6 +65,16 @@ const postSchema = new mongoose.Schema({
     },
 
     images: [imageSchema],
+
+    categories: [{
+        type: String,
+    }],
+
+    periodOfPost: [{
+        type: String,
+    }
+    ]
+
 
 })
 
