@@ -7,7 +7,7 @@ const Post = () => {
 
 
             <div className='post-details-row-one grey' >
-                <span><b ><i class="fa-regular fa-clock"></i> <i>Posted 12h,11m ago</i>  </b> &nbsp; &nbsp;</span>
+                <span><b ><i className="fa-regular fa-clock"></i> <i>Posted 12h,11m ago</i>  </b> &nbsp; &nbsp;</span>
 
             </div>
 
@@ -26,7 +26,7 @@ const Post = () => {
 
                 <div>
                     <button className='post-comment-btn'>
-                        <i class="fa-regular fa-comments"></i>
+                        <i className="fa-regular fa-comments"></i>
                     </button>
                     <button className='get-deal-btn'>Get deal </button>
                 </div>

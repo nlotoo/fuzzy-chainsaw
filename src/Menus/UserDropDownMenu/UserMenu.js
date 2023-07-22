@@ -1,10 +1,12 @@
 import React from 'react'
 import './userMenu.css'
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import CreateRecord from '../../Forms/createRecordForm/CreateRecord';
 import { useStateContext } from '../../context/StateContext';
+
+
 const UserMenu = () => {
 
 
@@ -45,7 +47,9 @@ const UserMenu = () => {
             {openMenu &&
                 <div className='sub-menu-user-menu scale-in-top '>
                     <div className='sub-user-menu-div'>{userEmail}</div>
-                    <div onClick={openCloseCreateRecord} className='sub-user-menu-div'>createRecord</div>
+
+                    <div to='/create' className='sub-user-menu-div'><Link to='/create' className='sub-user-menu-div-link'>createRecord </Link> </div>
+
                 </div>
             }
 

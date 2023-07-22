@@ -27,10 +27,10 @@ const LinkMenu = () => {
         <>
             <div className="link-menu">
 
-                <Link onClick={clicked} className='main-menu-links' to='/home'>All</Link>
-                <Link onClick={clicked} className='main-menu-links' to='/'>Deals</Link>
-                <Link onClick={clicked} className='main-menu-links' to=''>Voucher Codes</Link>
-                <Link onClick={clicked} className='main-menu-links' to=''>Freebies</Link>
+                <Link onClick={clicked} className='main-menu-links' to='/all'>All</Link>
+                <Link onClick={clicked} className='main-menu-links' to='/deals'>Deals</Link>
+                {/* <Link onClick={clicked} className='main-menu-links' to=''>Voucher Codes</Link> */}
+                {/* <Link onClick={clicked} className='main-menu-links' to=''>Freebies</Link> */}
             </div>
         </>
     )

@@ -22,14 +22,39 @@ const CreateRecord = () => {
 
     // desc is heading of post
     const CREATE_POST = gql`
-    mutation createPost($desc: String, $link: String,$dataImages: [Upload], $offertDetails: OffertDetails, $categories: Categories) {
-        createPost(desc: $desc, link:$link ,dataImages: $dataImages, offertDetails: $offertDetails, categories: $categories) {
-            id
-            createAt
-            description
-            owner
-        }
+    mutation CreatePost($desc: String, $link: String, $dataImages: [Upload], $offertDetails: OffertDetails, $categories: [String]) {
+  createPost(desc: $desc, link: $link, dataImages: $dataImages, offertDetails: $offertDetails, categories: $categories) {
+    categories {
+      name
     }
+    comments {
+      body
+      createAt
+      id
+      owner
+      ownerEmail
+    }
+    createAt
+    description
+    id
+    images {
+      id
+      filename
+      mimetype
+      path
+      _id
+    }
+    likes {
+      id
+      owner
+      createAt
+      ownerEmail
+    }
+    link
+    owner
+    user
+  }
+}
     `
 
 
@@ -66,7 +91,7 @@ const CreateRecord = () => {
         console.log(input.startDate)
         console.log(input.endDate)
 
-        // console.log(categoriesHolder)
+        console.log(categoriesHolder)
         // categoriesHolder
 
         createPost({
@@ -79,9 +104,9 @@ const CreateRecord = () => {
                     normalPrice: input.price.toString(),
                     curentPrice: input.newPrice.toString(),
                     body: input.body,
-                    periodOfPost: [ input.startDate,input.endDate]
+                    periodOfPost: [input.startDate, input.endDate]
                 },
-                categories: { categories: categoriesHolder },
+                categories: categoriesHolder
             }
         })
 

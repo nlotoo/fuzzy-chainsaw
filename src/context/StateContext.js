@@ -59,7 +59,7 @@ export const StateContext = ({ children }) => {
                 setOpenCloseRecord,
 
                 categoriesHolder,
-                 setCategoriesHolder
+                setCategoriesHolder
             }
         }>
             {children}
