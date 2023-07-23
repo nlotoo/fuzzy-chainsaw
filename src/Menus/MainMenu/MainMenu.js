@@ -25,7 +25,7 @@ const MainMenu = () => {
 
     let screenSize = useScreenSize();
     let userToken = useUserToken();
-    console.log(userToken)
+    // console.log(userToken)
 
 
     let [searchBarSwitch, setSwitchBar] = useState(false);

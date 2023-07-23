@@ -66,9 +66,9 @@ const CreateRecord = () => {
         },
     });
     const notify = () => {
-        console.log(loading);
+        // console.log(loading);
         console.log(data);
-        console.log(error);
+        // console.log(error);
 
         if (error) {
             toast.error(`Post is not created: ${error.message} `)
@@ -88,8 +88,8 @@ const CreateRecord = () => {
     const handCreatePost = (input) => {
 
         let dataImages = input.file
-        console.log(input.startDate)
-        console.log(input.endDate)
+        // console.log(input.startDate)
+        // console.log(input.endDate)
 
         console.log(categoriesHolder)
         // categoriesHolder
@@ -161,7 +161,7 @@ const CreateRecord = () => {
                     }}
                     validate={values => {
                         const errors = {};
-                        console.log(values);
+                        // console.log(values);
                         if (!values.desc) {
                             errors.desc = 'Deal heading required';
                         }
@@ -257,7 +257,7 @@ const CreateRecord = () => {
                         if (result.length === 20) {
                             errors.homeAndLivings = result
                         } else {
-                            console.log(result)
+                            // console.log(result)
                             setCategoriesHolder(result)
                         }
 
@@ -271,7 +271,7 @@ const CreateRecord = () => {
                     }}
                     onSubmit={(values, { setSubmitting }) => {
 
-                        console.log(values);
+                        // console.log(values);
 
                         handCreatePost(values);
 
