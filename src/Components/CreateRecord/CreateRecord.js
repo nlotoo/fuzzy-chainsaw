@@ -25,7 +25,7 @@ const CreateRecord = () => {
     mutation CreatePost($desc: String, $link: String, $dataImages: [Upload], $offertDetails: OffertDetails, $categories: [String]) {
   createPost(desc: $desc, link: $link, dataImages: $dataImages, offertDetails: $offertDetails, categories: $categories) {
     categories {
-      name
+        categories
     }
     comments {
       body
@@ -91,7 +91,7 @@ const CreateRecord = () => {
         // console.log(input.startDate)
         // console.log(input.endDate)
 
-        console.log(categoriesHolder)
+        // console.log(categoriesHolder)
         // categoriesHolder
 
         createPost({
