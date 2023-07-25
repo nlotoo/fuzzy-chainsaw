@@ -66,9 +66,11 @@ const postSchema = new mongoose.Schema({
 
     images: [imageSchema],
 
-    categories: [{
-        type: String,
-    }],
+    categories: [
+        {
+            categories: String
+        }
+    ],
 
     periodOfPost: [{
         type: String,

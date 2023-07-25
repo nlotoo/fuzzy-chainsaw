@@ -94,6 +94,8 @@ const CreateRecord = () => {
         // console.log(categoriesHolder)
         // categoriesHolder
 
+        console.log("categoriesHolder:", categoriesHolder);
+
         createPost({
             variables: {
                 desc: input.desc, //heading of post
@@ -253,10 +255,11 @@ const CreateRecord = () => {
 
                         let result = categoriesChek(categories)
 
-
+                        
                         if (result.length === 20) {
                             errors.homeAndLivings = result
                         } else {
+                            console.log("result:", result);
                             // console.log(result)
                             setCategoriesHolder(result)
                         }
