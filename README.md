@@ -1,5 +1,11 @@
-# Getting Started with Create React App
+# Getting Started with fuzzy-chaisaw
 
+
+## Appp description
+
+# The app is designed for learning, training, and testing GraphQL queries. After a successful login, a dropdown menu appears in the top-left corner. From there, you can create new records. On the main page, you'll find a list of posts. Feel free to explore and learn!
+
+Please note that I've made a few adjustments for clarity and coherence. If you have any further questions or need more assistance, feel free to ask!
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
