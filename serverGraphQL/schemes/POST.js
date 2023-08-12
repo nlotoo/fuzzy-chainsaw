@@ -7,6 +7,7 @@ const imageSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+
     filename: {
         type: String,
         required: true,
@@ -31,6 +32,9 @@ const postSchema = new mongoose.Schema({
     },
     description: {
         type: String
+    },
+    locationPath: {
+        type: String,
     },
 
     createAt: {

@@ -8,7 +8,7 @@ import { useQuery } from '@apollo/client'
 
 const AllPost = () => {
 
-    const GET_POSTS_QUERY = gql`
+  const GET_POSTS_QUERY = gql`
          query {
            getPosts {
              createAt
@@ -17,6 +17,8 @@ const AllPost = () => {
              images {
                filename
                mimetype
+               path
+              _id
              }
              likes {
                createAt
@@ -38,36 +40,37 @@ const AllPost = () => {
          }
 `;
 
-    const { loading, error, data } = useQuery(GET_POSTS_QUERY);
+  const { loading, error, data } = useQuery(GET_POSTS_QUERY);
 
-    console.log(loading);
-    console.log(data);
-    console.log(error);
+  // console.log(loading);
+  console.log(data);
 
-    return (
-        <div className='all-post-page-frame'>
+  // console.log(error);
 
-            {loading && <p>Loading...</p>}
-            <div className='post-collum'>
-                <Post></Post>
-                <Post></Post>
-                <Post></Post>
-                <Post></Post>
-            </div>
-            <div className='aside-section'>
-                <h3 className='aside-heading grey'>Hottest deal</h3>
-                <AsidePost></AsidePost>
-                <AsidePost></AsidePost>
-                <AsidePost></AsidePost>
-                <AsidePost></AsidePost>
+  return (
+    <div className='all-post-page-frame'>
 
-
-
-            </div>
+      {loading && <p>Loading...</p>}
+      <div className='post-collum'>
+        <Post></Post>
+        <Post></Post>
+        <Post></Post>
+        <Post></Post>
+      </div>
+      <div className='aside-section'>
+        <h3 className='aside-heading grey'>Hottest deal</h3>
+        <AsidePost></AsidePost>
+        <AsidePost></AsidePost>
+        <AsidePost></AsidePost>
+        <AsidePost></AsidePost>
 
 
-        </div>
-    )
+
+      </div>
+
+
+    </div>
+  )
 }
 
 export default AllPost
