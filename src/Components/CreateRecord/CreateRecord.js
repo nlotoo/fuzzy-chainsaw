@@ -22,8 +22,8 @@ const CreateRecord = () => {
 
     // desc is heading of post
     const CREATE_POST = gql`
-    mutation CreatePost($desc: String, $link: String, $dataImages: [Upload], $details: ofertDetails, $categories: [String]) {
-        createPost(desc: $desc, link: $link, dataImages: $dataImages, ofertDetails: $details, categories: $categories) {
+    mutation CreatePost($desc: String, $link: String, $dataImages: [Upload], $offertDetails: OffertDetails, $categories: [String]) {
+    createPost(desc: $desc, link: $link, dataImages: $dataImages, offertDetails: $offertDetails, categories: $categories) {
     categories {
         categories
     }
