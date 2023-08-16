@@ -9,6 +9,7 @@ const Post = (props) => {
 
 
     const targetDate = new Date(props.props.createAt);
+    const [theImage, setTheImage] = useState('')
     const [timePassed, setTimePassed] = useState({ days: 0, hours: 0, minutes: 0 });
 
     const timeCalculate = () => {
@@ -24,16 +25,20 @@ const Post = (props) => {
 
     useEffect(() => {
         timeCalculate();
+        setTheImage(props.props.images[0].path)
     }, []);
 
 
+    let link = 'E:/GitHubRepositories/fuzzy-chainsaw/src/'
 
-
+    
     return (
         <div className='post-container'>
             {/* <img src='https://exxpozed-image.de/exxpozed-res.cloudinary.com/image/upload/q_auto:eco,w_300,h_300,c_pad,b_white,d_ph.gif,e_sharpen/v20230109110422/catalog/rab-m-electron-pro-jacket-20b-rab-qdn-85-marmalade-1.jpg' className='grid-item1 post-image' /> */}
-            <img src={require(`/uploads/9a6ebd3f-d1ff-4e14-823b-71ad8a2ba853-cliare duck.png`)} className='grid-item1 post-image' />
-                
+            {/* <img src={require(`${theImage}`)} className='grid-item1 post-image' /> */}
+            {theImage !== '' ? <img src={require(theImage)} className='grid-item1 post-image'/> : ''}
+            {/* <img src={require(`E:/GitHubRepositories/fuzzy-chainsaw/src/${props.props.images[0].path}`)} className='grid-item1 post-image' /> */}
+
 
 
             <div className='post-details-row-one grey' >
@@ -51,7 +56,7 @@ const Post = (props) => {
 
             <div className='post-details-row-three' >
                 <div > <b><i className='grey'>Created by: </i></b>
-                        {props.props.owner}
+                    {props.props.owner}
                 </div>
 
                 <div>
