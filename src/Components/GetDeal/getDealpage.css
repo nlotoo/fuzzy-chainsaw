@@ -1,0 +1,21 @@
+
+.get-deal-page-container{
+    display: flex;
+}
+
+.get-deal-container{
+    margin: 15px;
+    padding: 30px;
+    width: 70%;
+    border: 1px solid green;
+    text-align: center;
+    /* align-items: center; */
+    display: flex;
+    justify-content: center;
+    
+}
+
+.card-get-deal {
+    width: 25rem;
+    height: fit-content;
+}

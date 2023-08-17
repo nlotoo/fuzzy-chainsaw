@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import './post.css'
 
 
 
-const Post = (props) => {
+const Post = ({props}) => {
 
-    console.log(props.props.images[0].path)
+    let navigate = useNavigate()
 
 
-    const targetDate = new Date(props.props.createAt);
-    const [theImage, setTheImage] = useState('')
+    console.log(props)
+
+
+    const targetDate = new Date(props.createAt);
+
     const [timePassed, setTimePassed] = useState({ days: 0, hours: 0, minutes: 0 });
 
     const timeCalculate = () => {
@@ -25,45 +29,46 @@ const Post = (props) => {
 
     useEffect(() => {
         timeCalculate();
-        setTheImage(props.props.images[0].path)
+        
     }, []);
 
 
-    let link = 'E:/GitHubRepositories/fuzzy-chainsaw/src/'
 
-    
+
+
     return (
         <div className='post-container'>
             {/* <img src='https://exxpozed-image.de/exxpozed-res.cloudinary.com/image/upload/q_auto:eco,w_300,h_300,c_pad,b_white,d_ph.gif,e_sharpen/v20230109110422/catalog/rab-m-electron-pro-jacket-20b-rab-qdn-85-marmalade-1.jpg' className='grid-item1 post-image' /> */}
             {/* <img src={require(`${theImage}`)} className='grid-item1 post-image' /> */}
-            {theImage !== '' ? <img src={require(theImage)} className='grid-item1 post-image'/> : ''}
+            {/* {theImage !== '' ?  : ''} */}
             {/* <img src={require(`E:/GitHubRepositories/fuzzy-chainsaw/src/${props.props.images[0].path}`)} className='grid-item1 post-image' /> */}
 
-
+            {/* {theImage !== '' ? <img src={require(`${theImage}`)} className='grid-item1 post-image' /> : 'laina'} */}
 
             <div className='post-details-row-one grey' >
-                <span><b ><i className="fa-regular fa-clock"></i> <i>Posted {timePassed.days}days, {timePassed.hours}h, {timePassed.minutes}m ago </i>  </b> &nbsp; &nbsp;</span>
+                <span><b ><i className="fa-regular fa-clock"></i> <i>Posted {timePassed.days > 0 ? `${timePassed.days} days,` : ''}  {timePassed.hours > 0 ? `${timePassed.hours}h,` : ''} {timePassed.minutes}m ago </i>  </b> &nbsp; &nbsp;</span>
 
             </div>
 
 
             <div className='post-details-row-two'>
-                <h3>John Lewis Zip Pocket Fleece (Navy or Khaki) C&C // heading {props.props.offertDetails.title}</h3>
+                <h3> {props.offertDetails.title}</h3>
                 <div>
-                    <span className='price-post'>£{props.props.offertDetails.curentPrice}</span> | <span> <b>Amazon</b> | Deals</span>
+                    <span className='price-post'> <s> £{props.offertDetails.normalPrice}</s> / £{props.offertDetails.curentPrice}</span> | <span> <b>Amazon</b> | Deals</span>
                 </div>
             </div>
 
             <div className='post-details-row-three' >
                 <div > <b><i className='grey'>Created by: </i></b>
-                    {props.props.owner}
+                    {props.owner}
                 </div>
 
                 <div>
                     <button className='post-comment-btn'>
                         <i className="fa-regular fa-comments"></i>
                     </button>
-                    <button className='get-deal-btn'>Get deal </button>
+                    <button onClick={()=> navigate(`/deal/${props.id}`)} className='get-deal-btn'>Get deal </button>
+               
                 </div>
 
             </div>
