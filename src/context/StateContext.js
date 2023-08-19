@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, } from 'react';
+import React, { createContext, useContext, useEffect, useState, } from 'react';
 const Context = createContext();
 
 export const StateContext = ({ children }) => {
@@ -38,6 +38,27 @@ export const StateContext = ({ children }) => {
 
     let [categoriesHolder, setCategoriesHolder] = useState('No category')
 
+    const [timePassed, setTimePassed] = useState({ days: 0, hours: 0, minutes: 0 });
+
+    const timeCalculate = (targetDate) => {
+
+        console.log(targetDate);
+
+
+
+        const currentTime = new Date();
+        const timeDifference = currentTime - targetDate;
+
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+        setTimePassed({ days, hours, minutes });
+    }
+
+
+
+
 
     return (
         <Context.Provider value={
@@ -59,7 +80,12 @@ export const StateContext = ({ children }) => {
                 setOpenCloseRecord,
 
                 categoriesHolder,
-                setCategoriesHolder
+                setCategoriesHolder,
+
+                timePassed,
+                setTimePassed,
+                timeCalculate,
+
             }
         }>
             {children}

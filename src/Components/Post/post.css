@@ -26,6 +26,7 @@
     border-radius: 5%;
     grid-area: grid-item1;
     height: 90%;
+    cursor: pointer;
 }
 
 .post-details-row-one {

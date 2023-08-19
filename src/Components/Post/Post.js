@@ -1,22 +1,30 @@
+import Image from 'react-bootstrap/Image';
+import Card from 'react-bootstrap/Card';
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+
+
+
 import './post.css'
+import { useStateContext } from '../../context/StateContext';
 
 
 
-const Post = ({props}) => {
+const Post = ({ props }) => {
 
     let navigate = useNavigate()
 
+    // let {timeCalculate,timePassed} = useStateContext()
 
-    console.log(props)
-
+    // console.log(props?.images[0].path)
+    let str = props.images[0].path
+    console.log(str.split('/').slice(-1)[0])
 
     const targetDate = new Date(props.createAt);
 
     const [timePassed, setTimePassed] = useState({ days: 0, hours: 0, minutes: 0 });
 
-    const timeCalculate = () => {
+    const timeCalculate = (targetDate) => {
         const currentTime = new Date();
         const timeDifference = currentTime - targetDate;
 
@@ -26,10 +34,13 @@ const Post = ({props}) => {
 
         setTimePassed({ days, hours, minutes });
     }
-
+    
     useEffect(() => {
-        timeCalculate();
         
+        timeCalculate(targetDate);
+
+        
+
     }, []);
 
 
@@ -38,13 +49,10 @@ const Post = ({props}) => {
 
     return (
         <div className='post-container'>
-            {/* <img src='https://exxpozed-image.de/exxpozed-res.cloudinary.com/image/upload/q_auto:eco,w_300,h_300,c_pad,b_white,d_ph.gif,e_sharpen/v20230109110422/catalog/rab-m-electron-pro-jacket-20b-rab-qdn-85-marmalade-1.jpg' className='grid-item1 post-image' /> */}
-            {/* <img src={require(`${theImage}`)} className='grid-item1 post-image' /> */}
-            {/* {theImage !== '' ?  : ''} */}
-            {/* <img src={require(`E:/GitHubRepositories/fuzzy-chainsaw/src/${props.props.images[0].path}`)} className='grid-item1 post-image' /> */}
-
-            {/* {theImage !== '' ? <img src={require(`${theImage}`)} className='grid-item1 post-image' /> : 'laina'} */}
-
+            <Link></Link>
+       
+            <img onClick={() => navigate(`/deal/${props.id}`)} src={require(`../../public/uploads/${str.split('/').slice(-1)[0]}`)} className='grid-item1 post-image' />
+           
             <div className='post-details-row-one grey' >
                 <span><b ><i className="fa-regular fa-clock"></i> <i>Posted {timePassed.days > 0 ? `${timePassed.days} days,` : ''}  {timePassed.hours > 0 ? `${timePassed.hours}h,` : ''} {timePassed.minutes}m ago </i>  </b> &nbsp; &nbsp;</span>
 
@@ -67,8 +75,8 @@ const Post = ({props}) => {
                     <button className='post-comment-btn'>
                         <i className="fa-regular fa-comments"></i>
                     </button>
-                    <button onClick={()=> navigate(`/deal/${props.id}`)} className='get-deal-btn'>Get deal </button>
-               
+                    <button onClick={() => navigate(`/deal/${props.id}`)} className='get-deal-btn'>Get deal </button>
+
                 </div>
 
             </div>

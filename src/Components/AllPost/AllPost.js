@@ -8,6 +8,8 @@ import { useQuery } from '@apollo/client'
 
 const AllPost = () => {
 
+
+
   const GET_POSTS_QUERY = gql`
          query {
            getPosts {

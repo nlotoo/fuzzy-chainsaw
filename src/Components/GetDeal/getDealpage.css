@@ -4,18 +4,28 @@
 }
 
 .get-deal-container{
-    margin: 15px;
     padding: 30px;
     width: 70%;
     border: 1px solid green;
-    text-align: center;
-    /* align-items: center; */
+    /* text-align: center; */
     display: flex;
     justify-content: center;
-    
+    margin: 15px auto;    
 }
 
 .card-get-deal {
     width: 25rem;
     height: fit-content;
+}
+
+.get-deal-image-container{
+    border: 1px  solid blue;
+
+    width: 300px;
+    height: 300px;
+}
+.spinner{
+    margin: 50px;
+    margin: auto;
+    padding: 50px;
 }
