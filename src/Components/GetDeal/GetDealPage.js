@@ -7,6 +7,8 @@ import { gql, useLazyQuery } from '@apollo/client';
 
 import Spinner from 'react-bootstrap/Spinner';
 import { Link } from 'react-router-dom';
+import AboutPanel from './AboutPanel/AboutPanel';
+import CommentPanel from './CommentPanel/CommentPanel';
 
 
 const GetDealPage = () => {
@@ -117,17 +119,30 @@ query GetPost($getPostId: ID) {
 
             <button onClick={() => window.location.replace(`${data?.getPost.link}`)} className='get-deal-btn ' >Get deal</button>
 
+            <div className='deal-info-container'>
+              <div>
+                <span className='grey'><b ><i className="fa-regular fa-clock"></i> <i>Posted  {timePassed.days > 0 ? `${timePassed.days} days,` : ''}  {timePassed.hours > 0 ? `${timePassed.hours}h,` : ''} {timePassed.minutes}m ago </i>  </b> &nbsp; &nbsp;</span>
+              </div>
+              <div className='deal-info-container-last-child'> <b><i className='grey'>Shared by: </i></b>
+                {data?.getPost.owner}
+              </div>
 
-            <div className='post-details-row-one grey get-details-time' >
-            <div> <b><i className='grey'>Created by: </i></b>
-              {data?.getPost.owner}
-            </div>
-              <span><b ><i className="fa-regular fa-clock"></i> <i>Posted <br></br> {timePassed.days > 0 ? `${timePassed.days} days,` : ''}  {timePassed.hours > 0 ? `${timePassed.hours}h,` : ''} {timePassed.minutes}m ago </i>  </b> &nbsp; &nbsp;</span>
 
             </div>
           </div>
 
+
+
+
         </div>}
+
+
+      <AboutPanel></AboutPanel>
+
+      <CommentPanel></CommentPanel>
+
+
+
 
     </div>
   )

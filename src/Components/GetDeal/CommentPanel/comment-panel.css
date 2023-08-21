@@ -1,0 +1,42 @@
+.comment-panel-container {
+    border: 1px solid grey;
+    padding: 30px;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.comment-bubble {
+    width: 500px;
+    height: 150px;
+    border-radius: 20px;
+    resize: none;
+
+}
+
+.comment-bubble-container {
+    display: flex;
+    justify-content: end;
+}
+
+.comment-list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.send-button-comment-bubble {
+    margin: 0px;
+
+    background-color: #FF9300;
+    border-radius: 12px;
+}
+
+.send-button-container {
+
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+
+    margin-left: 30px;
+}

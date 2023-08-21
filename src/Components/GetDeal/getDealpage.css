@@ -1,13 +1,21 @@
 .get-deal-page-container {
-    display: flex;
-
-    position: relative;
+    
 }
 
+.deal-info-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+}
+
+.deal-info-container-last-child {
+    margin-top: 10px;
+}
 .get-deal-container {
     padding: 30px;
     width: 50%;
-    border: 1px solid green;
+    border: 1px solid grey;
+    border-radius: 5px;
     /* text-align: center; */
     display: flex;
     /* justify-content: center; */
@@ -38,19 +46,21 @@
     left: 0;
 }
 
-.image-get-details{
+.image-get-details {
     width: 300px;
 }
 
 
 
-.price-heading-get-deails{
+.price-heading-get-deails {
     color: #FF9300;
     margin: 20px;
 }
-.get-deal-btn{
+
+.get-deal-btn {
     margin: 30px;
 }
-.get-deal-detail{
+
+.get-deal-detail {
     margin-left: 50px;
 }
