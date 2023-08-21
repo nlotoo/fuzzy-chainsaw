@@ -20,6 +20,10 @@ const CreateRecord = () => {
 
     let { openCloseCreateRecord, categoriesHolder, setCategoriesHolder } = useStateContext()
 
+
+
+
+
     // desc is heading of post
     const CREATE_POST = gql`
     mutation CreatePost($desc: String, $link: String, $dataImages: [Upload], $offertDetails: OffertDetails, $categories: [String]) {
@@ -255,7 +259,7 @@ const CreateRecord = () => {
 
                         let result = categoriesChek(categories)
 
-                        
+
                         if (result.length === 20) {
                             errors.homeAndLivings = result
                             console.log("result:", result);

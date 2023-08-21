@@ -2,10 +2,15 @@ import React from 'react'
 
 import './comment-panel.css'
 
-const CommentPanel = () => {
+const CommentPanel = ({ comments }) => {
+
+    // console.log(...comments)
+
+
+
     return (
         <div className='comment-panel-container'>
-            <span>123 Comments</span>
+            <span>{comments?.length} Comments</span>
 
 
             <div>
@@ -14,20 +19,34 @@ const CommentPanel = () => {
             <div className='comment-bubble-container'>
                 <textarea className='comment-bubble'> What`s on your mind</textarea>
                 <div className='send-button-container'>
-                <button className='send-button-comment-bubble'>Send</button>
+                    <button className='send-button-comment-bubble'>Send</button>
                 </div>
             </div>
 
             <hr></hr>
-            <div className='comment-list-container'>
-                <span>owner</span>
-                <span>time ago posted</span>
 
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi officiis, beatae minima nam quidem inventore omnis temporibus sunt id porro.
-                </p>
-                <hr></hr>
-            </div>
+
+            {comments?.length !== -1 ?
+
+                comments?.map((comment, index) => {
+
+                    console.log(comment)
+                    let dateObject = new Date(comment.createAt).toLocaleString()
+                    return <div className='comment-list-container'>
+                        <span>{comment.ownerEmail}</span>
+                        <span>{dateObject}</span>
+
+                        <p>
+                            {comment.body}
+                        </p>
+                        <hr></hr>
+                    </div>
+                })
+                : ''
+
+
+            }
+
 
 
         </div>
