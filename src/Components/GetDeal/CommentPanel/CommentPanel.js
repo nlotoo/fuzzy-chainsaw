@@ -1,26 +1,115 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { gql, useMutation } from '@apollo/client';
 
 import './comment-panel.css'
-
+import { useEffect } from 'react';
+import { Toaster, toast } from 'react-hot-toast';
 const CommentPanel = ({ comments }) => {
 
     // console.log(...comments)
+    let userToken = localStorage.getItem('userToken')
+
+
+    const CREATE_COMMENT = gql`
+              mutation Mutation($postId: String, $body: String) {
+                  createComment(postID: $postId, body: $body) {
+                    id
+                    owner
+                    body
+                    createAt
+                    ownerEmail
+        }
+      }`
+
+    const [createComment, { loading, data, error }] = useMutation(CREATE_COMMENT, {
+        context: {
+            headers: {
+                authorization: `Bearer ${userToken}`,
+            },
+        },
+    });
+
+
+    const DELETE_COMMENT = gql`
+    mutation DeleteComment($commentId: ID!, $postId: String) {
+            deleteComment(commentId: $commentId, postID: $postId) {
+                id
+                owner
+  }
+}`
+
+    const [deleteCommenta, { loading: deleteLoading, data: deleteData, error: errorData }] = useMutation(DELETE_COMMENT, {
+        context: {
+            headers: {
+                authorization: `Bearer ${userToken}`,
+            },
+        },
+    });
+
+
+
+
+
+
+    const [commentBody, setComentBody] = useState("");
+    const [postID, setPostID] = useState(window.location.pathname.split('/')[2]);
+
+    const sendComment = (event) => {
+        event.preventDefault();
+        createComment({
+            variables: {
+                postId: postID,
+                body: commentBody
+            }
+        })
+
+        if (error) {
+            toast.error('Empty comment')
+        }
+
+        if(data){
+            toast.success('Comment is send')
+            window.location.reload();
+        }
+
+    }
+
+    const deleteComment = (event) => {
+        event.preventDefault();
+
+        deleteCommenta({
+            variables: {
+                postId: postID,
+                commentId: event.target.id
+            }
+        })
+
+        console.log(errorData)
+        console.log(deleteData)
+
+    }
 
 
 
     return (
         <div className='comment-panel-container'>
+            <Toaster/>
             <span>{comments?.length} Comments</span>
 
 
             <div>
-                username
+                {localStorage.getItem('email')}
             </div>
             <div className='comment-bubble-container'>
-                <textarea className='comment-bubble'> What`s on your mind</textarea>
-                <div className='send-button-container'>
-                    <button className='send-button-comment-bubble'>Send</button>
-                </div>
+                <form onSubmit={sendComment}>
+                    <textarea className='comment-bubble' type="text"
+                        value={commentBody}
+                        onChange={(e) => setComentBody(e.target.value)}
+                    > What`s on your mind</textarea>
+                    <div className='send-button-container'>
+                    </div>
+                    <input type="submit" className='send-button-comment-bubble' value={'Send'} />
+                </form>
             </div>
 
             <hr></hr>
@@ -29,10 +118,12 @@ const CommentPanel = ({ comments }) => {
             {comments?.length !== -1 ?
 
                 comments?.map((comment, index) => {
-
-                    console.log(comment)
+                    // console.log(comment)
                     let dateObject = new Date(comment.createAt).toLocaleString()
                     return <div className='comment-list-container'>
+                        {comment.ownerEmail === localStorage.getItem('email') &&
+                            <div id={`${comment.id}`} onClick={deleteComment} className='x-delete-comment'>X</div>
+                        }
                         <span>{comment.ownerEmail}</span>
                         <span>{dateObject}</span>
 
@@ -49,7 +140,7 @@ const CommentPanel = ({ comments }) => {
 
 
 
-        </div>
+        </div >
     )
 }
 

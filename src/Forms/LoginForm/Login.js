@@ -22,7 +22,7 @@ const Login = () => {
     const LOGIN_USER = gql`
             mutation Login($email: String, $password: String) {
               login(email: $email, password: $password) {
-                createAt
+                id
                 email
                 password
                 token
@@ -33,10 +33,12 @@ const Login = () => {
     const [Login, { loading, data, error }] = useMutation(LOGIN_USER);
 
     const handleLogin = (input) => {
-        console.log(input)
+        // console.log(input)
 
         Login({ variables: input });
     };
+
+    // 648+720.90+762+842.40+702
 
     if (error) {
         localStorage.setItem('userToken', null)
@@ -44,14 +46,17 @@ const Login = () => {
     }
 
     if (data) {
-        console.log(data);
+        console.log(data.login);
+
         toast.success('User is loged');
         setUserToken(data.login.token);
+
+        localStorage.setItem('userID', data.login.id);
         localStorage.setItem('userToken', data.login.token);
         localStorage.setItem('email', data.login.email);
         window.location.reload(false);
         
-        switchOffAuthMenu();
+        switchOffAuthMenu(); 
         
     }
     
