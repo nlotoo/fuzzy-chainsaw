@@ -61,7 +61,7 @@ query GetPost($getPostId: ID) {
   const [getPostbyID, { loading, data, error }] = useLazyQuery(GET_POST);
 
   // console.log(window.location.pathname.split('/')[2])
-  console.log(data?.getPost.comments)
+  // console.log(data?.getPost.comments)
 
 
 
@@ -139,7 +139,7 @@ query GetPost($getPostId: ID) {
 
       <AboutPanel></AboutPanel>
 
-      <CommentPanel comments={data?.getPost.comments} ></CommentPanel>
+      <CommentPanel postIDTo={window.location.pathname.split('/')[2]} ></CommentPanel>
 
 
 

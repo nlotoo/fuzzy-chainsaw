@@ -95,10 +95,10 @@ const Login = () => {
                 {({ isSubmitting }) => (
                     <Form className='login-form'>
                         <label htmlFor='email' className='login-label'>Username or Email</label>
-                        <Field placeholder='Jon_Dawn' className='input-field-login' type="email" name="email" />
+                        <Field placeholder='Jon_Dawn' className='input-field-login' type="email" name="email"  />
                         <ErrorMessage className='error-msg-login' name="email" component="div" />
                         <label className='login-label'>Password <span className='span-forgot'>Forgot?</span></label>
-                        <Field placeholder='password' className='input-field-login' type="password" name="password" />
+                        <Field placeholder='password' className='input-field-login' type="password" name="password"  />
                         <ErrorMessage className='error-msg-login' name="password" component="div" />
                         <div className='checkbox-container'>
                             <Field className='chekbox-login-form' type="checkbox" id='0' value='in' name='keepLogIn' />

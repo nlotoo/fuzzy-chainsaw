@@ -1,13 +1,67 @@
-import React, { useState } from 'react'
-import { gql, useMutation } from '@apollo/client';
+import React, { useState, useEffect } from 'react'
+import { gql, useMutation, useLazyQuery } from '@apollo/client';
 
 import './comment-panel.css'
-import { useEffect } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
-const CommentPanel = ({ comments }) => {
+const CommentPanel = ({ postIDTo }) => {
 
-    // console.log(...comments)
-    let userToken = localStorage.getItem('userToken')
+    console.log(postIDTo);
+    let userToken = localStorage.getItem('userToken');
+    const GET_POST = gql`
+    query GetPost($getPostId: ID) {
+      getPost(id: $getPostId) {
+        id
+        link
+        owner
+        description
+        user
+        createAt
+        comments {
+          id
+          owner
+          body
+          createAt
+          ownerEmail
+        }
+        likes {
+          id
+          owner
+          createAt
+          ownerEmail
+        }
+        images {
+          id
+          filename
+          mimetype
+          path
+          _id
+        }
+        categories {
+          categories
+        }
+        offertDetails {
+          title
+          normalPrice
+          curentPrice
+          body
+          periodOfPost
+        }
+      }
+    }
+    `
+
+    const [getPostbyID, { loading: commentLoading, data: commnetData, error: commnetError }] = useLazyQuery(GET_POST);
+
+
+
+    useEffect(() => {
+        getPostbyID({ variables: { getPostId: postIDTo } })
+
+        // console.log(commnetData.getPost.comments) 
+
+        // 
+
+    }, [])
 
 
     const CREATE_COMMENT = gql`
@@ -34,7 +88,6 @@ const CommentPanel = ({ comments }) => {
     mutation DeleteComment($commentId: ID!, $postId: String) {
             deleteComment(commentId: $commentId, postID: $postId) {
                 id
-                owner
   }
 }`
 
@@ -56,6 +109,8 @@ const CommentPanel = ({ comments }) => {
 
     const sendComment = (event) => {
         event.preventDefault();
+
+
         createComment({
             variables: {
                 postId: postID,
@@ -63,11 +118,15 @@ const CommentPanel = ({ comments }) => {
             }
         })
 
+        console.log(data)
+        console.log(error)
+
+
         if (error) {
             toast.error('Empty comment')
         }
 
-        if(data){
+        if (data) {
             toast.success('Comment is send')
             window.location.reload();
         }
@@ -83,9 +142,20 @@ const CommentPanel = ({ comments }) => {
                 commentId: event.target.id
             }
         })
+        
+        getPostbyID({ variables: { getPostId: postIDTo } })
 
-        console.log(errorData)
-        console.log(deleteData)
+
+        if (errorData) {
+            toast.error('Comment is not deleted')
+        }
+
+        if (deleteData) {
+            toast.success('Comment is deleted')
+            window.location.reload();
+        }
+
+
 
     }
 
@@ -93,8 +163,8 @@ const CommentPanel = ({ comments }) => {
 
     return (
         <div className='comment-panel-container'>
-            <Toaster/>
-            <span>{comments?.length} Comments</span>
+            <Toaster />
+            <span>{commnetData.getPost.comments?.length} Comments</span>
 
 
             <div>
@@ -115,9 +185,9 @@ const CommentPanel = ({ comments }) => {
             <hr></hr>
 
 
-            {comments?.length !== -1 ?
+            {commnetData.getPost.comments?.length !== -1 ?
 
-                comments?.map((comment, index) => {
+                commnetData.getPost.comments?.map((comment, index) => {
                     // console.log(comment)
                     let dateObject = new Date(comment.createAt).toLocaleString()
                     return <div className='comment-list-container'>
