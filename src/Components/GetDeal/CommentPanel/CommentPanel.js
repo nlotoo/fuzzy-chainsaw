@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { gql, useMutation, useLazyQuery } from '@apollo/client';
 
 import './comment-panel.css'
 import { Toaster, toast } from 'react-hot-toast';
+import { useStateContext } from '../../../context/StateContext';
 const CommentPanel = ({ postIDTo }) => {
 
-    console.log(postIDTo);
+
+    let { switchOffAuthMenu, CreateAccForm } = useStateContext()
+
     let userToken = localStorage.getItem('userToken');
+
     const GET_POST = gql`
     query GetPost($getPostId: ID) {
       getPost(id: $getPostId) {
@@ -52,17 +56,22 @@ const CommentPanel = ({ postIDTo }) => {
 
     const [getPostbyID, { loading: commentLoading, data: commnetData, error: commnetError }] = useLazyQuery(GET_POST);
 
+    let [commentOnPage, setCommentOnPage] = useState();
+
 
 
     useEffect(() => {
-        getPostbyID({ variables: { getPostId: postIDTo } })
+        getPostbyID({ variables: { getPostId: postIDTo } });
 
-        // console.log(commnetData.getPost.comments) 
 
-        // 
-
+        if (commnetData) {
+            setCommentOnPage(commnetData);
+        }
     }, [])
 
+
+    console.log(commentOnPage)
+    console.log(commnetData)
 
     const CREATE_COMMENT = gql`
               mutation Mutation($postId: String, $body: String) {
@@ -88,8 +97,8 @@ const CommentPanel = ({ postIDTo }) => {
     mutation DeleteComment($commentId: ID!, $postId: String) {
             deleteComment(commentId: $commentId, postID: $postId) {
                 id
-  }
-}`
+            }
+        }`
 
     const [deleteCommenta, { loading: deleteLoading, data: deleteData, error: errorData }] = useMutation(DELETE_COMMENT, {
         context: {
@@ -118,12 +127,15 @@ const CommentPanel = ({ postIDTo }) => {
             }
         })
 
-        console.log(data)
-        console.log(error)
 
 
         if (error) {
             toast.error('Empty comment')
+            if (error.message === 'Invalid/Expired token') {
+                toast.error('You need to login again');
+                window.scrollTo(0, 0);
+                switchOffAuthMenu()
+            }
         }
 
         if (data) {
@@ -142,12 +154,18 @@ const CommentPanel = ({ postIDTo }) => {
                 commentId: event.target.id
             }
         })
-        
-        getPostbyID({ variables: { getPostId: postIDTo } })
+
+
 
 
         if (errorData) {
-            toast.error('Comment is not deleted')
+
+            toast.error('Comment is not deleted');
+            if (errorData.message === 'Invalid/Expired token') {
+                toast.error(`${errorData.message}: Login again please`);
+                window.scrollTo(0, 0);
+                switchOffAuthMenu();
+            }
         }
 
         if (deleteData) {
@@ -164,7 +182,7 @@ const CommentPanel = ({ postIDTo }) => {
     return (
         <div className='comment-panel-container'>
             <Toaster />
-            <span>{commnetData.getPost.comments?.length} Comments</span>
+            <span>{commnetData?.getPost.comments?.length} Comments</span>
 
 
             <div>
@@ -185,9 +203,9 @@ const CommentPanel = ({ postIDTo }) => {
             <hr></hr>
 
 
-            {commnetData.getPost.comments?.length !== -1 ?
+            {commnetData?.getPost.comments?.length !== -1 ?
 
-                commnetData.getPost.comments?.map((comment, index) => {
+                commnetData?.getPost.comments?.map((comment, index) => {
                     // console.log(comment)
                     let dateObject = new Date(comment.createAt).toLocaleString()
                     return <div className='comment-list-container'>
