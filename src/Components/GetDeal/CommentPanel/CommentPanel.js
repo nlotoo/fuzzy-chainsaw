@@ -60,18 +60,8 @@ const CommentPanel = ({ postIDTo }) => {
 
 
 
-    useEffect(() => {
-        getPostbyID({ variables: { getPostId: postIDTo } });
 
 
-        if (commnetData) {
-            setCommentOnPage(commnetData);
-        }
-    }, [])
-
-
-    console.log(commentOnPage)
-    console.log(commnetData)
 
     const CREATE_COMMENT = gql`
               mutation Mutation($postId: String, $body: String) {
@@ -144,19 +134,22 @@ const CommentPanel = ({ postIDTo }) => {
         }
 
     }
+    let [mutation, setMutation] = useState('');
 
-    const deleteComment = (event) => {
+    const deleteComment = async (event) => {
         event.preventDefault();
+
+
+
 
         deleteCommenta({
             variables: {
                 postId: postID,
                 commentId: event.target.id
             }
-        })
+        });
 
-
-
+        console.log(deleteData)
 
         if (errorData) {
 
@@ -170,13 +163,38 @@ const CommentPanel = ({ postIDTo }) => {
 
         if (deleteData) {
             toast.success('Comment is deleted')
-            window.location.reload();
+
+
+
+            // window.location.reload();
         }
 
 
 
     }
 
+    const [queryData, { loading: queryLoading, data: querydelete, error: queryerror }] = useMutation(mutation, {
+        context: {
+            headers: {
+                authorization: `Bearer ${userToken}`,
+            },
+        },
+    });
+
+
+    useEffect(() => {
+
+        getPostbyID({ variables: { getPostId: postIDTo } });
+
+
+    
+    
+
+
+
+
+
+    }, [])
 
 
     return (
