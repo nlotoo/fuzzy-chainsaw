@@ -56,7 +56,7 @@ const CommentPanel = ({ postIDTo }) => {
 
     const [getPostbyID, { loading: commentLoading, data: commnetData, error: commnetError }] = useLazyQuery(GET_POST);
 
-    let [commentOnPage, setCommentOnPage] = useState();
+    let [commentOnPage, setCommentOnPage] = useState([])
 
 
 
@@ -118,6 +118,9 @@ const CommentPanel = ({ postIDTo }) => {
         })
 
 
+        console.log(data)
+        console.log(commentOnPage)
+
 
         if (error) {
             toast.error('Empty comment')
@@ -128,17 +131,25 @@ const CommentPanel = ({ postIDTo }) => {
             }
         }
 
+
         if (data) {
+            let bush = data.createComment
             toast.success('Comment is send')
-            window.location.reload();
+            // commentOnPage.push(bush)
+
+            setCommentOnPage(prevState => [...prevState, bush])
+            getPostbyID({ variables: { getPostId: postIDTo } });
+
+
         }
+        console.log(commentOnPage.length)
 
     }
-    let [mutation, setMutation] = useState('');
 
     const deleteComment = async (event) => {
         event.preventDefault();
 
+        // console.log(event.target.id)
 
 
 
@@ -147,39 +158,28 @@ const CommentPanel = ({ postIDTo }) => {
                 postId: postID,
                 commentId: event.target.id
             }
-        });
+        }).then((result) => {
 
-        console.log(deleteData)
 
-        if (errorData) {
+            setCommentOnPage((state) => { return state.filter((comment) => comment.id !== event.target.id) });
+
+
+        }).catch((error) => {
 
             toast.error('Comment is not deleted');
-            if (errorData.message === 'Invalid/Expired token') {
-                toast.error(`${errorData.message}: Login again please`);
+            if (error.message === 'Invalid/Expired token') {
+                toast.error(`${error.message}: Login again please`);
                 window.scrollTo(0, 0);
                 switchOffAuthMenu();
             }
-        }
+            // console.log('error e tuk', error)
+        })
 
-        if (deleteData) {
-            toast.success('Comment is deleted')
-
-
-
-            // window.location.reload();
-        }
 
 
 
     }
 
-    const [queryData, { loading: queryLoading, data: querydelete, error: queryerror }] = useMutation(mutation, {
-        context: {
-            headers: {
-                authorization: `Bearer ${userToken}`,
-            },
-        },
-    });
 
 
     useEffect(() => {
@@ -187,20 +187,24 @@ const CommentPanel = ({ postIDTo }) => {
         getPostbyID({ variables: { getPostId: postIDTo } });
 
 
-    
-    
+
+        // console.log(commnetData.getPost.comments)
+
+        setCommentOnPage(commnetData?.getPost.comments);
 
 
 
 
 
-    }, [])
+
+
+    }, [commnetData])
 
 
     return (
         <div className='comment-panel-container'>
             <Toaster />
-            <span>{commnetData?.getPost.comments?.length} Comments</span>
+            <span>{commentOnPage?.length} Comments</span>
 
 
             <div>
@@ -221,9 +225,9 @@ const CommentPanel = ({ postIDTo }) => {
             <hr></hr>
 
 
-            {commnetData?.getPost.comments?.length !== -1 ?
+            {commentOnPage?.length !== -1 ?
 
-                commnetData?.getPost.comments?.map((comment, index) => {
+                commentOnPage?.map((comment, index) => {
                     // console.log(comment)
                     let dateObject = new Date(comment.createAt).toLocaleString()
                     return <div className='comment-list-container'>
