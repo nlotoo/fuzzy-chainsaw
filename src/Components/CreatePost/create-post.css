@@ -1,0 +1,14 @@
+.offert-detail-container {
+    display: flex;
+    flex-direction: column;
+    color: red;
+    width: 300px;
+
+    border: 1px solid red;
+
+    margin: auto;
+    padding: 30px;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

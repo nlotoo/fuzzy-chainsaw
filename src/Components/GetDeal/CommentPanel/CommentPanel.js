@@ -100,9 +100,6 @@ const CommentPanel = ({ postIDTo }) => {
 
 
 
-
-
-
     const [commentBody, setComentBody] = useState("");
     const [postID, setPostID] = useState(window.location.pathname.split('/')[2]);
 
@@ -113,36 +110,27 @@ const CommentPanel = ({ postIDTo }) => {
         createComment({
             variables: {
                 postId: postID,
-                body: commentBody
+                body: commentBody 
             }
+        }).then((result) => {
+            // console.log(result.data.createComment)
+            toast.success('You create comment')
+            let newComent = result.data.createComment
+
+
+
+            setCommentOnPage(state => [newComent, ...state])
+
+            setComentBody('')
+
+        }).catch((error) => {
+
+            toast.error('Comment is not created')
+            console.log('error e tuk', error)
+
         })
 
 
-        console.log(data)
-        console.log(commentOnPage)
-
-
-        if (error) {
-            toast.error('Empty comment')
-            if (error.message === 'Invalid/Expired token') {
-                toast.error('You need to login again');
-                window.scrollTo(0, 0);
-                switchOffAuthMenu()
-            }
-        }
-
-
-        if (data) {
-            let bush = data.createComment
-            toast.success('Comment is send')
-            // commentOnPage.push(bush)
-
-            setCommentOnPage(prevState => [...prevState, bush])
-            getPostbyID({ variables: { getPostId: postIDTo } });
-
-
-        }
-        console.log(commentOnPage.length)
 
     }
 

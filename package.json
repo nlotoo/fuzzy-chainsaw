@@ -29,7 +29,8 @@
     "realm": "^11.9.0",
     "realm-web": "^2.0.0",
     "slick-carousel": "^1.8.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

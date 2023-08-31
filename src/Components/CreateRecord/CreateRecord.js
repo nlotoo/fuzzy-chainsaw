@@ -10,7 +10,9 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
 import { useStateContext } from '../../context/StateContext';
 
-// Да изпратя целият обек към базата данни.
+
+
+
 
 
 const CreateRecord = () => {
@@ -278,7 +280,7 @@ const CreateRecord = () => {
                     }}
                     onSubmit={(values, { setSubmitting }) => {
 
-                        // console.log(values);
+                        console.log(values);
 
                         handCreatePost(values);
 

@@ -17,6 +17,8 @@ import Footer from './Components/Footer/Footer';
 import CreateRecord from './Components/CreateRecord/CreateRecord';
 import GetDealPage from './Components/GetDeal/GetDealPage';
 
+import CreatePost from './Components/CreatePost/CreatePost';
+
 function App() {
   let { AuthMenuState } = useStateContext();
   let screenSize = useScreenSize();
@@ -39,6 +41,8 @@ function App() {
           <Route path='/all' element={<AllPost />}></Route>
           <Route path='/create' element={<CreateRecord />}></Route>
           <Route path='/deal/:id' element={<GetDealPage />} />
+          <Route path='/create2' element={<CreatePost />} />
+          
         </Routes>
         <Footer></Footer>
       </BrowserRouter>
