@@ -6,85 +6,151 @@ import Row from 'react-bootstrap/Row';
 import * as formik from 'formik';
 import * as yup from 'yup';
 
+
+import './create-post.css'
+
 function CreatePost() {
     const { Formik } = formik;
 
     const schema = yup.object().shape({
-        firstName: yup.string().required(),
-        lastName: yup.string().required(),
-        username: yup.string().required(),
+        title: yup.string().required('Title is required'),
+        link: yup.string().required('Link is required'),
+        desc: yup.string().required('Description is required'),
+        // file: yup.mixed().required('Image is required'),
 
     });
 
     return (
         <Formik
             validationSchema={schema}
-            onSubmit={console.log}
             initialValues={{
-                firstName: '',
-                lastName: '',
-                username: '',
+                title: '',
+                link: '',
+                desc: '',
+                file: null,
+
 
             }}
+
+            // onSubmit={console.log}
+            onSubmit={(values, { setSubmitting }) => {
+
+                console.log(values);
+
+
+
+                setSubmitting(false);
+                // console.log(values)
+
+            }}
+
+
+
         >
-            {({ handleSubmit, handleChange, values, touched, errors }) => (
+            {({ handleSubmit, handleChange, values, touched, errors, setFieldValue }) => (
 
-                <div>
-
+                <div className='create-post-container'>
+                    <h3 id="detailsOfUser">Details of product</h3>
                     <Form noValidate onSubmit={handleSubmit}>
-                        <Row className="mb-3">
-                            <Form.Group as={Col} md="4" controlId="validationFormik01">
-                                <Form.Label>First name</Form.Label>
+                        <Col className="mb-3">
+                            <Form.Group md="4" controlId="validationFormik01">
+                                <Form.Label>Title</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    name="firstName"
-                                    value={values.firstName}
+                                    name="title"
+                                    value={values.title}
                                     onChange={handleChange}
-                                    isValid={touched.firstName && !errors.firstName}
+                                    isValid={touched.title && !errors.title}
+
+                                    isInvalid={!!errors.title}
                                 />
+
+                                <Form.Control.Feedback type="invalid">
+                                    {errors.title}
+                                </Form.Control.Feedback>
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                             </Form.Group>
 
-                            <Form.Group as={Col} md="4" controlId="validationFormik02">
-                                <Form.Label>Last name</Form.Label>
+                            <Form.Group md="4" controlId="validationFormik02">
+                                <Form.Label>Link</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    name="lastName"
+                                    name="link"
+
+
+                                    value={values.link}
+                                    onChange={handleChange}
+                                    isValid={touched.link && !errors.link}
+                                    isInvalid={!!errors.link}
+                                />
+
+                                <Form.Control.Feedback type="invalid">
+                                    {errors.link}
+                                </Form.Control.Feedback>
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </Form.Group>
+
+                            <Form.Group md="4" controlId="validationFormik03">
+                                <Form.Label>Description</Form.Label>
+
+                                <Form.Control
+                                    className='text-area-ofert-details'
+                                    as="textarea"
+                                    type="text"
+                                    placeholder="Describe the product here..."
                                     aria-describedby="inputGroupPrepend"
-
-                                    value={values.lastName}
+                                    name="desc"
+                                    value={values.desc}
                                     onChange={handleChange}
-                                    isValid={touched.lastName && !errors.lastName}
-                                    isInvalid={!!errors.lastName}
+
+                                    isInvalid={!!errors.desc}
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    {errors.desc}
+                                </Form.Control.Feedback>
+
+                            </Form.Group>
+
+
+
+                            <Form.Group md="4" controlId='validationFormik04'>
+
+                                <Form.Label>Insert Image</Form.Label>
+
+                                <Form.Control
+                                    type="file"
+                                    as="input"
+                                    name='file'
+                                    value={values.file}
+                                    onChange={(event) => {
+                                        setFieldValue('file', event.currentTarget.files[0]);
+                                    }}
+
+                                    isInvalid={!!errors.file}
+
                                 />
 
+
+
+
+
+                                <Form.Control.Feedback type="invalid">
+                                    {errors.file}
+                                </Form.Control.Feedback>
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+
+
+
+
                             </Form.Group>
-                            <Form.Control.Feedback type="invalid">
-                                {errors.lastName}
-                            </Form.Control.Feedback>
-
-                            <Form.Group as={Col} md="4" controlId="validationFormikUsername">
-                                <Form.Label>Username</Form.Label>
-                                <InputGroup hasValidation>
-                                    <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-                                    <Form.Control
-                                        type="text"
-                                        placeholder="Username"
-                                        aria-describedby="inputGroupPrepend"
-                                        name="username"
-                                        value={values.username}
-                                        onChange={handleChange}
-
-
-                                        isInvalid={!!errors.username}
-                                    />
-                                    <Form.Control.Feedback type="invalid">
-                                        {errors.username}
-                                    </Form.Control.Feedback>
-                                </InputGroup>
-                            </Form.Group>
-                        </Row>
+                            {/* <FloatingLabel controlId="floatingTextarea2" label="Comments">
+                                <Form.Control
+                                    as="textarea"
+                                    placeholder="Leave a comment here"
+                                    style={{ height: '100px' }}
+                                />
+                            </FloatingLabel> */}
+                        </Col>
 
                         {/* <Form.Group className="mb-3">
             <Form.Check
@@ -99,7 +165,7 @@ function CreatePost() {
             />
           </Form.Group>
            */}
-                        <Button type="submit">Submit form</Button>
+                        <Button type="submit">next step</Button>
                     </Form>
                 </div>
             )}

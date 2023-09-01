@@ -17,6 +17,9 @@ const Post = ({ props }) => {
     // let {timeCalculate,timePassed} = useStateContext()
 
     // console.log(props?.images[0].path)
+
+    console.log(props)
+
     let str = props.images[0].path
     console.log(str.split('/').slice(-1)[0])
 
@@ -34,12 +37,12 @@ const Post = ({ props }) => {
 
         setTimePassed({ days, hours, minutes });
     }
-    
+
     useEffect(() => {
-        
+
         timeCalculate(targetDate);
 
-        
+
 
     }, []);
 
@@ -50,9 +53,9 @@ const Post = ({ props }) => {
     return (
         <div className='post-container'>
             <Link></Link>
-       
+
             <img onClick={() => navigate(`/deal/${props.id}`)} src={require(`../../public/uploads/${str.split('/').slice(-1)[0]}`)} className='grid-item1 post-image' />
-           
+
             <div className='post-details-row-one grey' >
                 <span><b ><i className="fa-regular fa-clock"></i> <i>Posted {timePassed.days > 0 ? `${timePassed.days} days,` : ''}  {timePassed.hours > 0 ? `${timePassed.hours}h,` : ''} {timePassed.minutes}m ago </i>  </b> &nbsp; &nbsp;</span>
 

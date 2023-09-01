@@ -1,14 +1,37 @@
-.offert-detail-container {
-    display: flex;
-    flex-direction: column;
-    color: red;
-    width: 300px;
+.create-post-container {
 
-    border: 1px solid red;
 
+    width: fit-content;
     margin: auto;
-    padding: 30px;
+    margin-bottom: 80px;
+    margin-top: 80px;
 
-    margin-top: 50px;
-    margin-bottom: 50px;
+    padding: 30px;
+    border: 1px solid green;
+
+}
+
+#validationFormik01{
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+#validationFormik02{
+    width: 300px;
+    margin-bottom: 10px;
+
+}
+
+#validationFormik03{
+    width: 300px;
+    margin-bottom: 10px;
+
+}
+
+#detailsOfUser{
+    text-align: center;
+}
+
+.text-area-ofert-details{
+    resize: none;
 }
