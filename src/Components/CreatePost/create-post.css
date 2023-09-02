@@ -11,6 +11,10 @@
 
 }
 
+.create-post-form-container2{
+    display: flex;
+}
+
 #validationFormik01{
     width: 300px;
     margin-bottom: 10px;

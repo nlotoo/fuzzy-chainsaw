@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+
+
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -8,15 +11,28 @@ import * as yup from 'yup';
 
 
 import './create-post.css'
+// import { useStateContext } from '../../context/StateContext';
 
 function CreatePost() {
+
+    // let { postMasiveObject, setPostMasiveObject } = useStateContext()
+
+    const [switcherButton, setWitcherButton] = useState(false);
+
+    let switcher = () => {
+        setWitcherButton(!switcherButton)
+    }
+
+
     const { Formik } = formik;
+
 
     const schema = yup.object().shape({
         title: yup.string().required('Title is required'),
         link: yup.string().required('Link is required'),
         desc: yup.string().required('Description is required'),
-        // file: yup.mixed().required('Image is required'),
+        curentPrice: yup.string().required('Curent price is required'),
+        // productImage: yup.mixed().required('Image is required'),
 
     });
 
@@ -28,31 +44,32 @@ function CreatePost() {
                 link: '',
                 desc: '',
                 file: null,
+                curentPrice: ''
 
 
             }}
 
             // onSubmit={console.log}
-            onSubmit={(values, { setSubmitting }) => {
+            onSubmit={(values, { setSubmitting, }) => {
 
-                console.log(values);
 
 
 
                 setSubmitting(false);
-                // console.log(values)
+                console.log(values)
 
             }}
 
 
 
         >
-            {({ handleSubmit, handleChange, values, touched, errors, setFieldValue }) => (
+            {({ handleSubmit, handleChange, values, touched, errors, setFieldValue, isSubmitting }) => (
 
                 <div className='create-post-container'>
-                    <h3 id="detailsOfUser">Details of product</h3>
-                    <Form noValidate onSubmit={handleSubmit}>
-                        <Col className="mb-3">
+                    {isSubmitting}
+                    <Form clasName='create-post-form-container2' noValidate onSubmit={handleSubmit}>
+                        <h3 id="detailsOfUser">Details of product</h3>
+                        {!switcherButton && <Col className="mb-3">
                             <Form.Group md="4" controlId="validationFormik01">
                                 <Form.Label>Title</Form.Label>
                                 <Form.Control
@@ -108,6 +125,7 @@ function CreatePost() {
                                 <Form.Control.Feedback type="invalid">
                                     {errors.desc}
                                 </Form.Control.Feedback>
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 
                             </Form.Group>
 
@@ -121,7 +139,6 @@ function CreatePost() {
                                     type="file"
                                     as="input"
                                     name='file'
-                                    value={values.file}
                                     onChange={(event) => {
                                         setFieldValue('file', event.currentTarget.files[0]);
                                     }}
@@ -140,36 +157,43 @@ function CreatePost() {
                                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 
 
-
-
                             </Form.Group>
-                            {/* <FloatingLabel controlId="floatingTextarea2" label="Comments">
-                                <Form.Control
-                                    as="textarea"
-                                    placeholder="Leave a comment here"
-                                    style={{ height: '100px' }}
-                                />
-                            </FloatingLabel> */}
-                        </Col>
 
-                        {/* <Form.Group className="mb-3">
-            <Form.Check
-              required
-              name="terms"
-              label="Agree to terms and conditions"
-              onChange={handleChange}
-              isInvalid={!!errors.terms}
-              feedback={errors.terms}
-              feedbackType="invalid"
-              id="validationFormik0"
-            />
-          </Form.Group>
-           */}
-                        <Button type="submit">next step</Button>
+                            <Button onClick={switcher} type="button">Next step</Button>
+
+                        </Col>}
+
+                        {switcherButton && <Col className='second-col'>
+                            <Form.Group md="4" controlId="validationFormik05">
+                                <Form.Label>Curent Price</Form.Label>
+                                <Form.Control
+                                    type="number"
+                                    name="curentPrice"
+                                    value={values.curentPrice}
+                                    onChange={handleChange}
+                                    isValid={touched.curentPrice && !errors.curentPrice}
+
+                                    isInvalid={!!errors.curentPrice}
+                                />
+
+                                <Form.Control.Feedback type="invalid">
+                                    {errors.curentPrice}
+                                </Form.Control.Feedback>
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </Form.Group>
+
+                            <Button onClick={switcher} type="button">Previus step</Button>
+
+                        </Col>}
+
+                        <Button disabled={!(Formik.isValid)} type="submit">Submit</Button>
+
+
                     </Form>
                 </div>
-            )}
-        </Formik>
+            )
+            }
+        </Formik >
 
     );
 }
