@@ -15,22 +15,6 @@
     display: flex;
 }
 
-#validationFormik01{
-    width: 300px;
-    margin-bottom: 10px;
-}
-
-#validationFormik02{
-    width: 300px;
-    margin-bottom: 10px;
-
-}
-
-#validationFormik03{
-    width: 300px;
-    margin-bottom: 10px;
-
-}
 
 #detailsOfUser{
     text-align: center;
@@ -38,4 +22,21 @@
 
 .text-area-ofert-details{
     resize: none;
+}
+
+#validationFormik01,
+#validationFormik02,
+#validationFormik03,
+#validationFormik04,
+#validationFormik05,
+#validationFormik06,
+#validationFormik07,
+#validationFormik08
+{
+
+    width: 300px;
+    margin-bottom: 10px;
+}
+#previous-btn{
+    margin-bottom: 14px;
 }
