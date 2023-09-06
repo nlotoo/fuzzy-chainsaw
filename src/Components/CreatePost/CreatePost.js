@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+
+import Card from 'react-bootstrap/Card';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import * as formik from 'formik';
@@ -35,21 +37,23 @@ function CreatePost() {
 
 
         if (categories.find((element) => element == event.target.value)) {
-            console.log('ma go')
+
+
             setCategorries(categories.filter(a => a !== event.target.value))
         } else {
 
-            setCategorries(categories.push(event.target.value))
+            categories.push(event.target.value)
 
         }
 
-        console.log(event.target.value)
         console.log(categories)
+
+
     }
 
 
     useEffect(() => {
-        console.log(categories)
+
     }, [categories])
 
 
@@ -83,6 +87,8 @@ function CreatePost() {
                 familyAndKids: '',
                 gardeDoItYourself: '',
                 groceries: '',
+
+                Atag: [categories],
             }}
 
             // onSubmit={console.log}
@@ -92,7 +98,8 @@ function CreatePost() {
 
 
                 setSubmitting(false);
-                console.log(values)
+                console.log(values, categories)
+                console.log(categories)
                 // console.log(Formik)
             }}
 
@@ -283,44 +290,158 @@ function CreatePost() {
 
                             <Form.Group>
 
+                                <Card>
 
-                                <Form.Label>Categories</Form.Label>
-                                <Form.Check.Input
-                                    label="Home & Livings"
-                                    name="homeAndLivings"
-                                    value="homeAndLivings"
-                                    type="checkbox"
-                                    onClick={categoryGetter}
-
-                                >
-                                </Form.Check.Input>
+                                    <div className='asdd'> 
 
 
-                                <Form.Check.Input
-                                    label="Family & Kids"
-                                    name="familyAndKids"
-                                    value="familyAndKids"
-                                    type="checkbox"
-                                    onClick={categoryGetter}
-                                >
-                                </Form.Check.Input>
-
-                                <Form.Check.Input
-                                    label="Garden & Do it Yourself"
-                                    name="gardeDoItYourself"
-                                    value="gardeDoItYourself"
-                                    type="checkbox"
-                                >
-                                </Form.Check.Input>
+                                        <Form.Label>Categories</Form.Label>
 
 
-                                <Form.Check.Input
-                                    label="Groceries"
-                                    name="groceries"
-                                    value="groceries"
-                                    type="checkbox"
-                                >
-                                </Form.Check.Input>
+                                        <Form.Label>Home & Livings</Form.Label>
+                                        <Form.Check.Input
+                                            label="Home & Livings"
+                                            name="homeAndLivings"
+                                            value="homeAndLivings"
+                                            type="checkbox"
+                                            onClick={categoryGetter}
+
+                                        >
+                                        </Form.Check.Input>
+
+                                        <Form.Label>Family & Kids</Form.Label>
+                                        <Form.Check.Input
+                                            name="familyAndKids"
+                                            value="familyAndKids"
+                                            type="checkbox"
+                                            onClick={categoryGetter}
+                                        >
+                                        </Form.Check.Input>
+
+                                        <Form.Label>Garden & Do it Yourself</Form.Label>
+                                        <Form.Check.Input
+                                            name="gardeDoItYourself"
+                                            value="gardeDoItYourself"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+                                        <Form.Label>Groceries</Form.Label>
+                                        <Form.Check.Input
+                                            name="groceries"
+                                            value="groceries"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+                                        <Form.Label>Travel</Form.Label>
+                                        <Form.Check.Input
+                                            name="travel"
+                                            value="travel"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+                                        <Form.Label>Travel</Form.Label>
+                                        <Form.Check.Input
+                                            name="travel"
+                                            value="travel"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+                                        <Form.Label>Sports & Outdors</Form.Label>
+                                        <Form.Check.Input
+                                            name="sportAndOutdoors"
+                                            value="sportAndOutdoors"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+
+                                        <Form.Label>Electronics</Form.Label>
+                                        <Form.Check.Input
+                                            name="electronics"
+                                            value="electronics"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+
+
+                                        <Form.Label>BroadBand & Phone Contracts</Form.Label>
+                                        <Form.Check.Input
+                                            name="broadBandPhoneConrtacts"
+                                            value="broadBandPhoneConrtacts"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+                                    </div>
+
+                                    <div>
+
+
+                                        <Form.Label>Finance & Insurance</Form.Label>
+                                        <Form.Check.Input
+                                            name="finance"
+                                            value="finance"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+                                        <Form.Label>Fashion & Accessories</Form.Label>
+                                        <Form.Check.Input
+                                            name="fashion"
+                                            value="fashion"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+                                        <Form.Label>Culture & Leisure</Form.Label>
+                                        <Form.Check.Input
+                                            name="cultureAndLeisure"
+                                            value="cultureAndLeisure"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+                                        <Form.Label>Services & Contracts</Form.Label>
+                                        <Form.Check.Input
+                                            name="servicesAndContacts"
+                                            value="servicesAndContacts"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+
+                                        <Form.Label>Healt & Beaty</Form.Label>
+                                        <Form.Check.Input
+                                            name="healtBeaty"
+                                            value="healtBeaty"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+
+                                        <Form.Label>Gaming</Form.Label>
+                                        <Form.Check.Input
+                                            name="gaming"
+                                            value="gaming"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+
+                                        <Form.Label>Car 7 Motorcycle</Form.Label>
+                                        <Form.Check.Input
+                                            name="carMotorcycle"
+                                            value="carMotorcycle"
+                                            type="checkbox"
+                                        >
+                                        </Form.Check.Input>
+                                    </div>
+
+                                </Card>
 
                             </Form.Group>
 
