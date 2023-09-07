@@ -58,6 +58,26 @@ export const StateContext = ({ children }) => {
 
 
 
+    const [categories, setCategorries] = useState([]);
+
+    const categoryGetter = (event) => {
+
+
+        if (categories.find((element) => element == event.target.value)) {
+
+
+            setCategorries(categories.filter(a => a !== event.target.value))
+        } else {
+
+            categories.push(event.target.value)
+
+        }
+
+        console.log(categories)
+
+
+    }
+
 
 
     return (
@@ -86,6 +106,8 @@ export const StateContext = ({ children }) => {
                 setTimePassed,
                 timeCalculate,
 
+                categories,
+                categoryGetter
             }
         }>
             {children}
