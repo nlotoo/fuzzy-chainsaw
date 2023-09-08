@@ -33,28 +33,28 @@ function CreatePost() {
 
     const { Formik } = formik;
 
-    let { categories } = useStateContext()
+    // let { categories } = useStateContext();
 
-    // const [categories, setCategorries] = useState([]);
-
-
-    // const categoryGetter = (event) => {
+    const [categories, setCategorries] = useState([]);
 
 
-    //     if (categories.find((element) => element == event.target.value)) {
+    const categoryGetter = (event) => {
+        event.preventDefault()
+
+        if (categories.find((element) => element == event.target.value)) {
 
 
-    //         setCategorries(categories.filter(a => a !== event.target.value))
-    //     } else {
+            setCategorries(categories.filter(a => a !== event.target.value))
+        } else {
 
-    //         categories.push(event.target.value)
+            categories.push(event.target.value)
 
-    //     }
+        }
 
-    //     console.log(categories)
+        console.log(categories)
 
 
-    // }
+    }
 
 
     useEffect(() => {
@@ -71,6 +71,7 @@ function CreatePost() {
         file: yup.mixed().required('Image is required'),
         startDate: yup.mixed().required('Start date is required'),
         endDate: yup.mixed().required('End date is required'),
+
 
     });
 
@@ -104,7 +105,7 @@ function CreatePost() {
 
                 setSubmitting(false);
                 console.log(values, categories)
-                console.log(categories)
+                // console.log(categories)
                 // console.log(Formik)
             }}
 
@@ -293,13 +294,11 @@ function CreatePost() {
 
 
 
-                            <Form.Group>
-
-
+                            <Form.Group md="4" controlId="validationFormik09">
 
                                 <Form.Label>Categories</Form.Label>
 
-                                {/* <Row>
+                                <Row>
                                     <Col md="auto">
                                         <div>
                                             <Form.Check.Input
@@ -308,6 +307,7 @@ function CreatePost() {
                                                 value="homeAndLivings"
                                                 type="checkbox"
                                                 onClick={categoryGetter}
+                                             
 
                                             >
                                             </Form.Check.Input>
@@ -504,10 +504,10 @@ function CreatePost() {
                                             <Form.Label>Car 7 Motorcycle</Form.Label>
                                         </div>
                                     </Col>
-                                </Row> */}
+                                </Row>
 
 
-                                <Categories></Categories>
+                                {/* <Categories></Categories> */}
 
 
                             </Form.Group>
